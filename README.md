@@ -1,11 +1,9 @@
 # Exo: One Stop Shop for Your Interstellar Needs
 ## Background
 
-Colorblindness and other visual impairments can make the internet difficult to use. This Chrome extension will replace colors with appropriately contrasted colors or contrasted grey scale, depending on the user's settings. Additionally, it will add underline to links on the page, in case links are delineated only by color.
+Thank the stars we're here! Ever since Elon Musk left our crust in the year 0002 (post melt), it's been a scramble to secure a place in the stars. But not any more! No more wondering where to go, no more dreading what you'll eat on the way, no more forgoing fashion for the functional-- ¡¿Por qué no los dos!? Exo is your basecamp for your journey into the beyond, but act fast; for as we know, resources are limited.
 
-Developers and designers may also be interested in knowing how colors affect visually impaired users. This extension will provide features that simulate colorblindness of varying degrees so that professionals can see how these users are experiencing their site.
-
-Development of the features in this extension will be guided by Usability.gov, 99Designs, and We Are Colorblind.
+* Disclaimer: All sales are final. Exo is not a licensced retailer, but a merketplace for private businesses to sell products to a discerning audience
 
 ## Functionality & MVP
 With this extension, users will be able to:
