@@ -6,7 +6,7 @@ Thank the stars we're here! Ever since Elon Musk left our crust in the year 0002
 * Disclaimer: All sales are final. Exo is not a licensced retailer, but a marketplace for private businesses to sell products to a discerning audience
 
 ## Functionality & MVP
-With this extension, users will be able to:
+On this website, users will be able to:
 
 * Product Listings
 * Shopping Cart
