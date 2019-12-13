@@ -20,54 +20,43 @@ On this website, users will be able to:
 * Our goal is to implement a selection of APIs to create as immersive an evironment as possible. Thus far we plan to pull from the NASA Exoplanet API, Amazon product APIs, and some for fleshing out visual components (NASA picture of the day, etc.)
 ** We anticipate challenges in showing uniform product pages with multiple different data streams depending on product category
 
-## Plans for the weekend
-
-
 ## Group Members & Work Breakdown
 Eli Raybon, Michael Simeon, Jacob Schneider
 
 Eli's primary responsibilities will be:
-* 
-* 
-* 
+* Splash Page
+* User Auth
+* User Show
 
 Michael's primary responsibilites will be:
-* 
-* 
-* 
+* NavBar
+* Search
 
 Jacob's primary responsibilites will be:
-* 
-* 
-* 
+* Product Index
+* Product Show
 
 ## Implementation Timeline
 Day 1: 
-*  
-*  
-*  
+*  Readme/project proposal
+*  Setting up the Database Structure
+*  Queries and Mutations
 
 Day 2: 
-*  
-*  
-*  
+*  Backend Setup
+*  API configuration
+*  Start building page skeletons if time
+
 
 Day 3: 
-*  
-*  
-*  
+*  Flesh out individual pages 
+*  Implement sitewide styling
+*  Integrate API data for specific product pages
 
 Day 4: 
-*  
-* 
-* 
+*  Continue with styling and adding features
 
 Day 5: 
-* 
-* 
-* 
-
-## Plans
-* 
-* 
-* 
+* Prep for presentation
+* Push to Heroku
+* Clean up ReadMe
