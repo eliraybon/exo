@@ -18,47 +18,47 @@ With this extension, users will be able to:
 
 ## Technologies & Technical Challenges
 * Our goal is to implement a selection of APIs to create as immersive an evironment as possible. Thus far we plan to pull from the NASA Exoplanet API, Amazon product APIs, and some for fleshing out visual components (NASA picture of the day, etc.)
+** We anticipate challenges in showing uniform product pages with multiple different data streams depending on product category
 
-## Things we accomplished this weekend.
+## Plans for the weekend
 
 
 ## Group Members & Work Breakdown
 Eli Raybon, Michael Simeon, Jacob Schneider
 
 Eli's primary responsibilities will be:
-*
-*
-*
+* 
+* 
+* 
 
 Michael's primary responsibilites will be:
-*
-*
-*
+* 
+* 
+* 
 
 Jacob's primary responsibilites will be:
-*
-*
-*
+* 
+* 
+* 
 
 ## Implementation Timeline
 Day 1: 
-* 
-* 
-* 
+*  
+*  
+*  
 
 Day 2: 
-* 
-* 
-* 
+*  
+*  
+*  
 
 Day 3: 
-
-* 
-* 
-* 
+*  
+*  
+*  
 
 Day 4: 
-* 
+*  
 * 
 * 
 
