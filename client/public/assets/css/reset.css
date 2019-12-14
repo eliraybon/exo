@@ -18,10 +18,6 @@ span, article, footer, time, small {
   -webkit-font-smoothing: antialiased;
 }
 
-html {
-  background-color: #dae0e6;
-}
-
 ul {
   list-style: none;
 }
@@ -57,14 +53,4 @@ button, input[type="submit"] {
   content: "";
   display: block;
   clear: both;
-}
-
-@media screen and (max-width: 500px) {
-  .main-page-content {
-    overflow: hidden;
-  }
-
-  .navbar {
-    overflow: hidden;
-  }
 }
