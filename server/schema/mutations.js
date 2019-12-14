@@ -1,7 +1,11 @@
 const graphql = require("graphql");
-const { GraphQLObjectType, GraphQLString, GraphQLID } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLFloat } = graphql;
 const AuthService = require('../services/auth');
-const UserType = require('./types/user_type')
+const ProductService = require('../services/product');
+const UserType = require('./types/user_type');
+const ProductType = require('./types/product_type');
+const Product = require("../models/Product");
+
 
 const mutation = new GraphQLObjectType({
   name: "Mutation",
@@ -51,6 +55,21 @@ const mutation = new GraphQLObjectType({
       },
       resolve(_, args) {
         return AuthService.verifyUser(args);
+      }
+    },
+    createProduct: {
+      type: ProductType,
+      args: {
+        name: { type: GraphQLString },
+        price: { type: GraphQLFloat },
+        description: { type: GraphQLString },
+        mass: { type: GraphQLFloat },
+        volume: { type: GraphQLFloat },
+        category: { type: GraphQLString }
+      },
+      resolve(_, {name, price, description, mass, volume, category}) {
+        return new Product({ name, price, description, mass, volume, category }).save();
+        // return ProductService.createProduct(args);
       }
     }
   }

@@ -6,7 +6,9 @@ const {
   GraphQLString,
   GraphQLID,
   GraphQLBoolean,
-  GraphQLFloat
+  GraphQLFloat,
+  GraphQLList,
+  GraphQLArray
 } = graphql;
 
 const ProductType = new GraphQLObjectType({
@@ -21,7 +23,7 @@ const ProductType = new GraphQLObjectType({
     description: {
       type: GraphQLString
     },
-    cost: {
+    price: {
       type: GraphQLFloat
     },
     mass: {
@@ -31,7 +33,7 @@ const ProductType = new GraphQLObjectType({
       type: GraphQLFloat
     },
     category: {
-      type: GraphQLFloat
+      type: GraphQLString
     },
     image: {
       type: GraphQLString
@@ -126,7 +128,9 @@ const ProductType = new GraphQLObjectType({
     maneuverability: {
       type: GraphQLFloat
     },
-    addtlFeatures: [{ type: GraphQLString }],
+    // addtlFeatures: {
+    //   type: GraphQLArray 
+    // },
     // Spacesuit
     designer: {
       type: GraphQLString
