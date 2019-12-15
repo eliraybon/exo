@@ -153,7 +153,27 @@ const mutation = new GraphQLObjectType({
       resolve(parentValue, { userId, productId }) {
         return User.deleteFavoriteProduct(userId, productId);
       }
-    }
+    },
+    addFavoriteStore: {
+      type: UserType,
+      args: {
+        userId: { type: GraphQLID },
+        storeId: { type: GraphQLID }
+      },
+      resolve(parentValue, { userId, storeId }) {
+        return User.addFavoriteStore(userId, storeId);
+      }
+    },
+    deleteFavoriteStore: {
+      type: UserType,
+      args: {
+        userId: { type: GraphQLID },
+        storeId: { type: GraphQLID }
+      },
+      resolve(parentValue, { userId, storeId }) {
+        return User.deleteFavoriteStore(userId, storeId);
+      }
+    },
   }
 });
 

@@ -56,4 +56,33 @@ UserSchema.statics.deleteFavoriteProduct = (userId, productId) => {
     })
 }
 
+UserSchema.statics.addFavoriteStore = (userId, storeId) => {
+  const User = mongoose.model('users');
+  const Store = mongoose.model('stores');
+
+  return Promise.all([User.findById(userId), Store.findById(storeId)])
+    .then(([user, store]) => {
+      user.favoriteStores.push(store);
+      store.favorites.push(user);
+
+      return Promise.all([user.save(), store.save()])
+        .then(([user, store]) => user)
+    })
+}
+
+UserSchema.statics.deleteFavoriteStore = (userId, storeId) => {
+  const User = mongoose.model('users');
+  const Store = mongoose.model('stores');
+
+  return Promise.all([User.findById(userId), Store.findById(storeId)])
+    .then(([user, store]) => {
+      user.favoriteStores.pull(store);
+      store.favorites.pull(user);
+
+      return Promise.all([user.save(), store.save()])
+        .then(([user, store]) => user)
+    })
+}
+
+
 module.exports = mongoose.model("users", UserSchema);
