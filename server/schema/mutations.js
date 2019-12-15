@@ -119,9 +119,9 @@ const mutation = new GraphQLObjectType({
     updateReview: {
       type: ReviewType,
       args: {
-        id: GraphQLID,
-        rating: GraphQLInt,
-        body: GraphQLString
+        id: {type: GraphQLID},
+        rating: {type: GraphQLInt},
+        body: {type: GraphQLString}
       },
       resolve(parentValue, { id, rating, body }) {
         const updateObj = {};
