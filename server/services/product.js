@@ -1,4 +1,17 @@
-// const Product = require("../models/Product");
+const Product = require("../models/Product");
+const axios = require('axios');
+
+const seedProducts = data => {
+  switch(data.category) {
+    case "exopanet":
+      seedExoplanets();
+  }
+}
+
+const seedExoplanets = async => {
+  
+}
+
 
 
 
