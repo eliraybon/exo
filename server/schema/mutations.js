@@ -1,10 +1,20 @@
 const graphql = require("graphql");
-const { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLFloat } = graphql;
+const { 
+  GraphQLObjectType, 
+  GraphQLString, 
+  GraphQLID, 
+  GraphQLFloat,
+  GraphQLInt 
+} = graphql;
 const AuthService = require('../services/auth');
 const ProductService = require('../services/product');
 const UserType = require('./types/user_type');
 const ProductType = require('./types/product_type');
 const Product = require("../models/Product");
+const StoreType = require('./types/store_type');
+const Store = require("../models/Store");
+const ReviewType = require('./types/review_type');
+const Review = require("../models/Review");
 
 
 const mutation = new GraphQLObjectType({
@@ -57,7 +67,7 @@ const mutation = new GraphQLObjectType({
         return AuthService.verifyUser(args);
       }
     },
-    createProduct: {
+    newProduct: {
       type: ProductType,
       args: {
         name: { type: GraphQLString },
@@ -70,6 +80,57 @@ const mutation = new GraphQLObjectType({
       resolve(_, {name, price, description, mass, volume, category}) {
         return new Product({ name, price, description, mass, volume, category }).save();
         // return ProductService.createProduct(args);
+      }
+    },
+    newStore: {
+      type: StoreType,
+      args: {
+        name: { type: GraphQLString },
+        owner: { type: GraphQLID },
+        description: { type: GraphQLString },
+        rating: { type: GraphQLInt }
+      },
+      resolve(_, {name, owner, description, rating}) {
+        return new Store({name, owner, description, rating}).save();
+      }
+    },
+    newReview: {
+      type: ReviewType,
+      args: {
+        rating: { type: GraphQLInt },
+        body: { type: GraphQLString },
+        author: { type: GraphQLID},
+        product: { type: GraphQLID }
+      },
+      resolve(_, {rating, body, author, product}) {
+        return Review.createReview(rating , body, author, product);
+        // return new Review({rating, body, author}).save();
+      }
+    },
+    deleteReview: {
+      type: ReviewType,
+      args: {
+        reviewId: { type: GraphQLID }
+      },
+      resolve(_, { reviewId }) {
+        return Review.deleteReview(reviewId);
+      }
+    },
+    updateReview: {
+      type: ReviewType,
+      args: {
+        id: GraphQLID,
+        rating: GraphQLInt,
+        body: GraphQLString
+      },
+      resolve(parentValue, { id, rating, body }) {
+        const updateObj = {};
+        if (rating) updateObj.rating = rating;
+        if (body) updateObj.body = body;
+
+        return Review.findOneAndUpdate({ _id: id }, { $set: updateObj }, { new: true, useFindAndModify: false }, (err, review) => {
+          return review;
+        });
       }
     }
   }

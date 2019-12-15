@@ -24,8 +24,8 @@ const StoreType = new GraphQLObjectType({
       type: require('./user_type'),
       resolve(parentValue) {
         return Store.findById(parentValue._id)
-          .populate('user')
-          .then(store => store.user)
+          .populate('owner')
+          .then(store => store.owner)
       }
     },
     description: {
