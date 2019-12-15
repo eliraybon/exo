@@ -9,6 +9,7 @@ const {
 const AuthService = require('../services/auth');
 const ProductService = require('../services/product');
 const UserType = require('./types/user_type');
+const User = require("../models/User");
 const ProductType = require('./types/product_type');
 const Product = require("../models/Product");
 const StoreType = require('./types/store_type');
@@ -131,6 +132,26 @@ const mutation = new GraphQLObjectType({
         return Review.findOneAndUpdate({ _id: id }, { $set: updateObj }, { new: true, useFindAndModify: false }, (err, review) => {
           return review;
         });
+      }
+    },
+    addFavoriteProduct: {
+      type: UserType,
+      args: {
+        userId: { type: GraphQLID },
+        productId: { type: GraphQLID }
+      },
+      resolve(parentValue, { userId, productId }) {
+        return User.addFavoriteProduct(userId, productId);
+      }
+    },
+    deleteFavoriteProduct: {
+      type: UserType,
+      args: {
+        userId: { type: GraphQLID },
+        productId: { type: GraphQLID }
+      },
+      resolve(parentValue, { userId, productId }) {
+        return User.deleteFavoriteProduct(userId, productId);
       }
     }
   }
