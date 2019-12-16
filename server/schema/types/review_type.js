@@ -14,6 +14,9 @@ const {
 const ReviewType = new GraphQLObjectType({
   name: "ReviewType",
   fields: () => ({
+    _id: {
+      type: GraphQLID
+    },
     rating: {
       type: GraphQLInt
     },
@@ -24,8 +27,8 @@ const ReviewType = new GraphQLObjectType({
       type: require('./user_type'),
       resolve(parentValue) {
         return Review.findById(parentValue._id)
-          .populate('user')
-          .then(review => review.user)
+          .populate('author')
+          .then(review => review.author)
       }
     },
     store: {

@@ -6,7 +6,8 @@ const {
   GraphQLObjectType,
   GraphQLString,
   GraphQLID,
-  GraphQLBoolean
+  GraphQLBoolean,
+  GraphQLList
 } = graphql;
 
 const UserType = new GraphQLObjectType({
@@ -26,6 +27,30 @@ const UserType = new GraphQLObjectType({
       },
     loggedIn: {
       type: GraphQLBoolean
+    },
+    reviews: {
+      type: new GraphQLList(require('./review_type')),
+      resolve(parentValue) {
+        return User.findById(parentValue._id)
+          .populate("reviews")
+          .then(user => user.reviews)
+      }
+    },
+    favoriteStores: {
+      type: new GraphQLList(require('./store_type')),
+      resolve(parentValue) {
+        return User.findById(parentValue._id)
+          .populate('favoriteStores')
+          .then(user => user.favoriteStores)
+      }
+    },
+    favoriteProducts: {
+      type: new GraphQLList(require('./product_type')),
+      resolve(parentValue) {
+        return User.findById(parentValue._id)
+          .populate('favoriteProducts')
+          .then(user => user.favoriteProducts)
+      }
     }
   })
 });

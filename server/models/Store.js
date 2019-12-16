@@ -16,7 +16,6 @@ const StoreSchema = new Schema({
     type: Number
   },
   products: [{ type: Schema.Types.ObjectId, ref: "products" }],
-  reviews: [{ type: Schema.Types.ObjectId, ref: "reviews" }],
   favorites: [{ type: Schema.Types.ObjectId, ref: "users" }],
   image: {
     type: String

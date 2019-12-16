@@ -37,7 +37,7 @@ const ProductSchema = new Schema({
   },
   reviews: [{ type: Schema.Types.ObjectId, ref: "reviews" }],
   favorites: [{ type: Schema.Types.ObjectId, ref: "users" }],
-  // Star Things
+  // Star
   galacticLongitude: {
     type: Number
   },
@@ -68,7 +68,7 @@ const ProductSchema = new Schema({
   starDistance: {
     type: Number
   },
-  // Exoplanet Things
+  // Exoplanet
   exoDistance: {
     type: Number
   },
