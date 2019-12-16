@@ -8,7 +8,6 @@ import Nav from './ui/Nav';
 const App = () => {
   return (
     <div>
-      <h1>Exo</h1>
       <Switch>
         <AuthRoute exact path="/login" component={Login} routeType="auth" />
         <AuthRoute exact path="/register" component={Register} routeType="auth" />

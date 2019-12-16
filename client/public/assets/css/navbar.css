@@ -1,7 +1,79 @@
-.nav-bar-div {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1400px;
-  margin: auto;
+.nav-div {
+  background: #dae0e6;
 }
 
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: auto;
+  height: 80px;
+}
+
+.nav-options {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 40px;
+  margin-top: 15px;
+  color: rgb(117, 117, 187);
+  font-weight: 900;
+  margin-right: 15px;
+}
+
+.exo {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-search-div {
+  font-size: 20px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.nav-search {
+  -webkit-transition:border .3s ease-in;
+  background: whitesmoke;
+  border-radius: 96px;
+  height: 50px;
+  width: 80%;
+  padding-left: 20px;
+  border: 1px solid lightgray;
+}
+
+.nav-search:hover {
+  border: 1px solid gray;
+}
+
+.favorites {
+  -webkit-transition:background .2s ease-in;
+  width: 30px;
+  border-radius: 100%;
+}
+
+.you {
+  -webkit-transition:background .2s ease-in;
+  width: 30px;
+  border-radius: 100%;
+}
+
+.cart {
+  -webkit-transition:background .2s ease-in;
+  width: 30px;
+  border-radius: 100%;
+}
+
+.favorites:hover {
+  background: violet;
+}
+
+.you:hover {
+  background: violet;
+}
+
+.cart:hover {
+  background: violet;
+}
