@@ -1,6 +1,6 @@
 .auth-form { 
   width: 450px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .placeholder-logo {
@@ -13,6 +13,7 @@
   line-height: 80px;
   font-weight: bolder;
   font-size: 30px;
+  cursor: pointer;
 }
 
 .auth-input {
@@ -62,4 +63,22 @@
 .auth-button:hover {
   background: #8048e3;
   transition-duration: 0.3s;
+}
+
+.auth-error-messages {
+  color: red;
+}
+
+.auth-error-outline {
+  border: 1px solid red;
+}
+
+.auth-error-outline:hover {
+  border: 1px solid red;
+}
+
+@media screen and (max-width: 500px) {
+  .auth-form {
+    width: 300px;
+  }
 }

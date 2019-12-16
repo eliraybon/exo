@@ -48,20 +48,37 @@ export default class Register extends React.Component {
         update={(cache, data) => this.updateCache(cache, data)}
       >
         {registerUser => { 
+          const message = this.state.message;
+          let nameError;
+          let emailError;
+          let passwordError;
+
+          if (message) {
+            if (message.includes("Email")) emailError = "auth-error-outline";
+            if (message.includes("Name")) nameError = "auth-error-outline";
+            if (message.includes("Password")) passwordError = "auth-error-outline";
+          }
+
           return (
             <div className="auth-div">
-              <div className="placeholder-logo">EXO</div>
 
               <form 
                 className="auth-form"
                 onSubmit={ e => this.handleSubmit(e, registerUser) }
               >
+                <div 
+                  className="placeholder-logo"
+                  onClick={() => this.props.history.push('/')}
+                >
+                    EXO
+                </div>
+
                 <input 
                   type="text" 
                   value={this.state.name} 
                   onChange={this.update("name")}
                   placeholder="Name"
-                  className="auth-input"
+                  className={`auth-input ${nameError}`}
                 />
 
                 <input
@@ -69,7 +86,7 @@ export default class Register extends React.Component {
                   value={this.state.email}
                   onChange={this.update("email")}
                   placeholder="Email"
-                  className="auth-input"
+                  className={`auth-input ${emailError}`}
                 />
 
                 <input
@@ -77,12 +94,13 @@ export default class Register extends React.Component {
                   value={this.state.password}
                   onChange={this.update("password")}
                   placeholder="Password"
-                  className="auth-input"
+                  className={`auth-input ${passwordError}`}
                 />
 
                 <button className="auth-button">Sign Up</button>
+
+                <p className="auth-error-messages">{this.state.message.slice(15)}</p>
               </form>
-               <p>{this.state.message}</p>
             </div>
           )
         }}

@@ -57,29 +57,42 @@ class Login extends Component {
         update={(client, data) => this.updateCache(client, data)}
       >
         {loginUser => {
+          let message = this.state.message;
+          let loginError;
+          if (message) loginError = "auth-error-outline";
+          if (message) message = "Invalid credentials";
+
           return (<div className="container">
-            <div className="placeholder-logo">EXO</div>
 
             <form 
               className="auth-form"
               onSubmit={e => this.handleSubmit(e, loginUser) }
             >
+
+              <div
+                className="placeholder-logo"
+                onClick={() => this.props.history.push('/')}
+              >
+                EXO
+              </div>
+
               <input
                 value={this.state.email}
                 onChange={this.update("email")}
                 placeholder="Email"
-                className="auth-input"
+                className={`auth-input ${loginError}`}
               />
               <input
                 value={this.state.password}
                 onChange={this.update("password")}
                 type="password"
                 placeholder="Password"
-                className="auth-input"
+                className={`auth-input ${loginError}`}
               />
-              <button>Log In</button>
+              <button className="auth-button">Log In</button>
+
+              <p className="auth-error-messages">{message}</p>
             </form>
-            <p>{this.state.message}</p>
           </div>)
         }}
       </Mutation>
