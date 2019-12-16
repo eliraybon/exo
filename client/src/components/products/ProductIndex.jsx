@@ -15,6 +15,7 @@ class ProductIndex extends React.Component {
     let count = 0
     let category = "exoplanet"
   return(
+    <div className="pi-outer">
     <div className = "pi-container" >
       <p className="pi-section-title">{category}</p>
       <div className="pi-section">
@@ -34,6 +35,7 @@ class ProductIndex extends React.Component {
           }}
         </Query>
       </div>
+    </div>
     </div>
   );
 
