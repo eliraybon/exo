@@ -58,7 +58,6 @@ ReviewSchema.statics.deleteReview = reviewId => {
           product.reviews.pull(review);
           return Promise.all([user.save(), product.save()])
             .then(([user, product]) => {
-              console.log(review);
               return review;
             })
         })

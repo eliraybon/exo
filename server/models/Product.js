@@ -27,6 +27,10 @@ const ProductSchema = new Schema({
     type: String,
     required: true
   },
+  store: {
+    type: Schema.Types.ObjectId,
+    ref: "stores"
+  },
   image: { 
     type: String
     //maybe make required later

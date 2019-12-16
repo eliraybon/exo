@@ -1,4 +1,5 @@
 const Product = require("../models/Product");
+const Store = require("../models/Store");
 const axios = require('axios');
 const keys = require('../../config/keys');
 
@@ -31,10 +32,15 @@ async function asyncForEach(array, callback) {
   }
 };
 
-async function seedExoplanets() {
+async function seedExoplanets(storeId) {
   let exoplanets; 
   await axios(getExoplanets).then(res => {
     exoplanets = res.data.slice(0, 10);
+  })
+
+  let store;
+  await Store.findById(storeId).then(foundStore => {
+    store = foundStore;
   })
 
   await asyncForEach(exoplanets, async (exo) => {
@@ -50,9 +56,11 @@ async function seedExoplanets() {
     productObj.mass = 5;
     productObj.volume = 10;
     productObj.category = "exoplanet";
-    productObj.store = "5df3d176c7623023ad48b95a"
+    productObj.store = storeId
 
-    await new Product(productObj).save()
+    const product = await new Product(productObj).save();
+    store.products.push(product);
+    await store.save();
   })
 
   return 'Exoplanets created';
