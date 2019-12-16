@@ -6,10 +6,10 @@ export default class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'testUser',
+      name: '',
       email: '',
-      password: '123456',
-      message: ""
+      password: '',
+      message: ''
     };
   }
 
@@ -21,6 +21,17 @@ export default class Register extends React.Component {
     console.log(data);
     cache.writeData({
       data: { isLoggedIn: data.register.loggedIn }
+    });
+  }
+
+  handleSubmit = (e, registerUser) => {
+    e.preventDefault();
+    registerUser({
+      variables: {
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password
+      }
     });
   }
 
@@ -36,44 +47,60 @@ export default class Register extends React.Component {
         onError={err => this.setState({ message: err.message })}
         update={(cache, data) => this.updateCache(cache, data)}
       >
-        {(registerUser, { loading, error }) => { 
+        {registerUser => { 
+          const message = this.state.message;
+          let nameError;
+          let emailError;
+          let passwordError;
+
+          if (message) {
+            if (message.includes("Email")) emailError = "auth-error-outline";
+            if (message.includes("Name")) nameError = "auth-error-outline";
+            if (message.includes("Password")) passwordError = "auth-error-outline";
+          }
+
           return (
-            <div>
-              <form onSubmit={e => {
-                e.preventDefault();
-                registerUser({
-                  variables: {
-                    name: this.state.name,
-                    email: this.state.email,
-                    password: this.state.password
-                  }
-                });
-              }}>
+            <div className="auth-div">
+
+              <form 
+                className="auth-form"
+                onSubmit={ e => this.handleSubmit(e, registerUser) }
+              >
+                <div 
+                  className="placeholder-logo"
+                  onClick={() => this.props.history.push('/')}
+                >
+                    EXO
+                </div>
+
                 <input 
                   type="text" 
                   value={this.state.name} 
                   onChange={this.update("name")}
-                  placeholder="Name">
-                </input>
+                  placeholder="Name"
+                  className={`auth-input ${nameError}`}
+                />
 
                 <input
                   type="text"
                   value={this.state.email}
                   onChange={this.update("email")}
-                  placeholder="Email">
-                </input>
+                  placeholder="Email"
+                  className={`auth-input ${emailError}`}
+                />
 
                 <input
                   type="password"
                   value={this.state.password}
                   onChange={this.update("password")}
-                  placeholder="Password">
-                </input>
+                  placeholder="Password"
+                  className={`auth-input ${passwordError}`}
+                />
 
-                <button>Sign Up</button>
+                <button className="auth-button">Sign Up</button>
+
+                <p className="auth-error-messages">{this.state.message.slice(15)}</p>
               </form>
-              {loading && <p>Loading...</p>}
-               <p>{this.state.message}</p>
             </div>
           )
         }}
