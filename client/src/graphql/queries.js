@@ -22,11 +22,41 @@ export const FETCH_USER = gql`
       name
       owner
       favoriteStores {
+        _id
         name
       }
       favoriteProducts {
+        _id
         name
         price 
+      }
+    }
+  }
+`;
+
+export const FETCH_STORES = gql`
+  query fetchStores {
+    stores {
+      _id
+      name
+    }
+  }
+`;
+
+export const FETCH_STORE = gql`
+  query fetchStore($id: ID!) {
+    store(_id: $id) {
+      _id
+      name
+      owner {
+        _id
+        name
+      }
+      products {
+        _id
+        name
+        description
+        image
       }
     }
   }
