@@ -11,7 +11,6 @@ export const FETCH_USERS = gql`
     users {
       _id
       name
-
     }
   }
 `;
