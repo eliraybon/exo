@@ -4,7 +4,8 @@ const {
   GraphQLString, 
   GraphQLID, 
   GraphQLFloat,
-  GraphQLInt 
+  GraphQLInt,
+  GraphQLList 
 } = graphql;
 const AuthService = require('../services/auth');
 const ProductService = require('../services/product');
@@ -174,6 +175,12 @@ const mutation = new GraphQLObjectType({
         return User.deleteFavoriteStore(userId, storeId);
       }
     },
+    seedExoplanets: {
+      type: GraphQLString,
+      resolve(parentValue) {
+        return ProductService.seedExoplanets();
+      }
+    }
   }
 });
 
