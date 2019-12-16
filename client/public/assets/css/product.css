@@ -1,0 +1,27 @@
+.pi-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 80%;
+}
+
+.pi-section {
+  display: flex;
+
+}
+
+.pi-product-detail {
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.pi-product-image {
+  height: 90%;
+  /* width: 100 */
+  border: 1px solid blue;
+}
