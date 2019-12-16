@@ -20,7 +20,7 @@
 .nav-logo {
   font-size: 40px;
   margin-top: 15px;
-  color: rgb(117, 117, 187);
+  color: #FF8D4D;
   font-weight: 900;
   margin-right: 15px;
 }
@@ -46,7 +46,7 @@
 }
 
 .nav-search:hover {
-  border: 1px solid gray;
+  border: 2px solid #005B33;
 }
 
 .favorites {
@@ -69,15 +69,15 @@
 }
 
 .favorites:hover {
-  background: violet;
+  background: #905DE5;
 }
 
 .you:hover {
-  background: violet;
+  background: #905DE5;
 }
 
 .cart:hover {
-  background: violet;
+  background: #905DE5;
 }
 
 .dropdown-content {
@@ -103,10 +103,11 @@
   padding-left: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
-  color: gray;
+  color: black;
   /* position: fixed; */
   bottom: 5px;
   border-top: 1px solid gray;
+  width: 100%;
 }
 
 .user-btn {
@@ -114,8 +115,17 @@
   padding-left: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
-  color: gray;
+  color: black;
   /* position: fixed; */
   bottom: 5px;
   border-bottom: 1px solid gray;
+  width: 100%;
+}
+
+.user-btn:hover {
+  background: #FF8D4D;
+}
+
+.logout-btn:hover {
+  background: #FF8D4D;
 }

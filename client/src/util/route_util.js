@@ -40,4 +40,6 @@ const AuthRoute = ({
     </Query>
   );
 
+  
+
 export default AuthRoute;
