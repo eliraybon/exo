@@ -27,7 +27,21 @@ const Nav = props => {
           <button className="option"><img className="cart" src="https://img.icons8.com/pastel-glyph/64/000000/shopping-cart--v1.png"/></button>
           <div className="dropdown-content" id="drpdwn">
             <p className="user-btn">User Profile</p>
-            <p className="logout-btn">Log out</p>
+            <ApolloConsumer>
+              {client => (
+                <div>
+                  <button className="logout-btn"
+                    onClick={e => {
+                      e.preventDefault();
+                      localStorage.removeItem("auth-token");
+                      client.writeData({ data: { isLoggedIn: false } });
+                      props.history.push("/");
+                    }}>
+                    Log out
+                  </button>
+                </div>
+              )}
+            </ApolloConsumer>
           </div>
         </div>
       </header>
