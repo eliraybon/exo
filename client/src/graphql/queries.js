@@ -14,6 +14,7 @@ query categoryProducts ($category: String!) {
     price
     mass
     volume
+    image
   }
 }
 `;

@@ -16,21 +16,24 @@ class ProductIndex extends React.Component {
     let category = "exoplanet"
   return(
     <div className = "pi-container" >
+      <p className="pi-section-title">{category}</p>
+      <div className="pi-section">
       <Query query={CATEGORY_PRODUCTS} variables={{ category: category }}>
+        
           {({ loading, error, data }) => {
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error</p>;
 
-            return data.categoryProducts.map(({ id, name, price, mass, volume }) => (
-              <li key={id}>
-                <Link to={`/products/${id}`}>
-                  <h4>{name}</h4>
-                </Link>
-                <p className="pi-price">Price: {price}</p>
-              </li>
+            return data.categoryProducts.map(({ id, name, price, mass, volume, image }) => (
+              <div key={id} className="pi-product-detail">
+                <div className="pi-product-image" style={{ backgroundImage: `url(${image})` }}></div>
+
+                <div className="pi-price">${price}</div>
+              </div>
             ));
           }}
         </Query>
+      </div>
     </div>
   );
 
