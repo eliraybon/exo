@@ -177,8 +177,11 @@ const mutation = new GraphQLObjectType({
     },
     seedExoplanets: {
       type: GraphQLString,
-      resolve(parentValue) {
-        return ProductService.seedExoplanets();
+      args: {
+        storeId: { type: GraphQLID }
+      },
+      resolve(parentValue, { storeId }) {
+        return ProductService.seedExoplanets(storeId);
       }
     }
   }

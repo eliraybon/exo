@@ -32,14 +32,14 @@ async function asyncForEach(array, callback) {
   }
 };
 
-async function seedExoplanets() {
+async function seedExoplanets(storeId) {
   let exoplanets; 
   await axios(getExoplanets).then(res => {
     exoplanets = res.data.slice(0, 10);
   })
 
   let store;
-  await Store.findById("5df520bc5ccd7fe8e2239117").then(foundStore => {
+  await Store.findById(storeId).then(foundStore => {
     store = foundStore;
   })
 
@@ -56,7 +56,7 @@ async function seedExoplanets() {
     productObj.mass = 5;
     productObj.volume = 10;
     productObj.category = "exoplanet";
-    productObj.store = "5df3d176c7623023ad48b95a"
+    productObj.store = storeId
 
     const product = await new Product(productObj).save();
     store.products.push(product);
