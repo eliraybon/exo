@@ -81,7 +81,6 @@ const mutation = new GraphQLObjectType({
       },
       resolve(_, {name, price, description, mass, volume, category}) {
         return new Product({ name, price, description, mass, volume, category }).save();
-        // return ProductService.createProduct(args);
       }
     },
     newStore: {
@@ -90,10 +89,11 @@ const mutation = new GraphQLObjectType({
         name: { type: GraphQLString },
         owner: { type: GraphQLID },
         description: { type: GraphQLString },
-        rating: { type: GraphQLInt }
+        // rating: { type: GraphQLInt }
       },
-      resolve(_, {name, owner, description, rating}) {
-        return new Store({name, owner, description, rating}).save();
+      resolve(_, { name, owner, description }) {
+        return Store.createStore(name, owner, description);
+        // return new Store({name, owner, description, rating}).save();
       }
     },
     newReview: {
