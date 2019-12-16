@@ -143,3 +143,70 @@ const ProductSchema = new Schema({
 });
 
 module.exports = mongoose.model("products", ProductSchema);
+
+// Exoplanet
+// Id
+// Name - NASA pl_name
+// Distance = NASA st_dist(parsecs)
+// Coordinates 
+// eliptic long - st_elon
+// eliptic lat - st_elat
+// Star - System - NASA pl_hostname / starId
+// Mass - NASA pl_masse(earth mass)
+// Radius - NASA pl_rade(earth rad)
+// Density - NASA pl_dens
+// Climate
+// Year time - NASA pl_trandur(days)
+// Day time
+// Owner
+// Cost
+
+// Star
+// Id
+// Name - NASA hd_name
+// Coordinates
+// galactic long - st_glon
+// galactic lat - st_glat
+// spectral type: st_spstr
+// Stellar age: st_age
+// Luminosity: st_lum
+// Star Density: st_dens
+// Star Metallicity: st_metfe
+// Owner
+// Planets
+// Cost
+
+// Spaceship
+// Id
+// Name
+// Cost
+// Production Time
+// Living space(li)
+// Cargo Space(li)
+// Mass(kg)
+// Volume
+// Max Accelleration(m / s2)
+// Directional Force Coverage(degrees out of 360)
+// Additional Features
+
+// Spacesuit
+// Id
+// Name
+// Designer
+// Cost
+// Mass
+// Volume
+// Body Type(biped, etc)
+// Size
+// Oxygen Volume
+// Vacuum Exposure Time
+
+// Food
+// Id
+// Name
+// Cost
+// Mass
+// Volume
+// Cuisine
+// Storage Method(freeze - dried, orbital stasis, quantum chilled, etc)
+// Labgrown(t / f)

@@ -9,12 +9,12 @@ class SplashNav extends React.Component {
 
 export default class Splash extends React.Component {
   componentDidMount() {
-
+    
   }
 
 
   render() {
-    <div className="splash-page">
+    <div className="splash-page" id="splash-page">
       <SplashNav />
 
     </div>
