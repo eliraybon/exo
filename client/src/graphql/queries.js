@@ -30,6 +30,7 @@ export const FETCH_USER = gql`
         _id
         name
         price 
+        image
       }
     }
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 
-// import ProductIndex from '../products/ProductIndex';
 import StoreIndex from '../stores/StoreIndex';
+import ProductIndex from '../products/ProductIndex';
 
 export default class CustomerShow extends React.Component {
   render() {
@@ -10,7 +10,7 @@ export default class CustomerShow extends React.Component {
       <div>
         <h1>{user.name}</h1>
         <StoreIndex stores={user.favoriteStores} />
-        {/* <ProductIndex products={user.favoriteProducts} /> */}
+        <ProductIndex products={user.favoriteProducts} />
       </div>
     )
   }

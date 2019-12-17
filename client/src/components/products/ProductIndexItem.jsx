@@ -8,7 +8,6 @@ class ProductIndexItem extends React.Component {
       <li 
         onClick={() => this.props.history.push(`/products/${product._id}`)}
         className="pi-product-detail"
-        key={product._id}
       >
         <div 
           className="pi-product-image" 
