@@ -54,5 +54,7 @@ const shipImg = [
 
 module.exports = {
   planetImg,
-  starImg
+  starImg,
+  shipImg,
+  suitImg
 }

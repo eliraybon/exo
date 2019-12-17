@@ -93,7 +93,6 @@ const mutation = new GraphQLObjectType({
       },
       resolve(_, { name, owner, description }) {
         return Store.createStore(name, owner, description);
-        // return new Store({name, owner, description, rating}).save();
       }
     },
     newReview: {
@@ -106,7 +105,6 @@ const mutation = new GraphQLObjectType({
       },
       resolve(_, {rating, body, author, product}) {
         return Review.createReview(rating , body, author, product);
-        // return new Review({rating, body, author}).save();
       }
     },
     deleteReview: {
@@ -182,6 +180,33 @@ const mutation = new GraphQLObjectType({
       },
       resolve(parentValue, { storeId }) {
         return ProductService.seedExoplanets(storeId);
+      }
+    },
+    seedStars: {
+      type: GraphQLString,
+      args: {
+        storeId: { type: GraphQLID }
+      },
+      resolve(parentValue, { storeId }) {
+        return ProductService.seedStars(storeId);
+      }
+    },
+    seedSpaceships: {
+      type: GraphQLString,
+      args: {
+        storeId: { type: GraphQLID }
+      },
+      resolve(parentValue, { storeId }) {
+        return ProductService.seedSpaceships(storeId);
+      }
+    },
+    seedSpacesuits: {
+      type: GraphQLString,
+      args: {
+        storeId: { type: GraphQLID }
+      },
+      resolve(parentValue, { storeId }) {
+        return ProductService.seedSpacesuits(storeId);
       }
     }
   }

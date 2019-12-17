@@ -7,8 +7,8 @@ const {
   GraphQLID,
   GraphQLBoolean,
   GraphQLFloat,
+  GraphQLInt,
   GraphQLList,
-  GraphQLArray
 } = graphql;
 
 const ProductType = new GraphQLObjectType({
@@ -116,8 +116,8 @@ const ProductType = new GraphQLObjectType({
     productionTime: {
       type: GraphQLFloat
     },
-    livingVolume: {
-      type: GraphQLFloat
+    capacity: {
+      type: GraphQLInt
     },
     cargoVolume: {
       type: GraphQLFloat
