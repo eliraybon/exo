@@ -37,13 +37,14 @@ class ProductIndex extends React.Component {
             if (error) return <p>Error</p>;
 
             return data.categoryProducts.map(({ _id, name, price, mass, volume, image }) => (
-              
-              <li key={_id} className="pi-product-detail" onClick={this.handleClick(_id)}>
-                <div className="pi-product-image" style={{ backgroundImage: `url(${image})` }}></div>
+              <Link to={`/products/${_id}`}>
+                <li key={_id} className="pi-product-detail" onClick={this.handleClick(_id)}>
+                  <div className="pi-product-image" style={{ backgroundImage: `url(${image})` }}></div>
 
-                <div className="pi-price">${price}</div>
-                
-              </li>
+                  <div className="pi-price">${price}</div>
+                  
+                </li>
+              </Link>
              
             ));
           }}

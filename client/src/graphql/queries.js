@@ -74,7 +74,6 @@ export const CATEGORY_PRODUCTS = gql`
       image
     }
   }
-}
 `;
 
 export const FETCH_PRODUCT = gql`
