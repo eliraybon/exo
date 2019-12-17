@@ -1,36 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Cantarell&display=swap');
 .pi-outer {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color: #ced2d6;
+  border-top: 3px solid #E8D8F9;
 }
 .pi-container {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 90%;
-  border: 1px solid red;
+  background-color: rgba(232, 216, 249, 0.523);
 }
-
+.pi-section-title {
+  margin-left: 10px;
+  margin-top: 10px;
+}
 .pi-section {
   display: flex;
   /* flex-wrap: wrap; */
+  overflow-x: scroll;
   flex-direction: row;
-  width: 100%;
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  margin-right:10px;
 
 }
-
 .pi-product-detail {
-  height: 100px;
+  height: 200px;
   margin: 10px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
+  border-radius: 4px;
+  align-content: space-between;
+
 
 }
-
+.pi-product-image:hover {
+  border-radius: 4px;
+  -moz-box-shadow: 0 0 5px black;
+  -webkit-box-shadow: 0 0 5px black;
+  box-shadow: 0 0 5px black;
+}
 .pi-product-image {
   height: 90%;
-  width: 150px;
-  border: 1px solid blue;
+  width: 200px;
+  border-radius: 4px;
+  /* border: 1px solid blue; */
+  background-size: cover;
+  background-color: transparent;
+}
+.pi-price {
+  height: 10%;
+  margin-top: 3px;
+  margin-left: 3px;
+  font-family: 'Cantarell', sans-serif;
+}
+/* Product Show */
+.ps-outer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #ced2d6;
+  border-top: 3px solid #E8D8F9;
+}
+.ps-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 80%;
+  background-color: rgba(232, 216, 249, 0.523);
+}
+.ps-product {
+  display: flex;
+}
+.ps-big {
+  display: flex;
+  flex-direction: column;
+}
+.ps-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.ps-pic-container {
+  height: 360px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ps-picture {
+  max-width: 100%;
+  max-height: 900px;
+  /* background-position: center; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgb(72, 72, 72);
+  height: 100%;
+  width: 500px;
+  overflow: hidden;
 }

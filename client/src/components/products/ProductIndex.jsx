@@ -10,7 +10,18 @@ class ProductIndex extends React.Component {
   constructor(props) {
     super(props);
 
+    this.handleClick = this.handleClick.bind(this);
+
   }
+
+  handleClick(id) {
+    return e => {
+      e.preventDefault();
+      this.props.history.push(`/products/${id}`);
+    }
+
+  }
+
   render() {
     let count = 0
     let category = "exoplanet"
@@ -18,23 +29,26 @@ class ProductIndex extends React.Component {
     <div className="pi-outer">
     <div className = "pi-container" >
       <p className="pi-section-title">{category}</p>
-      <div className="pi-section">
+      <ul className="pi-section">
       <Query query={CATEGORY_PRODUCTS} variables={{ category: category }}>
         
           {({ loading, error, data }) => {
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error</p>;
 
-            return data.categoryProducts.map(({ id, name, price, mass, volume, image }) => (
-              <div key={id} className="pi-product-detail">
+            return data.categoryProducts.map(({ _id, name, price, mass, volume, image }) => (
+              
+              <li key={_id} className="pi-product-detail" onClick={this.handleClick(_id)}>
                 <div className="pi-product-image" style={{ backgroundImage: `url(${image})` }}></div>
 
                 <div className="pi-price">${price}</div>
-              </div>
+                
+              </li>
+             
             ));
           }}
         </Query>
-      </div>
+      </ul>
     </div>
     </div>
   );

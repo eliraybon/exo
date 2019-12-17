@@ -18,3 +18,16 @@ query categoryProducts ($category: String!) {
   }
 }
 `;
+
+export const FETCH_PRODUCT = gql`
+query fetchProduct ($_id: ID!) {
+  product(_id: $_id) {
+    _id
+    name
+    price
+    mass
+    volume
+    image
+  }
+}
+`;
