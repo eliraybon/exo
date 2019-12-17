@@ -57,6 +57,7 @@ export const FETCH_STORE = gql`
       products {
         _id
         name
+        price
         description
         image
       }

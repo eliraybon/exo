@@ -1,5 +1,6 @@
 import React from 'react';
 import { Query } from 'react-apollo';
+import ProductIndex from '../products/ProductIndex';
 
 import { FETCH_STORE } from '../../graphql/queries';
 
@@ -11,8 +12,12 @@ export default class StoreShow extends React.Component {
       {({ loading, error, data }) => {
         if (loading) return null;
         if (error) return <p>Error</p>;
+        const { store } = data;
         return (
-          <p>This is a show page for {data.store.name}</p>
+          <div className="store-show">
+            <h1>{store.name}</h1>
+            <ProductIndex products={ store.products } />
+          </div>
         )
       }}
     </Query>
