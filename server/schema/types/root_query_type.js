@@ -68,6 +68,17 @@ const RootQueryType = new GraphQLObjectType({
         return Product.find({category: args.category});
       }
     },
+    searchProducts: {
+      type: new GraphQLList(ProductType),
+      args: {
+        filter: {
+          type: GraphQLString
+        }
+      },
+      resolve(_, args) {
+        return Product.find({ name: { $regex: args.filter, $options: "i" }});
+      }
+    },
     stores: {
       type: new GraphQLList(StoreType),
       resolve() {
