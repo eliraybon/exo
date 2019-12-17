@@ -11,6 +11,7 @@ const {
   GraphQLList,
 } = graphql;
 
+
 const ProductType = new GraphQLObjectType({
   name: "ProductType", 
   fields: () => ({
@@ -41,6 +42,14 @@ const ProductType = new GraphQLObjectType({
     sold: {
       type: GraphQLBoolean
     },
+    store: {
+      type: require('./store_type'),
+      resolve(parentValue) {
+        return Product.findById(parentValue._id)
+          .populate("store")
+          .then(product => product.store)
+      }
+    },
     reviews: {
       type: new GraphQLList(require('./review_type')),
       resolve(parentValue) {
@@ -50,9 +59,10 @@ const ProductType = new GraphQLObjectType({
       }
     },
     favorites: {
-      type: new GraphQLList(GraphQLString),
+      type: new GraphQLList(require('./user_type')),
       resolve(parentValue) {
         return Product.findById(parentValue._id)
+          .populate("favorites")
           .then(product => product.favorites)
       }
     },

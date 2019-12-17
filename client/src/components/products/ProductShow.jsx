@@ -10,7 +10,38 @@ class ProductShow extends React.Component {
   constructor(props) {
     super(props);
     // this.id = this.props.match.params.id;
+    this.itemDetails = this.itemDetails.bind(this);
 
+  }
+
+  itemDetails(product) {
+    let hash
+    if (product.category === "spaceship") {
+      hash = { "productionTime": "Production Time",
+      "capacity": "Capacity",
+      "cargoVolume": "Cargo Volume",
+      "maxAcc": "Max Acceleration",
+      "maneuverability": "Maneuverability" }
+    } else if (product.category === "spaceship") {
+      hash = {
+        "productionTime": "Production Time",
+        "capacity": "Capacity",
+        "cargoVolume": "Cargo Volume",
+        "maxAcc": "Max Acceleration",
+        "maneuverability": "Maneuverability"
+      }
+    }
+
+
+    console.log(product);
+    let output = Object.keys(hash).map(key => {
+      return(<div className="ps-product-douple to-flex-col">
+        <div className="ps-douple-key">{hash[key]}:</div>
+        <div className="ps-douple-info">{product.key}</div>
+      </div>)
+    })
+    return output;
+    
   }
 
   render() {
@@ -20,7 +51,7 @@ class ProductShow extends React.Component {
         {({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error</p>;
-          console.log(data);
+          console.log(data.product);
           return (
             <div className="ps-outer">
               <div className="ps-container">
@@ -32,12 +63,12 @@ class ProductShow extends React.Component {
                     <div className="ps-reviews">Reviews</div>
                   </div>
                   <div className="ps-side">
-                    <div className="ps-store-mini">store details</div>
-                    <div className="ps-name">{data.product.name}</div>
-                    <div className="ps-price">${data.product.price}</div>
-                    <div className="ps-options">Options for purchase</div>
+                    <div className="ps-store-mini ps-side-spacing">{data.product.store.owner.name} {data.product.store.rating}</div>
+                    <div className="ps-name ps-side-spacing">{data.product.name}</div>
+                    <div className="ps-price ps-side-spacing">${data.product.price}</div>
+                    <div className="ps-options ps-side-spacing">Options for purchase</div>
                     <div className="ps-cart-button">cart Button</div>
-                    <div className="ps-item-details">Item detail section</div>
+                    <div className="ps-item-details">{this.itemDetails(data.product)}</div>
                     <div className="ps-shipping">Shipping infor</div>
                     <div className="ps-store-owner">store owner details</div>
                   </div>

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Cantarell&display=swap');
 .pi-outer {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -77,6 +77,7 @@
 }
 .ps-product {
   display: flex;
+  justify-content: space-between;
 }
 .ps-big {
   display: flex;
@@ -85,6 +86,8 @@
 .ps-side {
   display: flex;
   flex-direction: column;
+  width: 40%;
+  padding: 10px;
 }
 
 .ps-pic-container {
@@ -105,4 +108,13 @@
   height: 100%;
   width: 500px;
   overflow: hidden;
+}
+
+.ps-side-spacing {
+  padding-bottom: 10px;
+}
+
+.to-flex-col {
+  display: flex;
+  flex-direction: column;
 }
