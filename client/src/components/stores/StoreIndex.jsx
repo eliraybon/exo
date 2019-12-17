@@ -3,9 +3,12 @@ import StoreIndexItem from './StoreIndexItem';
 
 export default class StoreIndex extends React.Component {
   render() {
+    const { stores } = this.props;
+    if (!stores) return null; 
+
     return (
       <ul className="store-index">
-        {this.props.stores.map(store => {
+        {stores.map(store => {
           return (
             <StoreIndexItem 
               store={store}

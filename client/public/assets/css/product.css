@@ -53,7 +53,7 @@
   background-size: cover;
   background-color: transparent;
 }
-.pi-price {
+.pi-price, .pi-name {
   height: 10%;
   margin-top: 3px;
   margin-left: 3px;

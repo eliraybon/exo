@@ -30,6 +30,7 @@ export const FETCH_USER = gql`
         _id
         name
         price 
+        image
       }
     }
   }
@@ -56,6 +57,7 @@ export const FETCH_STORE = gql`
       products {
         _id
         name
+        price
         description
         image
       }

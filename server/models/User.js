@@ -20,7 +20,8 @@ const UserSchema = new Schema({
     max: 32
   },
   owner: { 
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   stores: [{ type: Schema.Types.ObjectId, ref: "stores"}],
   reviews: [{ type: Schema.Types.ObjectId, ref: "reviews"}],
