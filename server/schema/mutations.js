@@ -208,6 +208,15 @@ const mutation = new GraphQLObjectType({
       resolve(parentValue, { storeId }) {
         return ProductService.seedSpacesuits(storeId);
       }
+    },
+    seedFoods: {
+      type: GraphQLString,
+      args: {
+        storeId: { type: GraphQLID }
+      },
+      resolve(parentValue, { storeId }) {
+        return ProductService.seedFoods(storeId);
+      }
     }
   }
 });

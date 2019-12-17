@@ -39,6 +39,15 @@ const getSpacesuits = {
     "https://swapi.co/api/species"
 }
 
+const getFood = {
+  method: "GET",
+  url: 
+    "https://recipe-puppy.p.rapidapi.com/",
+  headers: {
+    "X-RapidAPI-Key": keys.foodKey
+  }
+}
+
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
@@ -194,8 +203,46 @@ async function seedSpacesuits(storeId) {
   return "Spacesuits created";
 }
 
-async function seedFood(storeId) {
-  
+async function seedFoods(storeId) {
+  const preparationMethods = [
+    '',
+    'Compressed ',
+    'Liquidated ',
+    'Vaporized ',
+    'Expired ',
+    'Futuristic '
+  ];
+
+  let foods;
+  await axios(getFood).then(res => {
+    // console.log(res.data.results.length || "UH OH!");
+    foods = res.data.results.slice(0, 10);
+  })
+
+  let store;
+  await Store.findById(storeId).then(foundStore => {
+    store = foundStore;
+  })
+
+  await asyncForEach(foods, async (food) => {
+    const sample = Math.ceil(Math.random() * 4);
+    const prep = preparationMethods[sample];
+    
+    const productObj = {};
+    productObj.name = prep + food.title;
+    productObj.price = Math.ceil(Math.random() * 21);
+    productObj.mass = Math.ceil(Math.random() * 5);
+    productObj.volume = Math.ceil(Math.random() * 5);
+    productObj.description = food.ingredients;
+    productObj.category = 'food';
+    productObj.store = storeId;
+
+    const product = await new Product(productObj).save();
+    store.products.push(product);
+    await store.save();
+  })
+
+  return "Foods liquidated and compressed"
 }
 
 
@@ -204,5 +251,6 @@ module.exports = {
   seedExoplanets,
   seedStars,
   seedSpaceships,
-  seedSpacesuits
+  seedSpacesuits,
+  seedFoods
 }
