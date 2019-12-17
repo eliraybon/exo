@@ -1,15 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-export default class StoreIndexItem extends React.Component {
+class StoreIndexItem extends React.Component {
   render() {
     const { store } = this.props;
     return (
-      <Link to={`/stores/${store._id}`}>
-        <li>
-          {store.name}
-        </li>
-      </Link>
+      <li 
+        className="pi-product-detail"
+        onClick={() => this.props.history.push(`/stores/${store._id}`)}
+      >
+        <div
+          className="pi-product-image"
+          style={{ backgroundImage: `url(${store.image})` }}>
+        </div>
+        <div className="pi-name">{store.name}</div>
+      </li>
     )
   }
 }
+
+export default withRouter(StoreIndexItem);

@@ -1,0 +1,13 @@
+.store-index {
+  display: flex;
+  flex-direction: row;
+}
+
+.store-index-item {
+  height: 200px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  align-content: space-between;
+}
