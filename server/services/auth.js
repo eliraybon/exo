@@ -20,6 +20,7 @@ const register = async data => {
     const {
       name,
       email,
+      owner,
       password
     } = data;
 
@@ -36,6 +37,7 @@ const register = async data => {
     const user = new User({
         name,
         email,
+        owner,
         password: hashedPassword
       },
       err => {
