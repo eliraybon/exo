@@ -16,7 +16,8 @@ const {
   GraphQLObjectType,
   GraphQLList,
   GraphQLID,
-  GraphQLNonNull
+  GraphQLNonNull,
+  GraphQLString
 } = graphql;
 
 const RootQueryType = new GraphQLObjectType({
@@ -54,6 +55,17 @@ const RootQueryType = new GraphQLObjectType({
       },
       resolve(_, args) {
         return Product.findById(args._id)
+      }
+    },
+    categoryProducts: {
+      type: new GraphQLList(ProductType),
+      args: {
+        category: {
+          type: GraphQLString
+        }
+      },
+      resolve(_, args) {
+        return Product.find({category: args.category});
       }
     },
     stores: {

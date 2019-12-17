@@ -6,6 +6,7 @@ export const IS_LOGGED_IN = gql`
   }
 `;
 
+
 export const FETCH_USERS = gql`
   query fetchUsers {
     users {
@@ -60,4 +61,16 @@ export const FETCH_STORE = gql`
       }
     }
   }
+
+export const CATEGORY_PRODUCTS = gql`
+query categoryProducts ($category: String!) {
+  categoryProducts(category: $category) {
+    _id
+    name
+    price
+    mass
+    volume
+    image
+  }
+}
 `;
