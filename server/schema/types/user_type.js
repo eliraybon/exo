@@ -22,6 +22,9 @@ const UserType = new GraphQLObjectType({
     email: {
       type: GraphQLString
     },
+    owner: {
+      type: GraphQLBoolean
+    },
     token: {
         type: GraphQLString
       },
