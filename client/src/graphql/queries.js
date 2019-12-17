@@ -61,16 +61,17 @@ export const FETCH_STORE = gql`
       }
     }
   }
+`;
 
 export const CATEGORY_PRODUCTS = gql`
-query categoryProducts ($category: String!) {
-  categoryProducts(category: $category) {
-    _id
-    name
-    price
-    mass
-    volume
-    image
+  query categoryProducts ($category: String!) {
+    categoryProducts(category: $category) {
+      _id
+      name
+      price
+      mass
+      volume
+      image
+    }
   }
-}
-`;
+  `;
