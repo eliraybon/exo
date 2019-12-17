@@ -67,7 +67,7 @@ const ProductSchema = new Schema({
     type: String
   },
   planets: {
-    type: String
+    type: Number
   },
   starDistance: {
     type: Number
@@ -101,7 +101,7 @@ const ProductSchema = new Schema({
   productionTime: {
     type: Number
   },
-  livingVolume: {
+  capacity: {
     type: Number
   },
   cargoVolume: {
@@ -179,7 +179,7 @@ module.exports = mongoose.model("products", ProductSchema);
 // Spaceship
 // Id
 // Name
-// Cost
+// Price
 // Production Time
 // Living space(li)
 // Cargo Space(li)
