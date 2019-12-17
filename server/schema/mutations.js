@@ -5,7 +5,8 @@ const {
   GraphQLID, 
   GraphQLFloat,
   GraphQLInt,
-  GraphQLList 
+  GraphQLList,
+  GraphQLBoolean 
 } = graphql;
 const AuthService = require('../services/auth');
 const ProductService = require('../services/product');
@@ -27,7 +28,8 @@ const mutation = new GraphQLObjectType({
       args: {
           name: { type: GraphQLString },
           email: { type: GraphQLString },
-          password: { type: GraphQLString }
+          password: { type: GraphQLString },
+          owner: { type: GraphQLBoolean }
       },
       resolve(_, args) {
           return AuthService.register(args);
@@ -89,11 +91,9 @@ const mutation = new GraphQLObjectType({
         name: { type: GraphQLString },
         owner: { type: GraphQLID },
         description: { type: GraphQLString },
-        // rating: { type: GraphQLInt }
       },
       resolve(_, { name, owner, description }) {
         return Store.createStore(name, owner, description);
-        // return new Store({name, owner, description, rating}).save();
       }
     },
     newReview: {
