@@ -19,7 +19,6 @@ class ProductIndex extends React.Component {
       e.preventDefault();
       this.props.history.push(`/products/${id}`);
     }
-
   }
 
   render() {
