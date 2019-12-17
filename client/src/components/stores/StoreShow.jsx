@@ -30,7 +30,10 @@ export default class StoreShow extends React.Component {
 
               <div className="store-show-owner">
                 <p className="store-owner-text">Shop Owner</p>
-                <div className="store-owner-div">
+                <div 
+                  className="store-owner-div"
+                  onClick={() => this.props.history.push(`/users/${store.owner._id}`)}
+                >
                   <div className="owner-image-placeholder"></div>
                   <p className="store-owner-name">{store.owner.name}</p>
                 </div>

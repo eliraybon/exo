@@ -1,0 +1,22 @@
+.user-show-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.user-show-left {
+  display: flex;
+}
+
+.user-show-img-placeholder {
+  width: 150px;
+  height: 150px;
+  background: lightgray;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.user-show-name {
+  font-size: 25px;
+  font-weight: 700;
+}
