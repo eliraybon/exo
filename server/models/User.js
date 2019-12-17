@@ -23,6 +23,9 @@ const UserSchema = new Schema({
     type: Boolean,
     default: false
   },
+  image: {
+    type: String
+  },
   stores: [{ type: Schema.Types.ObjectId, ref: "stores"}],
   reviews: [{ type: Schema.Types.ObjectId, ref: "reviews"}],
   favoriteProducts: [{ type: Schema.Types.ObjectId, ref: "products" }],
@@ -87,6 +90,15 @@ UserSchema.statics.deleteFavoriteStore = (userId, storeId) => {
       return Promise.all([user.save(), store.save()])
         .then(([user, store]) => user)
     })
+}
+
+UserSchema.statics.addImage = (userId, image) => {
+  const User = mongoose.model('users');
+
+  return User.findById(userId).then(user => {
+    user.image = image;
+    return user.save();
+  })
 }
 
 

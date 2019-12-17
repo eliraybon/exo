@@ -31,6 +31,9 @@ const UserType = new GraphQLObjectType({
     loggedIn: {
       type: GraphQLBoolean
     },
+    image: {
+      type: GraphQLString
+    },
     reviews: {
       type: new GraphQLList(require('./review_type')),
       resolve(parentValue) {

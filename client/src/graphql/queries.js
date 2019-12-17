@@ -12,6 +12,7 @@ export const FETCH_USERS = gql`
     users {
       _id
       name
+      image
     }
   }
 `;
@@ -22,9 +23,11 @@ export const FETCH_USER = gql`
       _id
       name
       owner
+      image
       favoriteStores {
         _id
         name
+        image
       }
       favoriteProducts {
         _id
@@ -41,6 +44,7 @@ export const FETCH_STORES = gql`
     stores {
       _id
       name
+      image
     }
   }
 `;
@@ -50,6 +54,7 @@ export const FETCH_STORE = gql`
     store(_id: $id) {
       _id
       name
+      image
       owner {
         _id
         name

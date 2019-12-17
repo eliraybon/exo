@@ -11,7 +11,10 @@ export default class CustomerShow extends React.Component {
         <div className="user-show-head">
 
           <div className="user-show-left">
-            <div className="user-show-img-placeholder"></div>
+            <img 
+              src={user.image}
+              className="user-show-img-placeholder"
+            />
             <div className="user-show-info">
               <h1 className="user-show-name">{user.name}</h1>
               <p className="user-show-description">{user.description}</p>

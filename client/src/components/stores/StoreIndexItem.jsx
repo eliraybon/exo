@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 class StoreIndexItem extends React.Component {
   render() {
     const { store } = this.props;
+    
     return (
       <li 
         className="pi-product-detail"
