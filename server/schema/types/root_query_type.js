@@ -101,7 +101,7 @@ const RootQueryType = new GraphQLObjectType({
       resolve(_, args) {
         return Review.findById(args._id)
       }
-    },
+    }
   })
 });
 

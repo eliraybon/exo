@@ -29,4 +29,20 @@ const StoreSchema = new Schema({
   },
 });
 
+StoreSchema.statics.createStore = (name, owner, description) => {
+  const Store = mongoose.model('stores');
+  const User = mongoose.model('users');
+
+  return User.findById(owner).then(user => {
+    return new Store({ name, owner, description }).save()
+      .then(store => {
+        user.stores.push(store);
+        return user.save()
+          .then(user => store)
+      })
+  })
+};
+
+
+
 module.exports = mongoose.model("stores", StoreSchema);
