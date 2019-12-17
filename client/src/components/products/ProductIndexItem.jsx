@@ -13,7 +13,7 @@ class ProductIndexItem extends React.Component {
           className="pi-product-image" 
           style={{ backgroundImage: `url(${product.image})` }}>
         </div>
-
+        <div className="pi-name">{product.name}</div>
         <div className="pi-price">${product.price}</div>
       </li>
     )
