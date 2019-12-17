@@ -65,6 +65,11 @@ export const FETCH_STORE = gql`
         price
         description
         image
+        reviews {
+          _id
+          rating
+          body
+        }
       }
     }
   }
