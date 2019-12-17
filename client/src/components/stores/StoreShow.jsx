@@ -15,7 +15,28 @@ export default class StoreShow extends React.Component {
         const { store } = data;
         return (
           <div className="store-show">
-            <h1>{store.name}</h1>
+
+            <div className="store-show-head">
+
+              <div className="store-show-left">
+                <div className="store-show-img-placeholder"></div>
+                <div className="store-show-info">
+                  <h1 className="store-show-name">{store.name}</h1>
+                  <p className="store-show-description">{store.description}</p>
+                  <p>Rating</p>
+                  <p>Favorite/Unfavorite</p>
+                </div>
+              </div>
+
+              <div className="store-show-owner">
+                <p className="store-owner-text">Shop Owner</p>
+                <div className="store-owner-div">
+                  <div className="owner-image-placeholder"></div>
+                  <p className="store-owner-name">{store.owner.name}</p>
+                </div>
+              </div>
+            </div>
+
             <ProductIndex products={ store.products } />
           </div>
         )

@@ -1,0 +1,54 @@
+.store-show-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.store-show-left {
+  display: flex;
+}
+
+.store-show-name {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.store-show-img-placeholder {
+  width: 150px;
+  height: 150px;
+  background: purple;
+  margin-right: 20px;
+}
+
+.store-show-owner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.owner-image-placeholder {
+  width: 80px;
+  height: 80px;
+  background: lightgray;
+  border-radius: 50%;
+}
+
+.store-owner-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.store-owner-div:hover {
+  text-decoration: underline;
+}
+
+.store-owner-text {
+  color: black;
+  text-transform: uppercase;
+}
+
+.store-owner-name {
+  margin-top: 10px;
+}
