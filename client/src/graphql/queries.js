@@ -124,6 +124,13 @@ query fetchProduct ($_id: ID!) {
     starMetallicity
     planets
     starDistance
+
+    exoDistance
+    elipticLongitude
+    elipticLatitude
+    starSystem
+    planetRad
+    planetDensity
   }
 }
 `;
