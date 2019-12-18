@@ -8,7 +8,7 @@ import { FETCH_USER } from '../../graphql/queries';
 
 export default class UserShow extends React.Component {
   render() {
-      return (<Query query={FETCH_USER} variables={{ id: this.props.match.params.id }}>
+    return (<Query query={FETCH_USER} variables={{ id: this.props.match.params.id }} pollInterval={1}>
         {({ loading, error, data }) => {
           if (loading) return null;
           if (error) return <p>Error</p>;

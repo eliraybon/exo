@@ -59,6 +59,27 @@ class Favorite extends React.Component {
     });
   }
 
+  updateCache(cache, { data }) {
+    let user;
+    try {
+      user = cache.readQuery({
+        query: FETCH_USER,
+        variables: {
+          id: this.props.currentUserId
+        }
+      });
+    } catch (err) {
+      return;
+    }
+
+    if (user) {
+      cache.writeQuery({
+        query: FETCH_USER,
+        data: { user: user }
+      });
+    }
+  }
+
   render() {
     const { favoriteId, currentUserId, isFavorited, type } = this.props;
     if (!isFavorited) {
@@ -116,6 +137,7 @@ class Favorite extends React.Component {
           <Mutation
             mutation={DELETE_FAVORITE_STORE}
             onCompleted={() => this.props.updateFavorite(false)}
+            update={this.updateCache}
           >
             {deleteFavoriteStore => (
               <button
