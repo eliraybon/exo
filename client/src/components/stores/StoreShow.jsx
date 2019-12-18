@@ -40,24 +40,6 @@ export default class StoreShow extends React.Component {
     }
   }
 
-  // updateStore(cache, newStore) {
-  //   let stores;
-  //   try {
-  //     store = cache.readQuery({ query: FETCH_STORE });
-  //   } catch (err) {
-  //     return;
-  //   }
-
-  //   if (stores) {
-  //     let storeArray = stores.stores;
-  //     cache.writeQuery({
-  //       query: FETCH_STORE,
-  //       data: { emblems: emblemArray.concat(newEmblem) }
-  //     });
-  //   }
-  // }
-
-
   render() {
     return (
     <Query 
@@ -89,9 +71,6 @@ export default class StoreShow extends React.Component {
                       if (loading) return null;
                       if (error) return <p>Error</p>
 
-                      // if (this.state.isFavorited === '') {
-                      //   this.setState({ isFavorited: store.favorites.includes(data.currentUser)});
-                      // }
                       return (
                         <Favorite 
                           favoriteId={store._id} 

@@ -120,7 +120,16 @@ query fetchProduct ($_id: ID!) {
     sold
     reviews {
       _id
-      
+      rating
+      body
+      product {
+        _id
+        name
+      }
+      author {
+        _id
+        name
+      }
     }
     favorites {
       _id

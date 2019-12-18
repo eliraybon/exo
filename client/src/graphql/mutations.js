@@ -65,3 +65,13 @@ export const DELETE_FAVORITE_PRODUCT = gql`
     }
   }
 `;
+
+export const NEW_REVIEW = gql`
+  mutation NewReview($rating: INT!, $body: String, $author: ID!, $product: ID!) {
+    newReview(rating: $rating, body: $body, author: $author, product: $product) {
+      _id
+      rating
+      body
+    }
+  }
+`;
