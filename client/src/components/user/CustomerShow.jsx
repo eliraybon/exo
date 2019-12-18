@@ -7,8 +7,21 @@ export default class CustomerShow extends React.Component {
   render() {
     const { user } = this.props;
     return (
-      <div>
-        <h1>{user.name}</h1>
+      <div className="user-show">
+        <div className="user-show-head">
+
+          <div className="user-show-left">
+            <img 
+              src={user.image}
+              className="user-show-img-placeholder"
+            />
+            <div className="user-show-info">
+              <h1 className="user-show-name">{user.name}</h1>
+              <p className="user-show-description">{user.description}</p>
+            </div>
+          </div>
+        </div>
+
         <StoreIndex stores={user.favoriteStores} />
         <ProductIndex products={user.favoriteProducts} />
       </div>

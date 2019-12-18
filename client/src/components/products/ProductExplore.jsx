@@ -23,12 +23,9 @@ class ProductExplore extends React.Component {
                     <div className="pi-section-title">{category[cTitle]}</div>
                       <ProductIndex products={data.categoryProducts} category={category[cTitle]}/>
                     </div>
-                  
                   )
                 }}
               </Query>
-
-            
             )
 
           }

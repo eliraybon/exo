@@ -5,7 +5,6 @@ import OwnerShow from './OwnerShow';
 import CustomerShow from './CustomerShow';
 
 import { FETCH_USER } from '../../graphql/queries';
-// const { FETCH_USER } = require('../../graphql/queries');
 
 export default class UserShow extends React.Component {
   render() {

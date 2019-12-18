@@ -6,12 +6,19 @@ export const IS_LOGGED_IN = gql`
   }
 `;
 
+export const CURRENT_USER = gql`
+  query CurrentUser {
+    currentUser @client
+  }
+`;
+
 
 export const FETCH_USERS = gql`
   query fetchUsers {
     users {
       _id
       name
+      image
     }
   }
 `;
@@ -22,9 +29,11 @@ export const FETCH_USER = gql`
       _id
       name
       owner
+      image
       favoriteStores {
         _id
         name
+        image
       }
       favoriteProducts {
         _id
@@ -41,6 +50,7 @@ export const FETCH_STORES = gql`
     stores {
       _id
       name
+      image
     }
   }
 `;
@@ -50,6 +60,8 @@ export const FETCH_STORE = gql`
     store(_id: $id) {
       _id
       name
+      image
+      favorites
       owner {
         _id
         name
@@ -60,6 +72,11 @@ export const FETCH_STORE = gql`
         price
         description
         image
+        reviews {
+          _id
+          rating
+          body
+        }
       }
     }
   }
@@ -84,9 +101,53 @@ query fetchProduct ($_id: ID!) {
     _id
     name
     price
+    description
     mass
     volume
+    category
+    store {
+      _id
+      name
+      rating
+      owner
+      {
+        _id
+        name
+      }
+    }
     image
+    sold
+    reviews {
+      _id
+      
+    }
+    favorites {
+      _id
+      
+    }
+    productionTime
+    capacity
+    cargoVolume
+    maxAcc
+    maneuverability
+
+    galacticLongitude
+    galacticLatitude
+    spectralType
+    stellarAge
+    luminosity
+    starDensity
+    starRadius
+    starMetallicity
+    planets
+    starDistance
+
+    exoDistance
+    elipticLongitude
+    elipticLatitude
+    starSystem
+    planetRad
+    planetDensity
   }
 }
 `;

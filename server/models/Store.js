@@ -43,6 +43,15 @@ StoreSchema.statics.createStore = (name, owner, description) => {
   })
 };
 
+StoreSchema.statics.addImage = (storeId, image) => {
+  const Store = mongoose.model('stores');
+
+  return Store.findById(storeId).then(store => {
+    store.image = image;
+    return store.save();
+  })
+}
+
 
 
 module.exports = mongoose.model("stores", StoreSchema);
