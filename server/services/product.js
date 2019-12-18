@@ -17,7 +17,7 @@ const getPrice = {
 const getExoplanets = {
   method: "GET",
   url:
-    "https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,ra,dec&order=dec&format=json"
+    "https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,ra,st_dist,st_elon,st_elat,pl_hostname,pl_rade,pl_dens,pl_masse,pl_rade,dec&order=dec&format=json"
 };
 
 
@@ -87,11 +87,18 @@ async function seedExoplanets(storeId) {
     productObj.name = planetName;
     productObj.price = price;
     productObj.description = "An unexplored exoplanet. Buy at your own risk!";
-    productObj.mass = exo.pl_bmassj;
+    productObj.mass = exo.fpl_masse || 10 ;
     productObj.volume = exo.ra;
     productObj.category = "exoplanet";
     productObj.store = storeId;
     productObj.image = images.pop();
+
+    productObj.exoDistance = exo.st_dist;
+    productObj.elipticLongitude = exo.st_elon;
+    productObj.elipticLatitude = exo.st_elat;
+    productObj.starSystem = exo.fpl_hostname;
+    productObj.planetRad = exo.fpl_rade;
+    productObj.planetDensity = exo.fpl_dens;
 
     const product = await new Product(productObj).save();
     store.products.push(product);

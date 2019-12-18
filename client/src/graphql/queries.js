@@ -84,9 +84,53 @@ query fetchProduct ($_id: ID!) {
     _id
     name
     price
+    description
     mass
     volume
+    category
+    store {
+      _id
+      name
+      rating
+      owner
+      {
+        _id
+        name
+      }
+    }
     image
+    sold
+    reviews {
+      _id
+      
+    }
+    favorites {
+      _id
+      
+    }
+    productionTime
+    capacity
+    cargoVolume
+    maxAcc
+    maneuverability
+
+    galacticLongitude
+    galacticLatitude
+    spectralType
+    stellarAge
+    luminosity
+    starDensity
+    starRadius
+    starMetallicity
+    planets
+    starDistance
+
+    exoDistance
+    elipticLongitude
+    elipticLatitude
+    starSystem
+    planetRad
+    planetDensity
   }
 }
 `;
