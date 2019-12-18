@@ -1,7 +1,7 @@
 import React from "react";
 import { withApollo, ApolloConsumer } from "react-apollo";
 import gql from "graphql-tag";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const FEED_SEARCH_QUERY = gql`
   query FeedSearchQuery($filter: String!) {
@@ -20,6 +20,7 @@ class Search extends React.Component {
       filter: "",
       empty: true
     }
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   _executeSearch = async (val, client) => {
@@ -38,18 +39,22 @@ class Search extends React.Component {
     // return data;
   }
 
-  getProducts() {
+  getProducts(client) {
     if (this.state.products.length > 0) {
       return this.state.products.map(product => {
         return (
-          <li className="results" key={product._id}>
+          <Link key={product._id} to={`/products/${product._id}`} onClick={() => this._executeSearch("", client)}><li className="results">
             <p>{product.name}</p>
-          </li>
+          </li></Link>
         )
       })
     } else if (this.state.empty !== true) {
       return <p className="results">No products found</p>
     }
+  }
+
+  handleSearch() {
+    // <SearchIndex products={this.state.products} />
   }
 
   render() {
@@ -58,12 +63,12 @@ class Search extends React.Component {
         {(client) => {
           return <div className="outer-search-div">
             <div className="nav-search-div">
-              <input className="nav-search" type="search" onChange={e => this._executeSearch(e.target.value, client)} placeholder="Search for planets, stars, etc.." />
-              <button className="search-btn"><img className="search-img" src="https://img.icons8.com/ios-filled/50/000000/search.png" alt=""/></button>
+              <input id="search" className="nav-search" type="search" onChange={e => this._executeSearch(e.target.value, client)} placeholder="Search for planets, stars, etc.." />
+              <button className="search-btn" onSubmit={this.handleSearch}><img className="search-img" src="https://img.icons8.com/ios-filled/50/000000/search.png" alt=""/></button>
             </div>
             <div>
               <ul className="results-ul">
-                {this.getProducts()}
+                {this.getProducts(client)}
               </ul>
             </div>
           </div>

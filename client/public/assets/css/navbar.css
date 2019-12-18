@@ -93,6 +93,10 @@
   padding-top: 4px;
 }
 
+.results:hover {
+  background: rgba(232, 216, 249, 0.523);
+}
+
 .nav-search:hover {
   border: 2px solid #005B33;
 }
