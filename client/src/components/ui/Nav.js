@@ -1,6 +1,4 @@
 import React from 'react';
-import { Query } from "react-apollo";
-import { IS_LOGGED_IN } from '../../graphql/queries';
 import { ApolloConsumer } from "react-apollo";
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
@@ -17,15 +15,15 @@ const Nav = props => {
           <Search />
         </div>
         <div className="nav-options">
-          <button className="option"><img className="favorites" src="https://img.icons8.com/pastel-glyph/64/000000/hearts.png"/></button>
+          <button className="option"><img className="favorites" src="https://img.icons8.com/pastel-glyph/64/000000/hearts.png" alt=""/></button>
           <button className="option" onClick={() => {
             if(document.getElementById("drpdwn").classList.contains("dropped")) {
               return document.getElementById("drpdwn").classList.remove("dropped")
             } else {
               document.getElementById("drpdwn").classList.add("dropped")}
             }
-          }><img className="you" src="https://img.icons8.com/ios/50/000000/user-female-circle.png"/></button>
-          <button className="option"><img className="cart" src="https://img.icons8.com/pastel-glyph/64/000000/shopping-cart--v1.png"/></button>
+          }><img className="you" src="https://img.icons8.com/ios/50/000000/user-female-circle.png" alt=""/></button>
+          <button className="option"><img className="cart" src="https://img.icons8.com/pastel-glyph/64/000000/shopping-cart--v1.png" alt=""/></button>
           <div className="dropdown-content" id="drpdwn">
             <p className="user-btn">User Profile</p>
             <ApolloConsumer>

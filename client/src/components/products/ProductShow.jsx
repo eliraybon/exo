@@ -1,6 +1,4 @@
-import React, { Component } from "react";
-import { Mutation } from "react-apollo";
-import { Link } from "react-router-dom";
+import React from "react";
 import { Query } from "react-apollo";
 
 import { 
@@ -69,7 +67,7 @@ class ProductShow extends React.Component {
           if (error) return <p>Error</p>;
           console.log(data.product);
           const { product } = data;
-          debugger;
+
           return (
             <div className="ps-outer">
               <div className="ps-container">
@@ -78,7 +76,31 @@ class ProductShow extends React.Component {
                     <div className="ps-pic-container">
                       <div className="ps-picture" style={{ backgroundImage: `url(${product.image})` }}></div>
                     </div>
-                    <div className="ps-reviews">Reviews</div>
+                    <div className="ps-reviews">Reviews
+                                    <Query
+                        query={CURRENT_USER}
+                      >
+                        {({ loading, error, data }) => {
+
+                          if (loading) return null;
+                          if (error) return <p>Error</p>
+
+                          return (
+                            <CreateReview
+                              productId={product._id}
+                              authorId={data.currentUser}
+                              productQuery={FETCH_PRODUCT}
+                              refetchProduct={refetch}
+                            />
+                          )
+                        }}
+                      </Query>
+
+                      <ReviewIndex reviews={product.reviews} />
+                    
+                    
+                    
+                    </div>
                   </div>
                   <div className="ps-side">
                     <div className="ps-store-mini" onClick={() => this.props.history.push(`/stores/${product.store._id}`)}>{product.store.owner.name} {product.store.rating}</div>
@@ -101,7 +123,7 @@ class ProductShow extends React.Component {
                 <div className="ps-tags">tags on tags</div>
               </div>
 
-              <Query
+              {/* <Query
                 query={CURRENT_USER}
               >
                 {({ loading, error, data }) => {
@@ -120,7 +142,7 @@ class ProductShow extends React.Component {
                 }}
               </Query>
 
-              <ReviewIndex reviews={product.reviews} />
+              <ReviewIndex reviews={product.reviews} /> */}
             </div>
           );
         }}

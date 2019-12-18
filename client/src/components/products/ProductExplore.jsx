@@ -6,7 +6,7 @@ import { CATEGORY_PRODUCTS } from "../../graphql/queries";
 
 class ProductExplore extends React.Component {
   render() {
-    let count = 0
+
     let category = {"exoplanet": "Exoplanets", "star": "Stars", "spaceship": "Spaceships", "spacesuit": "Spacesuits", "food": "Food"}
     return (
       <div className="pi-outer">

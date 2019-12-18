@@ -81,7 +81,7 @@ class Favorite extends React.Component {
   }
 
   render() {
-    const { favoriteId, currentUserId, isFavorited, type } = this.props;
+    const { isFavorited, type } = this.props;
     if (!isFavorited) {
       if (type === 'product') {
         return (

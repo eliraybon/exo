@@ -1,7 +1,6 @@
 import React from 'react';
 import { Mutation } from "react-apollo";
 import { NEW_REVIEW } from '../../graphql/mutations';
-import { FETCH_PRODUCT } from '../../graphql/queries';
 
 class CreateReview extends React.Component {
   constructor(props) {
@@ -16,29 +15,6 @@ class CreateReview extends React.Component {
     return e => this.setState({ [field]: e.target.value });
   }
 
-  // updateCache = (cache, { data }) => {
-  //   debugger;
-  //   let product;
-  //   try {
-  //     product = cache.readQuery({ 
-  //       query: this.props.productQuery,
-  //       variables: {
-  //         id: this.props.productId
-  //       }
-  //     });
-  //   } catch (err) {
-  //     debugger;
-  //     return;
-  //   }
-  //   debugger;
-  //   if (product) {
-  //     product.reviews.push(data.newReview);
-  //     cache.writeQuery({
-  //       query: this.props.productQuery,
-  //       data: { product: product }
-  //     });
-  //   }
-  // }
 
   handleSubmit = (e, newReview) => {
     e.preventDefault();

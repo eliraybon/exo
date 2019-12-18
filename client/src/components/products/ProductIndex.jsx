@@ -4,7 +4,7 @@ import ProductIndexItem from "./ProductIndexItem";
 
 class ProductIndex extends React.Component {
   render() {
-    const { products, category } = this.props;
+    const { products } = this.props;
     if (!products) return null; 
 
     return(
