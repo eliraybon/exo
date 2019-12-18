@@ -9,6 +9,7 @@ import UserShow from './user/UserShow';
 import StoreShow from './stores/StoreShow';
 import ProductExplore from './products/ProductExplore';
 import ProductShow from './products/ProductShow';
+import Splash from './splash/splash';
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
     <div>
       <AuthRoute path="/" component={Nav} routeType="" />
       <Switch>
+        <Route exact path="/splash" component={Splash} />
         <AuthRoute exact path="/login" component={Login} routeType="auth" />
         <AuthRoute exact path="/register" component={Register} routeType="auth" />
         <Route path="/products/:id" component={ProductShow} />
