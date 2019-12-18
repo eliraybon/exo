@@ -34,7 +34,7 @@ export const ADD_FAVORITE_STORE = gql`
   mutation AddFavoriteStore($userId: ID!, $storeId: ID!) {
     addFavoriteStore(userId: $userId, storeId: $storeId) {
       _id
-      name
+      favorites
     }
   }
 `;
@@ -43,7 +43,7 @@ export const ADD_FAVORITE_PRODUCT = gql`
   mutation AddFavoriteProduct($userId: ID!, $productId: ID!) {
     addFavoriteProduct(userId: $userId, productId: $productId) {
       _id
-      name
+      favorites
     }
   }
 `;
@@ -52,7 +52,7 @@ export const DELETE_FAVORITE_STORE = gql`
   mutation DeleteFavoriteStore($userId: ID!, $storeId: ID!) {
     deleteFavoriteStore(userId: $userId, storeId: $storeId) {
       _id
-      name
+      favorites
     }
   }
 `;
@@ -61,7 +61,7 @@ export const DELETE_FAVORITE_PRODUCT = gql`
   mutation DeleteFavoriteProduct($userId: ID!, $productId: ID!) {
     deleteFavoriteProduct(userId: $userId, productId: $productId) {
       _id
-      name
+      favorites
     }
   }
 `;
