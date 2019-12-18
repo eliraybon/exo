@@ -25,7 +25,7 @@ const Nav = props => {
               document.getElementById("drpdwn").classList.add("dropped")}
             }
           }><img className="you" src="https://img.icons8.com/ios/50/000000/user-female-circle.png"/></button>
-          <button className="option"><img className="cart" src="https://img.icons8.com/pastel-glyph/64/000000/shopping-cart--v1.png"/></button>
+          <button onClick={() => props.history.push("/cart")} className="option"><img className="cart" src="https://img.icons8.com/pastel-glyph/64/000000/shopping-cart--v1.png"/></button>
           <div className="dropdown-content" id="drpdwn">
             <p className="user-btn">User Profile</p>
             <ApolloConsumer>

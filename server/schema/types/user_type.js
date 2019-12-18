@@ -57,6 +57,14 @@ const UserType = new GraphQLObjectType({
           .populate('favoriteProducts')
           .then(user => user.favoriteProducts)
       }
+    },
+    cartProducts: {
+      type: new GraphQLList(require('./product_type')),
+      resolve(parentValue) {
+        return User.findById(parentValue._id)
+          .populate("cartProducts")
+          .then(user => user.cartProducts)
+      }
     }
   })
 });

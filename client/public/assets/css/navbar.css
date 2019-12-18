@@ -84,6 +84,7 @@
   background: whitesmoke;
   border-radius: 4px;
   margin-top: 8px;
+  z-index: 100;
 }
 
 .results {

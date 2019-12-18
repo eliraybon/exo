@@ -65,3 +65,21 @@ export const DELETE_FAVORITE_PRODUCT = gql`
     }
   }
 `;
+
+export const ADD_TO_CART = gql`
+  mutation AddToCart($userId: ID!, $productId: ID!) {
+    addToCart(userId: $userId, productId: $productId) {
+      _id
+      name
+    }
+  }
+`;
+
+export const REMOVE_FROM_CART = gql`
+  mutation RemoveFromCart($userId: ID!, $productId: ID!) {
+    removeFromCart(userId: $userId, productId: $productId) {
+      _id
+      name
+    }
+  }
+`;

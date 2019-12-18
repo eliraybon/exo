@@ -45,6 +45,21 @@ export const FETCH_USER = gql`
   }
 `;
 
+export const FETCH_USER_CART = gql`
+  query fetchUserCart($id: ID!) {
+    user(_id: $id) {
+      _id
+      name
+      cartProducts {
+        _id
+        name
+        price
+        image
+      }
+    }
+  }
+`;
+
 export const FETCH_STORES = gql`
   query fetchStores {
     stores {
