@@ -51,7 +51,7 @@ const StoreType = new GraphQLObjectType({
       }
     },
     favorites: {
-      type: new GraphQLList(GraphQLString),
+      type: new GraphQLList(GraphQLID),
       resolve(parentValue) {
         return Store.findById(parentValue._id)
           .then(store => store.favorites)

@@ -9,7 +9,7 @@ import {
 } from '../../graphql/mutations';
 
 import { 
-  FETCH_STORE
+  FETCH_USER
 } from '../../graphql/queries';
 
 class Favorite extends React.Component {
@@ -31,7 +31,6 @@ class Favorite extends React.Component {
 
   handleAddStore = (e, addFavoriteStore) => {
     e.preventDefault();
-    this.props.updateFavorite(true);
     addFavoriteStore({
       variables: {
         userId: this.props.currentUserId,
@@ -52,13 +51,33 @@ class Favorite extends React.Component {
 
   handleDeleteStore = (e, deleteFavoriteStore) => {
     e.preventDefault();
-    this.props.updateFavorite(false);
     deleteFavoriteStore({
       variables: {
         userId: this.props.currentUserId,
         storeId: this.props.favoriteId
       }
     });
+  }
+
+  updateCache(cache, { data }) {
+    let user;
+    try {
+      user = cache.readQuery({
+        query: FETCH_USER,
+        variables: {
+          id: this.props.currentUserId
+        }
+      });
+    } catch (err) {
+      return;
+    }
+
+    if (user) {
+      cache.writeQuery({
+        query: FETCH_USER,
+        data: { user: user }
+      });
+    }
   }
 
   render() {
@@ -83,6 +102,16 @@ class Favorite extends React.Component {
         return (
           <Mutation
             mutation={ADD_FAVORITE_STORE}
+            onCompleted={() => this.props.updateFavorite(true)}
+            update={this.updateCache}
+            refetchQueries={[
+              {
+                query: FETCH_USER,
+                variables: {
+                  id: this.props.currentUserId
+                }
+              }
+            ]}
           >
             {addFavoriteStore => (
               <button
@@ -90,7 +119,7 @@ class Favorite extends React.Component {
                 onClick={e => this.handleAddStore(e, addFavoriteStore)}
               >
                 Add to Favorites
-            </button>
+              </button>
             )}
           </Mutation>
         )
@@ -115,6 +144,16 @@ class Favorite extends React.Component {
         return (
           <Mutation
             mutation={DELETE_FAVORITE_STORE}
+            onCompleted={() => this.props.updateFavorite(false)}
+            update={this.updateCache}
+            refetchQueries={[
+              {
+                query: FETCH_USER,
+                variables: {
+                  id: this.props.currentUserId
+                }
+              }
+            ]}
           >
             {deleteFavoriteStore => (
               <button

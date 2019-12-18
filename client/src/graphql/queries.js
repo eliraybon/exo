@@ -51,6 +51,7 @@ export const FETCH_STORES = gql`
       _id
       name
       image
+      favorites
     }
   }
 `;
