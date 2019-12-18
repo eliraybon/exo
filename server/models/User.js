@@ -30,6 +30,7 @@ const UserSchema = new Schema({
   reviews: [{ type: Schema.Types.ObjectId, ref: "reviews"}],
   favoriteProducts: [{ type: Schema.Types.ObjectId, ref: "products" }],
   favoriteStores: [{ type: Schema.Types.ObjectId, ref: "stores" }],
+  cartProducts: [{ type: Schema.Types.ObjectId, ref: "products" }],
   created: {
     type: Date,
     default: Date.now
@@ -89,6 +90,32 @@ UserSchema.statics.deleteFavoriteStore = (userId, storeId) => {
 
       return Promise.all([user.save(), store.save()])
         .then(([user, store]) => store)
+    })
+}
+
+UserSchema.statics.addToCart = (userId, productId) => {
+  const User = mongoose.model("users");
+  const Product = mongoose.model("products");
+
+  return Promise.all([User.findById(userId), Product.findById(productId)])
+    .then(([user, product]) => {
+      user.cartProducts.push(product);
+
+      return Promise.all([user.save(), product.save()])
+        .then(([user, product]) => product)
+    })
+}
+
+UserSchema.statics.removeFromCart = (userId, productId) => {
+  const User = mongoose.model("users");
+  const Product = mongoose.model("products");
+  
+  return Promise.all([User.findById(userId), Product.findById(productId)])
+    .then(([user, product]) => {
+      user.cartProducts.pull(product);
+
+      return Promise.all([user.save(), product.save()])
+        .then(([user, product]) => product)
     })
 }
 

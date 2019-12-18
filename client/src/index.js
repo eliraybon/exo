@@ -47,11 +47,9 @@ cache.writeData({
   }
 });
 
-
+// debugger;
 if (token) {
-  client
-
-    .mutate({
+  client.mutate({
       mutation: VERIFY_USER,
       variables: {
         token
@@ -62,12 +60,12 @@ if (token) {
     }) => {
       cache.writeData({
         data: {
-          isLoggedIn: data.verifyUser.loggedIn,
+          // isLoggedIn: data.verifyUser.loggedIn,
           currentUser: data.verifyUser._id
         }
       });
     });
-}
+} 
 const Root = () => {
   return (
     <ApolloProvider client={client}>
