@@ -9,7 +9,7 @@ import {
 } from '../../graphql/mutations';
 
 import { 
-  FETCH_STORE
+  FETCH_USER
 } from '../../graphql/queries';
 
 class Favorite extends React.Component {
@@ -81,6 +81,8 @@ class Favorite extends React.Component {
         return (
           <Mutation
             mutation={ADD_FAVORITE_STORE}
+            onCompleted={() => this.props.updateFavorite(true)}
+            update={this.updateCache}
           >
             {addFavoriteStore => (
               <button
@@ -88,7 +90,7 @@ class Favorite extends React.Component {
                 onClick={e => this.handleAddStore(e, addFavoriteStore)}
               >
                 Add to Favorites
-            </button>
+              </button>
             )}
           </Mutation>
         )
@@ -113,6 +115,7 @@ class Favorite extends React.Component {
         return (
           <Mutation
             mutation={DELETE_FAVORITE_STORE}
+            onCompleted={() => this.props.updateFavorite(false)}
           >
             {deleteFavoriteStore => (
               <button
