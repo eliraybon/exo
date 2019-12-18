@@ -13,43 +13,45 @@ class CreateReview extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({ [field]: e.target.currentValue });
+    return e => this.setState({ [field]: e.target.value });
   }
 
-  updateCache(cache, { data }) {
-    let product;
-    try {
-      product = cache.readQuery({ 
-        query: this.props.productQuery,
-        variables: {
-          id: this.props.productId
-        }
-      });
-    } catch (err) {
-      return;
-    }
-
-    if (product) {
-      cache.writeQuery({
-        query: this.props.productQuery,
-        data: { product: product }
-      });
-    }
-  }
+  // updateCache = (cache, { data }) => {
+  //   debugger;
+  //   let product;
+  //   try {
+  //     product = cache.readQuery({ 
+  //       query: this.props.productQuery,
+  //       variables: {
+  //         id: this.props.productId
+  //       }
+  //     });
+  //   } catch (err) {
+  //     debugger;
+  //     return;
+  //   }
+  //   debugger;
+  //   if (product) {
+  //     product.reviews.push(data.newReview);
+  //     cache.writeQuery({
+  //       query: this.props.productQuery,
+  //       data: { product: product }
+  //     });
+  //   }
+  // }
 
   handleSubmit = (e, newReview) => {
     e.preventDefault();
     newReview({
       variables: {
-        rating: this.state.rating,
+        rating: parseInt(this.state.rating),
         body: this.state.body,
         author: this.props.authorId,
         product: this.props.productId
       }
     }).then(data => {
-      this.setState({
-        body: ""
-      });
+      this.props.refetchProduct();
+      this.setState({ body: " "});
     });
   }
 
@@ -59,10 +61,10 @@ class CreateReview extends React.Component {
         mutation={NEW_REVIEW}
         update={this.updateCache}
       >
-        {newReview => {
+        {newReview => (
           <div className="review-form-container">
             <form 
-              class="review-form"
+              className="review-form"
               onSubmit={e => this.handleSubmit(e, newReview)}
             >
               <h2>Leave a Review</h2>
@@ -77,13 +79,13 @@ class CreateReview extends React.Component {
 
               <textarea
                 value={this.state.body}
-                update={this.update("body")}
+                onChange={this.update("body")}
               />
 
               <button>Submit Review</button>
             </form>
           </div>
-        }}
+        )}
       </Mutation>
     )
   }
