@@ -145,7 +145,7 @@ div {
   /* -moz-box-shadow: 10px 10px 20px black;
   -webkit-box-shadow: 10px 10px 20px black;
   box-shadow: 0px 0px 20px black; */
-  position: relative; /* This protects the inner element from being blurred */
+  /* position: relative; */
 	/* padding: 100px; */
 	background-color: #DDD;
   
