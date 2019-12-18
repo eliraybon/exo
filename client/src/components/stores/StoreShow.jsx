@@ -40,6 +40,23 @@ export default class StoreShow extends React.Component {
     }
   }
 
+  // updateStore(cache, newStore) {
+  //   let stores;
+  //   try {
+  //     store = cache.readQuery({ query: FETCH_STORE });
+  //   } catch (err) {
+  //     return;
+  //   }
+
+  //   if (stores) {
+  //     let storeArray = stores.stores;
+  //     cache.writeQuery({
+  //       query: FETCH_STORE,
+  //       data: { emblems: emblemArray.concat(newEmblem) }
+  //     });
+  //   }
+  // }
+
 
   render() {
     return (
@@ -74,7 +91,6 @@ export default class StoreShow extends React.Component {
                           currentUserId={data.currentUser}
                           type="store"
                           isFavorited={this.state.isFavorited}
-                          updateFavorite={this.updateFavorite}
                         />
                       )
                     }}

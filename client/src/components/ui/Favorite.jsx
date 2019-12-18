@@ -31,7 +31,6 @@ class Favorite extends React.Component {
 
   handleAddStore = (e, addFavoriteStore) => {
     e.preventDefault();
-    this.props.updateFavorite(true);
     addFavoriteStore({
       variables: {
         userId: this.props.currentUserId,
@@ -52,7 +51,6 @@ class Favorite extends React.Component {
 
   handleDeleteStore = (e, deleteFavoriteStore) => {
     e.preventDefault();
-    this.props.updateFavorite(false);
     deleteFavoriteStore({
       variables: {
         userId: this.props.currentUserId,
