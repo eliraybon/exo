@@ -104,6 +104,14 @@ class Favorite extends React.Component {
             mutation={ADD_FAVORITE_STORE}
             onCompleted={() => this.props.updateFavorite(true)}
             update={this.updateCache}
+            refetchQueries={[
+              {
+                query: FETCH_USER,
+                variables: {
+                  id: this.props.currentUserId
+                }
+              }
+            ]}
           >
             {addFavoriteStore => (
               <button
@@ -138,6 +146,14 @@ class Favorite extends React.Component {
             mutation={DELETE_FAVORITE_STORE}
             onCompleted={() => this.props.updateFavorite(false)}
             update={this.updateCache}
+            refetchQueries={[
+              {
+                query: FETCH_USER,
+                variables: {
+                  id: this.props.currentUserId
+                }
+              }
+            ]}
           >
             {deleteFavoriteStore => (
               <button
