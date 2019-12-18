@@ -6,12 +6,19 @@ export const IS_LOGGED_IN = gql`
   }
 `;
 
+export const CURRENT_USER = gql`
+  query CurrentUser {
+    currentUser @client
+  }
+`;
+
 
 export const FETCH_USERS = gql`
   query fetchUsers {
     users {
       _id
       name
+      image
     }
   }
 `;
@@ -22,9 +29,11 @@ export const FETCH_USER = gql`
       _id
       name
       owner
+      image
       favoriteStores {
         _id
         name
+        image
       }
       favoriteProducts {
         _id
@@ -41,6 +50,7 @@ export const FETCH_STORES = gql`
     stores {
       _id
       name
+      image
     }
   }
 `;
@@ -50,6 +60,8 @@ export const FETCH_STORE = gql`
     store(_id: $id) {
       _id
       name
+      image
+      favorites
       owner {
         _id
         name
@@ -60,6 +72,11 @@ export const FETCH_STORE = gql`
         price
         description
         image
+        reviews {
+          _id
+          rating
+          body
+        }
       }
     }
   }

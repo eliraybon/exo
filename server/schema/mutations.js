@@ -135,7 +135,7 @@ const mutation = new GraphQLObjectType({
       }
     },
     addFavoriteProduct: {
-      type: UserType,
+      type: ProductType,
       args: {
         userId: { type: GraphQLID },
         productId: { type: GraphQLID }
@@ -145,7 +145,7 @@ const mutation = new GraphQLObjectType({
       }
     },
     deleteFavoriteProduct: {
-      type: UserType,
+      type: ProductType,
       args: {
         userId: { type: GraphQLID },
         productId: { type: GraphQLID }
@@ -155,7 +155,7 @@ const mutation = new GraphQLObjectType({
       }
     },
     addFavoriteStore: {
-      type: UserType,
+      type: StoreType,
       args: {
         userId: { type: GraphQLID },
         storeId: { type: GraphQLID }
@@ -165,7 +165,7 @@ const mutation = new GraphQLObjectType({
       }
     },
     deleteFavoriteStore: {
-      type: UserType,
+      type: StoreType,
       args: {
         userId: { type: GraphQLID },
         storeId: { type: GraphQLID }
@@ -217,6 +217,26 @@ const mutation = new GraphQLObjectType({
       },
       resolve(parentValue, { storeId }) {
         return ProductService.seedFoods(storeId);
+      }
+    },
+    addImageToStore: {
+      type: StoreType,
+      args: {
+        storeId: { type: GraphQLID },
+        image: { type: GraphQLString}
+      },
+      resolve(parentValue, { storeId, image }) {
+        return Store.addImage(storeId, image);
+      }
+    },
+    addImageToUser: {
+      type: UserType,
+      args: {
+        userId: { type: GraphQLID },
+        image: { type: GraphQLString }
+      },
+      resolve(parentValue, { userId, image }) {
+        return User.addImage(userId, image);
       }
     }
   }

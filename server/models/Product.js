@@ -33,7 +33,6 @@ const ProductSchema = new Schema({
   },
   image: { 
     type: String
-    //maybe make required later
   },
   sold: {
     type: Boolean,
