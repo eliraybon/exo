@@ -135,7 +135,7 @@ const mutation = new GraphQLObjectType({
       }
     },
     addFavoriteProduct: {
-      type: UserType,
+      type: ProductType,
       args: {
         userId: { type: GraphQLID },
         productId: { type: GraphQLID }
@@ -145,7 +145,7 @@ const mutation = new GraphQLObjectType({
       }
     },
     deleteFavoriteProduct: {
-      type: UserType,
+      type: ProductType,
       args: {
         userId: { type: GraphQLID },
         productId: { type: GraphQLID }
@@ -155,7 +155,7 @@ const mutation = new GraphQLObjectType({
       }
     },
     addFavoriteStore: {
-      type: UserType,
+      type: StoreType,
       args: {
         userId: { type: GraphQLID },
         storeId: { type: GraphQLID }
@@ -165,7 +165,7 @@ const mutation = new GraphQLObjectType({
       }
     },
     deleteFavoriteStore: {
-      type: UserType,
+      type: StoreType,
       args: {
         userId: { type: GraphQLID },
         storeId: { type: GraphQLID }

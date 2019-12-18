@@ -6,6 +6,12 @@ export const IS_LOGGED_IN = gql`
   }
 `;
 
+export const CURRENT_USER = gql`
+  query CurrentUser {
+    currentUser @client
+  }
+`;
+
 
 export const FETCH_USERS = gql`
   query fetchUsers {
@@ -55,6 +61,7 @@ export const FETCH_STORE = gql`
       _id
       name
       image
+      favorites
       owner {
         _id
         name

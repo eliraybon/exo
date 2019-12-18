@@ -20,7 +20,7 @@ export default class Register extends React.Component {
   updateCache(cache, { data }) {
     console.log(data);
     cache.writeData({
-      data: { isLoggedIn: data.register.loggedIn }
+      data: { isLoggedIn: data.register.loggedIn, currentUser: data.register._id }
     });
   }
 

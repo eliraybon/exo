@@ -1,10 +1,21 @@
 import React from 'react';
 import { Query } from 'react-apollo';
 import ProductIndex from '../products/ProductIndex';
+import Favorite from '../ui/Favorite';
 
-import { FETCH_STORE } from '../../graphql/queries';
+import { FETCH_STORE, CURRENT_USER } from '../../graphql/queries';
+
 
 export default class StoreShow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isFavorited: '' }
+  }
+
+  updateFavorite = (isFavorited) => {
+    this.setState({ isFavorited });
+  }
+
   calculateRating = store => {
     let totalRating = 0; 
     let totalReviews = 0; 
@@ -31,7 +42,6 @@ export default class StoreShow extends React.Component {
 
 
   render() {
-    // const { store } = this.props;
     return (
     <Query query={FETCH_STORE} variables={{ id: this.props.match.params.id }}>
       {({ loading, error, data }) => {
@@ -49,7 +59,26 @@ export default class StoreShow extends React.Component {
                   <h1 className="store-show-name">{store.name}</h1>
                   <p className="store-show-description">{store.description}</p>
                   <p>{this.calculateRating(store)}</p>
-                  <p>Favorite/Unfavorite</p>
+                  <Query query={CURRENT_USER}>
+                    {({ loading, error, data }) => {
+                      
+                      if (loading) return null;
+                      if (error) return <p>Error</p>
+
+                      if (this.state.isFavorited === '') {
+                        this.setState({ isFavorited: store.favorites.includes(data.currentUser)});
+                      }
+                      return (
+                        <Favorite 
+                          favoriteId={store._id} 
+                          currentUserId={data.currentUser}
+                          type="store"
+                          isFavorited={this.state.isFavorited}
+                          updateFavorite={this.updateFavorite}
+                        />
+                      )
+                    }}
+                  </Query>
                 </div>
               </div>
 

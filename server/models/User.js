@@ -46,7 +46,7 @@ UserSchema.statics.addFavoriteProduct = (userId, productId) => {
       product.favorites.push(user);
 
       return Promise.all([user.save(), product.save()])
-        .then(([user, product]) => user)
+        .then(([user, product]) => product)
     })
 }
 
@@ -60,7 +60,7 @@ UserSchema.statics.deleteFavoriteProduct = (userId, productId) => {
       product.favorites.pull(user);
 
       return Promise.all([user.save(), product.save()])
-        .then(([user, product]) => user)
+        .then(([user, product]) => product)
     })
 }
 
@@ -74,7 +74,7 @@ UserSchema.statics.addFavoriteStore = (userId, storeId) => {
       store.favorites.push(user);
 
       return Promise.all([user.save(), store.save()])
-        .then(([user, store]) => user)
+        .then(([user, store]) => store)
     })
 }
 
@@ -88,7 +88,7 @@ UserSchema.statics.deleteFavoriteStore = (userId, storeId) => {
       store.favorites.pull(user);
 
       return Promise.all([user.save(), store.save()])
-        .then(([user, store]) => user)
+        .then(([user, store]) => store)
     })
 }
 
