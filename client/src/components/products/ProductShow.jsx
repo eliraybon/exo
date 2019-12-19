@@ -23,36 +23,69 @@ class ProductShow extends React.Component {
     if (product.category === "spaceship") {
       hash = { "productionTime": ["Production Time", "days"],
       "capacity": ["Capacity", ""],
-      "cargoVolume": ["Cargo Volume", ""],
-      "maxAcc": ["Max Acceleration", ""],
-      "maneuverability": ["Maneuverability", ""] }
-    } else if (product.category === "star") {
-      hash = {
-        "stellarAge": ["Stellar Age", ""],
-        "spectralType": ["Spectral Type", ""],
-        "starDistance": ["Distance", ""],
-        "galacticLatitude": ["Galactic Latitude", ""],
-        "galacticLongitude": ["Galactic Longitude", ""],
-        "planets": ["Planets", ""]
-      }
-    } else if (product.category === "exoplanet") {
+      "cargoVolume": ["Cargo Volume", "li3"],
+      "maxAcc": ["Max Acceleration", "lm/s2"],
+      "maneuverability": ["Maneuverability", "deg"] }
+    }  else if (product.category === "exoplanet") {
       hash = {
         "starSystem": ["Star System", ""],
-        "exoDistance": ["Distance from Star", "eu"],
+        "exoDistance": ["Distance from Star", "eRad"],
         "elipticLongitude": ["Eliptic Longitude", ""],
         "elipticLatitude": ["Eliptic Latitude", ""],
         "planetRad": ["Planet Radius", "eRad"],
         "planetDensity": ["Planet Density", "eDens"]
       }
+    } else if (product.category === "star") {
+      hash = {
+        "stellarAge": ["Stellar Age", "solarYears"],
+        "spectralType": ["Spectral Type", ""],
+        "starDistance": ["Distance", "parsecs"],
+        "galacticLongitude": ["Galactic Longitude", ""],
+        "galacticLatitude": ["Galactic Latitude", ""],
+        "planets": ["Planets in System", ""],
+        "starRadius": ["Star Radius", "sRad"],
+        "starMetallicity": ["Star Metallicity", "Fe/H"]
+      }
+    } else if (product.category === "spacesuit") {
+      hash = {
+        "description": ["Description", ""],
+        "color": ["Color", ""],
+        "o2Vol": ["O2 Volume", "m3"],
+        "vacExposure": ["Vacuum Exposure Time", "minutes"]
+      }
+
+    } else if (product.category === "food") {
+
+      hash = {
+        "cuisine": ["Cuisine", ""],
+        "storageMethod": ["Storage Method", ""],
+        "labGrown": ["LabGrown", ""]
+      }
     }
-
-
-    console.log(product);
+    
+    
     let output = Object.keys(hash).map(key => {
-      return(<div className="ps-product-douple to-flex-col">
-        <div className="ps-douple-key">{hash[key][0]}:</div>
-        <div className="ps-douple-info">{product[key]} {hash[key][1]}</div>
-      </div>)
+      // console.log(product[key]);
+      let catName = hash[key][0];
+      let suffix = hash[key][1];
+      console.log(product["description"]);
+      if (catName === "LabGrown") {
+        let food = (product.labGrown) ? "Yes" : "No";
+        // console.log(food);
+
+        return (
+        <div className="ps-product-douple to-flex-col">
+          <div className="ps-douple-key">{catName}:</div>
+          <div className="ps-douple-info"> {food}</div>
+        </div>)
+      } else {
+        return (
+          <div className="ps-product-douple to-flex-col">
+            <div className="ps-douple-key">{catName}:</div>
+            <div className="ps-douple-info">{product[key]} {suffix}</div>
+          </div>)
+      }
+      
     })
     return output;
     
@@ -60,6 +93,8 @@ class ProductShow extends React.Component {
 
   render() {
     // console.log(this.props.match.params.id);
+    const mSuff = {"exoplanet": "eMass", "star": "sMass", "spaceship": "kT", "spacesuit": "kg", "food": "g"};
+    const vSuff = { "exoplanet": "eVol", "star": "sVol", "spaceship": "m3", "spacesuit": "cm3", "food": "cm3" };
     return (
       <Query query={FETCH_PRODUCT} variables={{ _id: `${this.props.match.params.id}` }}>
         {({ loading, error, data, refetch }) => {
@@ -103,14 +138,14 @@ class ProductShow extends React.Component {
                     </div>
                   </div>
                   <div className="ps-side">
-                    <div className="ps-store-mini" onClick={() => this.props.history.push(`/stores/${product.store._id}`)}>{product.store.owner.name} {product.store.rating}</div>
+                    <div className="ps-store-mini" onClick={() => this.props.history.push(`/stores/${product.store._id}`)}>{data.product.store.owner.name} {data.product.store.rating}</div>
                     <div className="ps-name ps-title">{product.name}</div>
-                    <div className="ps-mass ps-below-title">{product.mass} eMass</div>
-                    <div className="ps-volume ps-below-title">{product.volume}</div>
+                    <div className="ps-mass ps-below-title">{product.mass} {mSuff[product.category]}</div>
+                    <div className="ps-volume ps-below-title">{product.volume} {vSuff[product.category]}</div>
                     <div className="ps-price">${product.price}</div>
                     {/* <div className="ps-options">Options for purchase</div> */}
                     <button className="ps-cart-button">
-                      <div className="ps-button-text">Add to cart</div>
+                      <div className="ps-button-text">Add to cart</div><i className="far fa-hand-point-up"></i>
                       </button>
                     
                     <div className="ps-item-details">{this.itemDetails(product)}</div>
@@ -152,20 +187,3 @@ class ProductShow extends React.Component {
 }
 
 export default ProductShow;
-
-
-// const GodDetail = props => {
-//   return (
-    // <Query query={FETCH_PRODUCT} variables={{ id: props.match.params.id }}>
-    //   {({ loading, error, data }) => {
-    //     if (loading) return <p>Loading...</p>;
-    //     if (error) return <p>Error</p>;
-    //     return (
-    //       <div className="detail">
-    //        product detail goes here
-    //       </div>
-    //     );
-    //   }}
-    // </Query>
-//   );
-// };
