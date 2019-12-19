@@ -40,6 +40,20 @@ export default class StoreShow extends React.Component {
     }
   }
 
+  returnStars = store => {
+    const rating = this.calculateRating(store);
+
+    return (
+      <div className="stars">
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star checked"></span>
+        <span className="fa fa-star"></span>
+        <span className="fa fa-star"></span>
+      </div>
+    )
+  }
+
   render() {
     return (
     <Query 
@@ -61,7 +75,7 @@ export default class StoreShow extends React.Component {
                 <div className="store-show-info">
                   <h1 className="store-show-name">{store.name}</h1>
                   <p className="store-show-description">{store.description}</p>
-                  <p>{this.calculateRating(store)}</p>
+                  {this.returnStars(store)}
                   <Query 
                     query={CURRENT_USER}
                     onCompleted={(data) => this.setState({ isFavorited: store.favorites.includes(data.currentUser) })}
