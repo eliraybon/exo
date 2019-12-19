@@ -27,6 +27,7 @@ class ProductShow extends React.Component {
     this.setState({ isInCart });
   }
 
+
   itemDetails(product) {
     let hash
     if (product.category === "spaceship") {
@@ -125,7 +126,7 @@ class ProductShow extends React.Component {
                 if (error) return <p>Error</p>
 
                 return (
-                  <div className="ps-outer">
+                  <div className="ps-outer" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80)` }}>
                     <div className="ps-container">
                       <div className="ps-product">
                         <div className="ps-big">
@@ -163,9 +164,6 @@ class ProductShow extends React.Component {
                             isInCart={this.state.isInCart}
                             updateCart={this.updateCart}
                           />
-                          <button className="ps-cart-button">
-                            <div className="ps-button-text">Add to cart</div><i className="far fa-hand-point-up"></i>
-                          </button>
 
                           <div className="ps-item-details">{this.itemDetails(product)}</div>
                           <div className="ps-shipping">Shipping info</div>
