@@ -28,7 +28,6 @@ export const FETCH_USER = gql`
     user(_id: $id) {
       _id
       name
-      owner
       image
       favoriteStores {
         _id
@@ -39,6 +38,11 @@ export const FETCH_USER = gql`
         _id
         name
         price 
+        image
+      }
+      store {
+        _id
+        name
         image
       }
     }

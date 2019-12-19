@@ -19,14 +19,13 @@ const UserSchema = new Schema({
     min: 8,
     max: 32
   },
-  owner: { 
-    type: Boolean,
-    default: false
-  },
   image: {
     type: String
   },
-  stores: [{ type: Schema.Types.ObjectId, ref: "stores"}],
+  store: {
+    type: Schema.Types.ObjectId,
+    ref: "stores"
+  },
   reviews: [{ type: Schema.Types.ObjectId, ref: "reviews"}],
   favoriteProducts: [{ type: Schema.Types.ObjectId, ref: "products" }],
   favoriteStores: [{ type: Schema.Types.ObjectId, ref: "stores" }],
