@@ -97,7 +97,7 @@ export default class StoreShow extends React.Component {
               </div>
             </div>
 
-            <ProductIndex products={ store.products } />
+            <ProductIndex products={ store.products } wrap={true}/>
           </div>
         )
       }}

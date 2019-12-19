@@ -15,14 +15,14 @@ div {
   display: flex;
   justify-content: center;
   background-color: #ced2d6;
-  border-top: 3px solid #E8D8F9;
+  /* border-top: 3px solid #E8D8F9; */
 }
 .pi-container {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 90%;
-  background-color: rgba(232, 216, 249, 0.523);
+  background-color: rgba(232, 216, 249, 0.78);
 }
 .pi-section-title {
   margin-left: 10px;
@@ -76,14 +76,14 @@ div {
   display: flex;
   justify-content: center;
   background-color: #ced2d6;
-  border-top: 3px solid #E8D8F9;
+  /* border-top: 3px solid #E8D8F9; */
 }
 .ps-container {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 80%;
-  background-color: rgba(232, 216, 249, 0.523);
+  background-color: rgba(232, 216, 249, 0.78);
   padding-top: 15px;
 }
 .ps-product {
@@ -182,19 +182,36 @@ div {
   font-size: 15px;
 }
 
+.ps-in-cart-button {
+  background-color: rgb(99, 43, 189);
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  flex-direction: row;
+  font-size: 30px;
+  margin-left: 3px;
+    width: 98%;
+   -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  box-shadow: 2px 2px 5px rgb(58, 57, 57);
+
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+  zoom: 1;
+}
+
 .ps-cart-button {
   
   /* background-color: rgb(34, 34, 34); */
-  background-color: rgb(121, 53, 230);
+  /* background-color: rgb(99, 43, 189); */
   /* height: 40px; */
   display: flex;
   justify-content: flex-start;
   /* border-radius: 4px; */
   margin-top: 15px;
   margin-bottom: 25px;
-  display: flex;
   flex-direction: row;
-  
   font-size: 30px;
   /* -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
   -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
@@ -209,49 +226,83 @@ div {
   -moz-animation: 1.5s shadow step-end infinite;
   -ms-animation: 1.5s shadow step-end infinite;
   -o-animation: 1.5s shadow step-end infinite;
-  animation: 1.5s shadow step-end infinite;
+  animation: 1.5s shadow step-end infinite backwards;
 }
 
 .ps-cart-button:hover{
+  
   -webkit-animation-play-state: paused;
   -moz-animation-play-state: paused;
   -ms-animation-play-state: paused;
   -o-animation-play-state: paused;
   animation-play-state: paused;
+  animation: 0s shadow step-end alternate;
+     -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  box-shadow: 2px 2px 5px rgb(58, 57, 57);
+  
   margin-left: 3px;
+    width: 98%;
+    background-color: rgb(99, 43, 189);
+    /* background: rgb(99, 43, 189); */
+
+}
+@keyframes hover {
+  from, to {
+    background-color: rgb(99, 43, 189);
+    margin-left: 3px;
     width: 98%;
    -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
   -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
   box-shadow: 2px 2px 5px rgb(58, 57, 57);
+  }
+  50% {
+    background-color: rgb(121, 53, 230);
+    width: 100%;
+    -moz-box-shadow: 4px 4px 20px rgb(58, 57, 57);
+  -webkit-box-shadow: 4px 4px 20px rgb(58, 57, 57);
+  box-shadow: 4px 4px 5px rgb(58, 57, 57);
+  }
+  
+}
+
+.ps-cart-button:hover .fa-hand-point-up {
+    animation-play-state: paused;
 }
 
 @keyframes shadow {
   from, to {
+    background-color: rgb(121, 53, 230);
     width: 100%;
     -moz-box-shadow: 4px 4px 20px rgb(58, 57, 57);
   -webkit-box-shadow: 4px 4px 20px rgb(58, 57, 57);
   box-shadow: 4px 4px 5px rgb(58, 57, 57);
   }
   50% {
+    background-color: rgb(99, 43, 189);
     margin-left: 3px;
     width: 98%;
    -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
   -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
   box-shadow: 2px 2px 5px rgb(58, 57, 57);
   }
+
+  
 }
 
 @-moz-keyframes shadow {
   from, to {
+    background-color: rgb(121, 53, 230);
     width: 100%;
     -moz-box-shadow: 4px 4px 20px rgb(58, 57, 57);
   -webkit-box-shadow: 4px 4px 20px rgb(58, 57, 57);
   box-shadow: 4px 4px 5px rgb(58, 57, 57);
   }
   50% {
+    background-color: rgb(99, 43, 189);
     margin-left: 3px;
     width: 98%;
-    -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+   -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
   -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
   box-shadow: 2px 2px 5px rgb(58, 57, 57);
   }
@@ -259,15 +310,17 @@ div {
 
 @-webkit-keyframes shadow {
   from, to {
+    background-color: rgb(121, 53, 230);
     width: 100%;
     -moz-box-shadow: 4px 4px 20px rgb(58, 57, 57);
   -webkit-box-shadow: 4px 4px 20px rgb(58, 57, 57);
   box-shadow: 4px 4px 5px rgb(58, 57, 57);
   }
   50% {
+    background-color: rgb(99, 43, 189);
     margin-left: 3px;
     width: 98%;
-    -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+   -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
   -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
   box-shadow: 2px 2px 5px rgb(58, 57, 57);
   }
@@ -275,15 +328,17 @@ div {
 
 @-ms-keyframes shadow {
   from, to {
+    background-color: rgb(121, 53, 230);
     width: 100%;
     -moz-box-shadow: 4px 4px 20px rgb(58, 57, 57);
   -webkit-box-shadow: 4px 4px 20px rgb(58, 57, 57);
   box-shadow: 4px 4px 5px rgb(58, 57, 57);
   }
   50% {
+    background-color: rgb(99, 43, 189);
     margin-left: 3px;
     width: 98%;
-    -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+   -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
   -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
   box-shadow: 2px 2px 5px rgb(58, 57, 57);
   }
@@ -291,15 +346,17 @@ div {
 
 @-o-keyframes shadow {
   from, to {
+    background-color: rgb(121, 53, 230);
     width: 100%;
-    -moz-box-shadow: 4px 4px 7px rgb(58, 57, 57);
-  -webkit-box-shadow: 4px 4px 7px rgb(58, 57, 57);
+    -moz-box-shadow: 4px 4px 20px rgb(58, 57, 57);
+  -webkit-box-shadow: 4px 4px 20px rgb(58, 57, 57);
   box-shadow: 4px 4px 5px rgb(58, 57, 57);
   }
   50% {
+    background-color: rgb(99, 43, 189);
     margin-left: 3px;
     width: 98%;
-    -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+   -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
   -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
   box-shadow: 2px 2px 5px rgb(58, 57, 57);
   }
@@ -309,6 +366,14 @@ div {
   color: #DCD5E7;
   font-size: 26px;
   /* font-family: 'Courier Prime', monospace; */
+  line-height: normal;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.ps-in-cart-text {
+  color: #DCD5E7;
+  font-size: 26px;
   line-height: normal;
   margin-left: 5px;
   cursor: pointer;
@@ -427,4 +492,8 @@ div {
   -ms-animation-play-state: paused;
   -o-animation-play-state: paused;
   animation-play-state: paused;
+}
+
+.to-wrap {
+  flex-wrap: wrap;
 }

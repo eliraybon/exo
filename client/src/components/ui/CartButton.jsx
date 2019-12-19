@@ -81,10 +81,10 @@ export default class CartButton extends React.Component {
         >
           {addToCart => (
             <button
-              className="cart-button"
+              className="ps-cart-button"
               onClick={e => this.handleAddToCart(e, addToCart)}
             >
-              Add to Cart
+              <div className="ps-button-text">Add to cart</div><i className="far fa-hand-point-up"></i>
             </button>
           )}
         </Mutation>
@@ -112,10 +112,10 @@ export default class CartButton extends React.Component {
         >
           {removeFromCart => (
             <button
-              className="cart-button"
+              className="ps-in-cart-button"
               onClick={e => this.handleRemoveFromCart(e, removeFromCart)}
             >
-              Remove from Cart
+              <div className="ps-in-cart-text">Remove from cart</div>
             </button>
           )}
         </Mutation>
