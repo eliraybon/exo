@@ -148,6 +148,14 @@ query fetchProduct ($_id: ID!) {
     starSystem
     planetRad
     planetDensity
+
+    color
+    o2Vol
+    vacExposure
+
+    cuisine
+    storageMethod
+    labGrown
   }
 }
 `;

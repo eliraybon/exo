@@ -183,7 +183,7 @@ div {
 }
 
 .ps-cart-button {
-  width: 100%;
+  
   /* background-color: rgb(34, 34, 34); */
   background-color: rgb(121, 53, 230);
   /* height: 40px; */
@@ -192,8 +192,117 @@ div {
   /* border-radius: 4px; */
   margin-top: 15px;
   margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
   
   font-size: 30px;
+  /* -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  box-shadow: 2px 2px 5px rgb(58, 57, 57); */
+  
+
+	filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+  zoom: 1;
+  
+  -webkit-animation: 1.5s shadow step-end infinite;
+  -moz-animation: 1.5s shadow step-end infinite;
+  -ms-animation: 1.5s shadow step-end infinite;
+  -o-animation: 1.5s shadow step-end infinite;
+  animation: 1.5s shadow step-end infinite;
+}
+
+.ps-cart-button:hover{
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -ms-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
+  margin-left: 3px;
+    width: 98%;
+   -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  box-shadow: 2px 2px 5px rgb(58, 57, 57);
+}
+
+@keyframes shadow {
+  from, to {
+    width: 100%;
+    -moz-box-shadow: 4px 4px 20px rgb(58, 57, 57);
+  -webkit-box-shadow: 4px 4px 20px rgb(58, 57, 57);
+  box-shadow: 4px 4px 5px rgb(58, 57, 57);
+  }
+  50% {
+    margin-left: 3px;
+    width: 98%;
+   -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  box-shadow: 2px 2px 5px rgb(58, 57, 57);
+  }
+}
+
+@-moz-keyframes shadow {
+  from, to {
+    width: 100%;
+    -moz-box-shadow: 4px 4px 20px rgb(58, 57, 57);
+  -webkit-box-shadow: 4px 4px 20px rgb(58, 57, 57);
+  box-shadow: 4px 4px 5px rgb(58, 57, 57);
+  }
+  50% {
+    margin-left: 3px;
+    width: 98%;
+    -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  box-shadow: 2px 2px 5px rgb(58, 57, 57);
+  }
+}
+
+@-webkit-keyframes shadow {
+  from, to {
+    width: 100%;
+    -moz-box-shadow: 4px 4px 20px rgb(58, 57, 57);
+  -webkit-box-shadow: 4px 4px 20px rgb(58, 57, 57);
+  box-shadow: 4px 4px 5px rgb(58, 57, 57);
+  }
+  50% {
+    margin-left: 3px;
+    width: 98%;
+    -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  box-shadow: 2px 2px 5px rgb(58, 57, 57);
+  }
+}
+
+@-ms-keyframes shadow {
+  from, to {
+    width: 100%;
+    -moz-box-shadow: 4px 4px 20px rgb(58, 57, 57);
+  -webkit-box-shadow: 4px 4px 20px rgb(58, 57, 57);
+  box-shadow: 4px 4px 5px rgb(58, 57, 57);
+  }
+  50% {
+    margin-left: 3px;
+    width: 98%;
+    -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  box-shadow: 2px 2px 5px rgb(58, 57, 57);
+  }
+}
+
+@-o-keyframes shadow {
+  from, to {
+    width: 100%;
+    -moz-box-shadow: 4px 4px 7px rgb(58, 57, 57);
+  -webkit-box-shadow: 4px 4px 7px rgb(58, 57, 57);
+  box-shadow: 4px 4px 5px rgb(58, 57, 57);
+  }
+  50% {
+    margin-left: 3px;
+    width: 98%;
+    -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  box-shadow: 2px 2px 5px rgb(58, 57, 57);
+  }
 }
 
 .ps-button-text {
@@ -227,4 +336,95 @@ div {
 
 .ps-reviews {
   margin-top: 10px;
+}
+
+.blinking-cursor {
+  font-weight: 700;
+  font-size: 24px;
+  color: #DCD5E7;
+  /* padding-bottom: 5px; */
+  /* line-height: normal;
+   */
+  margin-left: 4px;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+
+.blinking-cursor:hover {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -ms-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+@keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #DCD5E7;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #DCD5E7;
+  }
+}
+
+@-webkit-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #DCD5E7;
+  }
+}
+
+@-ms-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #DCD5E7;
+  }
+}
+
+@-o-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #DCD5E7;
+  }
+}
+
+.fa-hand-point-up {
+  height: 20px;
+  width: 20px;
+  font-size: 24px;
+  color: #DCD5E7;
+
+  -webkit-animation: 1.5s blink step-end infinite;
+  -moz-animation: 1.5s blink step-end infinite;
+  -ms-animation: 1.5s blink step-end infinite;
+  -o-animation: 1.5s blink step-end infinite;
+  animation: 1.5s blink step-end infinite;
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+.fa-hand-point-up:hover {
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -ms-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
 }
