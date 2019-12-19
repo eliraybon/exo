@@ -30,32 +30,6 @@ export default class CartButton extends React.Component {
     })
   }
 
-  // updateCache = (cache, { data }) => {
-  //   debugger;
-  //   let products;
-  //   try {
-  //     products = cache.readQuery({
-  //       query: FETCH_USER_CART,
-  //       variables: {
-  //         id: this.props.currentUserId
-  //       }
-  //     });
-  //   } catch (err) {
-  //     debugger;
-  //     return;
-  //   }
-
-  //   if (products) {
-  //     debugger;
-  //     let productArray = products.products;
-  //     let newProduct = data.newProduct;
-  //     cache.writeQuery({
-  //       query: FETCH_USER_CART,
-  //       data: { products: productArray.concat(newProduct) }
-  //     });
-  //   }
-  // }
-
   render() {
     const { isInCart } = this.props;
     if (!isInCart) {

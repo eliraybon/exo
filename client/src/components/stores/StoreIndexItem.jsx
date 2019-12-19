@@ -1,10 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import Stars from '../ui/Stars';
 
 class StoreIndexItem extends React.Component {
   render() {
     const { store } = this.props;
-    
+
     return (
       <li 
         className="pi-product-detail"
@@ -15,6 +16,7 @@ class StoreIndexItem extends React.Component {
           style={{ backgroundImage: `url(${store.image})` }}>
         </div>
         <div className="pi-name">{store.name}</div>
+        <Stars store={store} />
       </li>
     )
   }
