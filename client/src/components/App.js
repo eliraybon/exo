@@ -21,7 +21,7 @@ const App = () => {
         <AuthRoute exact path="/register" component={Register} routeType="auth" />
         <Route path="/products/:id" component={ProductShow} />
         <Route path="/products" component={ProductExplore} />
-        <AuthRoute exact path="/users/:id" component={UserShow} routeType="protected" />
+        <AuthRoute path="/users/:id" component={UserShow} routeType="protected" />
         <AuthRoute exact path="/stores/:id" component={StoreShow} routeType="protected" />
         <AuthRoute exact path="/cart" component={Cart} routeType="protected" />
       </Switch>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Query, ApolloConsumer } from "react-apollo";
 
-import { FETCH_USER_CART, CURRENT_USER } from "../../graphql/queries";
+import { FETCH_USER_CART } from "../../graphql/queries";
 import ProductIndexItem from "../products/ProductIndexItem";
 import { VERIFY_USER } from "../../graphql/mutations";
 
