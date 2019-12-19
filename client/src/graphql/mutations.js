@@ -77,6 +77,24 @@ export const NEW_REVIEW = gql`
   }
 `;
 
+export const DELETE_REVIEW = gql`
+  mutation DeleteReview($reviewId: ID!) {
+    deleteReview(reviewId: $reviewId) {
+      _id
+    }
+  }
+`;
+
+export const UPDATE_REVIEW = gql`
+  mutation UpdateReview($id: ID!, $rating: Int, $body: String) {
+    updateReview(id: $id, rating: $rating, body: $body) {
+      _id
+      rating
+      body
+    }
+  }
+`;
+
 export const ADD_TO_CART = gql`
   mutation AddToCart($userId: ID!, $productId: ID!) {
     addToCart(userId: $userId, productId: $productId) {
