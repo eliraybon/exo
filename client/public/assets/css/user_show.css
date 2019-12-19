@@ -52,3 +52,16 @@
 .active-navbar-link:hover {
   color: orange;
 }
+
+.user-store {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.user-store-image {
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Query } from "react-apollo";
-import { Route, NavLink, Redirect } from 'react-router-dom';
+import { Route, NavLink, Redirect, Link } from 'react-router-dom';
 
 import ProductIndex from '../products/ProductIndex';
 import StoreIndex from '../stores/StoreIndex';
@@ -34,14 +34,17 @@ export default class UserShow extends React.Component {
                 </div>
               </div>
 
-              {/* {user.stores && (
+             {user.store && (
                 <div className="user-store">
+                  <Link to={`/stores/${user.store._id}`}>
                   <img
-                    src={user.stores[0].image}
+                    className="user-store-image"
+                    src={user.store.image}
                   />
-                  <p>{user.stores[0].name}</p>
+                    <p className="user-store-name">{user.store.name}</p>
+                  </Link>
                 </div>
-              )} */}
+              )} 
             </div>
 
             <div className="user-navbar">
