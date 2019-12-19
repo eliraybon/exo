@@ -15,12 +15,16 @@ import CartButton from '../ui/CartButton';
 class ProductShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isFavorited: '' };
+    this.state = { isFavorited: '', isInCart: '' };
     this.itemDetails = this.itemDetails.bind(this);
   }
 
   updateFavorite = (isFavorited) => {
     this.setState({ isFavorited });
+  }
+
+  updateCart = (isInCart) => {
+    this.setState({ isInCart });
   }
 
   itemDetails(product) {
@@ -110,13 +114,16 @@ class ProductShow extends React.Component {
           return (
             <Query
               query={CURRENT_USER}
-              onCompleted={(data) => this.setState({ isFavorited: product.favorites.includes(data.currentUser) })}
+              onCompleted={(data) => this.setState({ 
+                isFavorited: product.favorites.includes(data.currentUser), 
+                isInCart: product.inCart.includes(data.currentUser)
+              })}
             >
               {({ loading, error, data }) => {
 
                 if (loading) return null;
                 if (error) return <p>Error</p>
-                debugger;
+
                 return (
                   <div className="ps-outer">
                     <div className="ps-container">
@@ -150,6 +157,12 @@ class ProductShow extends React.Component {
                           <div className="ps-volume ps-below-title">{product.volume} {vSuff[product.category]}</div>
                           <div className="ps-price">${product.price}</div>
                           {/* <div className="ps-options">Options for purchase</div> */}
+                          <CartButton
+                            currentUserId={data.currentUser}
+                            productId={product._id}
+                            isInCart={this.state.isInCart}
+                            updateCart={this.updateCart}
+                          />
                           <button className="ps-cart-button">
                             <div className="ps-button-text">Add to cart</div><i className="far fa-hand-point-up"></i>
                           </button>

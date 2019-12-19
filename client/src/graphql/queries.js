@@ -147,6 +147,7 @@ query fetchProduct ($_id: ID!) {
       }
     }
     favorites 
+    inCart
     productionTime
     capacity
     cargoVolume

@@ -65,6 +65,13 @@ const ProductType = new GraphQLObjectType({
           .then(product => product.favorites)
       }
     },
+    inCart: {
+      type: new GraphQLList(GraphQLID),
+      resolve(parentValue) {
+        return Product.findById(parentValue._id)
+          .then(product => product.inCart)
+      }
+    },
     //Star
     galacticLongitude: {
       type: GraphQLFloat

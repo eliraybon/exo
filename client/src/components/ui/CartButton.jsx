@@ -2,7 +2,7 @@ import React from 'react';
 import { Mutation } from 'react-apollo';
 
 import { ADD_TO_CART, REMOVE_FROM_CART } from '../../graphql/mutations';
-import { FETCH_USER_CART } from '../../graphql/queries';
+import { FETCH_USER_CART, FETCH_PRODUCT } from '../../graphql/queries';
 
 export default class CartButton extends React.Component {
   //props:
@@ -30,24 +30,31 @@ export default class CartButton extends React.Component {
     })
   }
 
-  updateCache(cache, { data }) {
-    let products;
-    try {
-      products = cache.readQuery({ query: FETCH_USER_CART });
-    } catch (err) {
-      return;
-    }
+  // updateCache = (cache, { data }) => {
+  //   debugger;
+  //   let products;
+  //   try {
+  //     products = cache.readQuery({
+  //       query: FETCH_USER_CART,
+  //       variables: {
+  //         id: this.props.currentUserId
+  //       }
+  //     });
+  //   } catch (err) {
+  //     debugger;
+  //     return;
+  //   }
 
-    if (products) {
-      //throw a debugger in here later and figure out what everything is
-      let productArray = products.products;
-      let newProduct = data.newProduct;
-      cache.writeQuery({
-        query: FETCH_USER_CART,
-        data: { products: productArray.concat(newProduct) }
-      });
-    }
-  }
+  //   if (products) {
+  //     debugger;
+  //     let productArray = products.products;
+  //     let newProduct = data.newProduct;
+  //     cache.writeQuery({
+  //       query: FETCH_USER_CART,
+  //       data: { products: productArray.concat(newProduct) }
+  //     });
+  //   }
+  // }
 
   render() {
     const { isInCart } = this.props;
@@ -55,12 +62,27 @@ export default class CartButton extends React.Component {
       return (
         <Mutation
           mutation={ADD_TO_CART}
+          onCompleted={() => this.props.updateCart(true)}
+          update={this.updateCache}
+          refetchQueries={[
+            {
+              query: FETCH_USER_CART,
+              variables: {
+                id: this.props.currentUserId
+              }
+            },
+            {
+              query: FETCH_PRODUCT,
+              variables: {
+                _id: this.props.productId
+              }
+            }
+          ]}
         >
           {addToCart => (
             <button
               className="cart-button"
               onClick={e => this.handleAddToCart(e, addToCart)}
-              update={this.updateCache}
             >
               Add to Cart
             </button>
@@ -71,12 +93,27 @@ export default class CartButton extends React.Component {
       return (
         <Mutation
           mutation={REMOVE_FROM_CART}
+          update={this.updateCache}
+          onCompleted={() => this.props.updateCart(false)}
+          refetchQueries={[
+            {
+              query: FETCH_USER_CART,
+              variables: {
+                id: this.props.currentUserId
+              }
+            },
+            {
+              query: FETCH_PRODUCT,
+              variables: {
+                _id: this.props.productId
+              }
+            }
+          ]}
         >
           {removeFromCart => (
             <button
               className="cart-button"
               onClick={e => this.handleRemoveFromCart(e, removeFromCart)}
-              update={this.updateCache}
             >
               Remove from Cart
             </button>
