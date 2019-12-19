@@ -47,9 +47,6 @@ class Cart extends React.Component {
             </Query>
           )
         }}
-      
-              
-        
       </ApolloConsumer>
     )
   }

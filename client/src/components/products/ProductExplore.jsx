@@ -7,9 +7,10 @@ import { CATEGORY_PRODUCTS } from "../../graphql/queries";
 class ProductExplore extends React.Component {
   render() {
 
+
     let category = {"exoplanet": "Exoplanets", "star": "Stars", "spaceship": "Spaceships", "spacesuit": "Spacesuits", "food": "Food"}
     return (
-      <div className="pi-outer">
+      <div className="pi-outer" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80)` }}>
         <div className="pi-container" >
           {Object.keys(category).map(cTitle => {
             return (
