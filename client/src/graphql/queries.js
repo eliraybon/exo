@@ -33,6 +33,13 @@ export const FETCH_USER = gql`
         _id
         name
         image
+        products {
+          _id
+          reviews {
+            _id
+            rating
+          }
+        }
       }
       favoriteProducts {
         _id
@@ -71,13 +78,6 @@ export const FETCH_STORES = gql`
       name
       image
       favorites
-      products {
-        _id
-        reviews {
-          _id
-          rating
-        }
-      }
     }
   }
 `;
