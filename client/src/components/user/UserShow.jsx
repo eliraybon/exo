@@ -17,7 +17,7 @@ export default class UserShow extends React.Component {
           if (loading) return null;
           if (error) return <p>Error</p>;
           const { user } = data;
-          debugger;
+
         return (
           <div className="user-show">
             <div className="user-show-head">

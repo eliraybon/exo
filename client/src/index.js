@@ -47,7 +47,7 @@ cache.writeData({
   }
 });
 
-// debugger;
+
 if (token) {
   client.mutate({
       mutation: VERIFY_USER,

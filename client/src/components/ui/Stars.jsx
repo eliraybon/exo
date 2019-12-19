@@ -27,13 +27,12 @@ export default class Stars extends React.Component {
 
   returnStars = store => {
     const rating = this.calculateRating(store);
-    debugger;
+
     const one = (rating >= 1) ? "checked" : "";
     const two = (rating >= 2) ? "checked" : "";
     const three = (rating >= 3) ? "checked" : "";
     const four = (rating >= 4) ? "checked" : "";
     const five = (rating >= 5) ? "checked" : "";
-    debugger;
 
     return (
       <div className="stars">

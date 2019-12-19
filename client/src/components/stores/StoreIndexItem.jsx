@@ -5,7 +5,7 @@ import Stars from '../ui/Stars';
 class StoreIndexItem extends React.Component {
   render() {
     const { store } = this.props;
-    
+    debugger;
     return (
       <li 
         className="pi-product-detail"

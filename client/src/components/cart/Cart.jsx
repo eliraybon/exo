@@ -18,7 +18,7 @@ class Cart extends React.Component {
 
       <ApolloConsumer>
         {client => {
-          // debugger
+
           client.mutate({ mutation: VERIFY_USER, variables: { token: localStorage.getItem("auth-token") } })
             .then(({ data: verifyUser }) => {
               
