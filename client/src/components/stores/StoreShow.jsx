@@ -2,6 +2,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import ProductIndex from '../products/ProductIndex';
 import Favorite from '../ui/Favorite';
+import Stars from '../ui/Stars';
 
 import { FETCH_STORE, CURRENT_USER } from '../../graphql/queries';
 
@@ -14,30 +15,6 @@ export default class StoreShow extends React.Component {
 
   updateFavorite = (isFavorited) => {
     this.setState({ isFavorited });
-  }
-
-  calculateRating = store => {
-    let totalRating = 0; 
-    let totalReviews = 0; 
-
-    store.products.forEach(product => {
-      product.reviews.forEach(review => {
-        totalRating += review.rating;
-        totalReviews++;
-      })
-    })
-
-    if (totalReviews) {
-      const rating = totalRating / totalReviews
-      if (rating > 0.5) {
-        return Math.ceil(totalRating / totalReviews);
-      } else {
-        return Math.floor(totalRating / totalReviews);
-      }
-
-    } else {
-      return "No reviews yet!"
-    }
   }
 
   render() {
@@ -61,7 +38,8 @@ export default class StoreShow extends React.Component {
                 <div className="store-show-info">
                   <h1 className="store-show-name">{store.name}</h1>
                   <p className="store-show-description">{store.description}</p>
-                  <p>{this.calculateRating(store)}</p>
+                  {/* {this.returnStars(store)} */}
+                  <Stars store={store} />
                   <Query 
                     query={CURRENT_USER}
                     onCompleted={(data) => this.setState({ isFavorited: store.favorites.includes(data.currentUser) })}

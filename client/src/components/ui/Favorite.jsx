@@ -21,7 +21,6 @@ class Favorite extends React.Component {
 
   handleAddProduct = (e, addFavoriteProduct) => {
     e.preventDefault();
-    debugger;
     addFavoriteProduct({
       variables: {
         userId: this.props.currentUserId,
