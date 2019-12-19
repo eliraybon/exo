@@ -146,10 +146,7 @@ query fetchProduct ($_id: ID!) {
         name
       }
     }
-    favorites {
-      _id
-      
-    }
+    favorites 
     productionTime
     capacity
     cargoVolume

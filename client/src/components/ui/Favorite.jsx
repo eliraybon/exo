@@ -21,6 +21,7 @@ class Favorite extends React.Component {
 
   handleAddProduct = (e, addFavoriteProduct) => {
     e.preventDefault();
+    debugger;
     addFavoriteProduct({
       variables: {
         userId: this.props.currentUserId,
@@ -87,6 +88,16 @@ class Favorite extends React.Component {
         return (
           <Mutation
             mutation={ ADD_FAVORITE_PRODUCT }
+            onCompleted={() => this.props.updateFavorite(true)}
+            update={this.updateCache}
+            refetchQueries={[
+              {
+                query: FETCH_USER,
+                variables: {
+                  id: this.props.currentUserId
+                }
+              }
+            ]}
           >
           {addFavoriteProduct => (
             <button
@@ -129,6 +140,16 @@ class Favorite extends React.Component {
         return (
           <Mutation
             mutation={DELETE_FAVORITE_PRODUCT}
+            onCompleted={() => this.props.updateFavorite(false)}
+            update={this.updateCache}
+            refetchQueries={[
+              {
+                query: FETCH_USER,
+                variables: {
+                  id: this.props.currentUserId
+                }
+              }
+            ]}
           >
             {deleteFavoriteProduct => (
               <button
