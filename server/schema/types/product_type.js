@@ -59,11 +59,17 @@ const ProductType = new GraphQLObjectType({
       }
     },
     favorites: {
-      type: new GraphQLList(require('./user_type')),
+      type: new GraphQLList(GraphQLID),
       resolve(parentValue) {
         return Product.findById(parentValue._id)
-          .populate("favorites")
           .then(product => product.favorites)
+      }
+    },
+    inCart: {
+      type: new GraphQLList(GraphQLID),
+      resolve(parentValue) {
+        return Product.findById(parentValue._id)
+          .then(product => product.inCart)
       }
     },
     //Star

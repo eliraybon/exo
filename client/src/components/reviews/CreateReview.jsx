@@ -7,7 +7,8 @@ class CreateReview extends React.Component {
     super(props);
     this.state = {
       rating: 5,
-      body: ""
+      body: "",
+      message: ""
     };
   }
 
@@ -18,17 +19,22 @@ class CreateReview extends React.Component {
 
   handleSubmit = (e, newReview) => {
     e.preventDefault();
-    newReview({
-      variables: {
-        rating: parseInt(this.state.rating),
-        body: this.state.body,
-        author: this.props.authorId,
-        product: this.props.productId
-      }
-    }).then(data => {
-      this.props.refetchProduct();
-      this.setState({ body: " "});
-    });
+    const body = this.state.body.trim();
+    if (body) {
+      newReview({
+        variables: {
+          rating: parseInt(this.state.rating),
+          body,
+          author: this.props.authorId,
+          product: this.props.productId
+        }
+      }).then(data => {
+        this.props.refetchProduct();
+        this.setState({ body: "", message: "" });
+      });
+    } else {
+      this.setState({ message: "Review cannot be empty"});
+    }
   }
 
   render() {
@@ -44,6 +50,7 @@ class CreateReview extends React.Component {
               onSubmit={e => this.handleSubmit(e, newReview)}
             >
               <h2>Leave a Review</h2>
+              <p>{this.state.message}</p>
 
               <select value={this.state.rating} onChange={this.update("rating")}>
                 <option value="1">1</option>

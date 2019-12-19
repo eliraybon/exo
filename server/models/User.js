@@ -100,6 +100,7 @@ UserSchema.statics.addToCart = (userId, productId) => {
   return Promise.all([User.findById(userId), Product.findById(productId)])
     .then(([user, product]) => {
       user.cartProducts.push(product);
+      product.inCart.push(user);
 
       return Promise.all([user.save(), product.save()])
         .then(([user, product]) => product)
@@ -113,6 +114,7 @@ UserSchema.statics.removeFromCart = (userId, productId) => {
   return Promise.all([User.findById(userId), Product.findById(productId)])
     .then(([user, product]) => {
       user.cartProducts.pull(product);
+      product.inCart.pull(user);
 
       return Promise.all([user.save(), product.save()])
         .then(([user, product]) => product)

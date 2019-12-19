@@ -8,14 +8,23 @@ import {
 
 import CreateReview from '../reviews/CreateReview';
 import ReviewIndex from '../reviews/ReviewIndex';
+import Favorite from '../ui/Favorite';
+import CartButton from '../ui/CartButton';
 
 
 class ProductShow extends React.Component {
   constructor(props) {
     super(props);
-    // this.id = this.props.match.params.id;
+    this.state = { isFavorited: '', isInCart: '' };
     this.itemDetails = this.itemDetails.bind(this);
+  }
 
+  updateFavorite = (isFavorited) => {
+    this.setState({ isFavorited });
+  }
+
+  updateCart = (isInCart) => {
+    this.setState({ isInCart });
   }
 
   itemDetails(product) {
@@ -100,86 +109,78 @@ class ProductShow extends React.Component {
         {({ loading, error, data, refetch }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error</p>;
-          console.log(data.product);
           const { product } = data;
 
           return (
-            <div className="ps-outer">
-              <div className="ps-container">
-                <div className="ps-product">
-                  <div className="ps-big">
-                    <div className="ps-pic-container">
-                      <div className="ps-picture" style={{ backgroundImage: `url(${product.image})` }}></div>
-                    </div>
-                    <div className="ps-reviews">Reviews
-                                    <Query
-                        query={CURRENT_USER}
-                      >
-                        {({ loading, error, data }) => {
+            <Query
+              query={CURRENT_USER}
+              onCompleted={(data) => this.setState({ 
+                isFavorited: product.favorites.includes(data.currentUser), 
+                isInCart: product.inCart.includes(data.currentUser)
+              })}
+            >
+              {({ loading, error, data }) => {
 
-                          if (loading) return null;
-                          if (error) return <p>Error</p>
+                if (loading) return null;
+                if (error) return <p>Error</p>
 
-                          return (
+                return (
+                  <div className="ps-outer">
+                    <div className="ps-container">
+                      <div className="ps-product">
+                        <div className="ps-big">
+                          <div className="ps-pic-container">
+                            <div className="ps-picture" style={{ backgroundImage: `url(${product.image})` }}></div>
+                          </div>
+                          <div className="ps-reviews">Reviews
                             <CreateReview
                               productId={product._id}
                               authorId={data.currentUser}
                               productQuery={FETCH_PRODUCT}
                               refetchProduct={refetch}
                             />
-                          )
-                        }}
-                      </Query>
 
-                      <ReviewIndex reviews={product.reviews} />
-                    
-                    
-                    
+                            <ReviewIndex reviews={product.reviews} />
+                          </div>
+                        </div>
+                        <div className="ps-side">
+                          <div className="ps-store-mini" onClick={() => this.props.history.push(`/stores/${product.store._id}`)}>{product.store.owner.name} {product.store.rating}</div>
+                          <div className="ps-name ps-title">{product.name}</div>
+                          <Favorite
+                            favoriteId={product._id}
+                            currentUserId={data.currentUser}
+                            type="product"
+                            isFavorited={this.state.isFavorited}
+                            updateFavorite={this.updateFavorite}
+                          />
+                          <div className="ps-mass ps-below-title">{product.mass} {mSuff[product.category]}</div>
+                          <div className="ps-volume ps-below-title">{product.volume} {vSuff[product.category]}</div>
+                          <div className="ps-price">${product.price}</div>
+                          {/* <div className="ps-options">Options for purchase</div> */}
+                          <CartButton
+                            currentUserId={data.currentUser}
+                            productId={product._id}
+                            isInCart={this.state.isInCart}
+                            updateCart={this.updateCart}
+                          />
+                          <button className="ps-cart-button">
+                            <div className="ps-button-text">Add to cart</div><i className="far fa-hand-point-up"></i>
+                          </button>
+
+                          <div className="ps-item-details">{this.itemDetails(product)}</div>
+                          <div className="ps-shipping">Shipping info</div>
+                          <div className="ps-store-owner">store owner details</div>
+                        </div>
+                      </div>
+                      <div className="ps-store-band">Products from store</div>
+                      <div className="ps-suggestions">search suggestions</div>
+                      <div className="ps-tags">tags on tags</div>
                     </div>
                   </div>
-                  <div className="ps-side">
-                    <div className="ps-store-mini" onClick={() => this.props.history.push(`/stores/${product.store._id}`)}>{data.product.store.owner.name} {data.product.store.rating}</div>
-                    <div className="ps-name ps-title">{product.name}</div>
-                    <div className="ps-mass ps-below-title">{product.mass} {mSuff[product.category]}</div>
-                    <div className="ps-volume ps-below-title">{product.volume} {vSuff[product.category]}</div>
-                    <div className="ps-price">${product.price}</div>
-                    {/* <div className="ps-options">Options for purchase</div> */}
-                    <button className="ps-cart-button">
-                      <div className="ps-button-text">Add to cart</div><i className="far fa-hand-point-up"></i>
-                      </button>
-                    
-                    <div className="ps-item-details">{this.itemDetails(product)}</div>
-                    <div className="ps-shipping">Shipping infor</div>
-                    <div className="ps-store-owner">store owner details</div>
-                  </div>
-                </div>
-                <div className="ps-store-band">Products from store</div>
-                <div className="ps-suggestions">search suggestions</div>
-                <div className="ps-tags">tags on tags</div>
-              </div>
-
-              {/* <Query
-                query={CURRENT_USER}
-              >
-                {({ loading, error, data }) => {
-
-                  if (loading) return null;
-                  if (error) return <p>Error</p>
-
-                  return (
-                    <CreateReview
-                      productId={product._id}
-                      authorId={data.currentUser}
-                      productQuery={FETCH_PRODUCT}
-                      refetchProduct={refetch}
-                    />
-                  )
-                }}
-              </Query>
-
-              <ReviewIndex reviews={product.reviews} /> */}
-            </div>
-          );
+                );
+              }}
+            </Query>
+          )
         }}
       </Query>
     )
