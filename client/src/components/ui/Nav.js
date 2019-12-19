@@ -35,7 +35,6 @@ class Nav extends React.Component {
                 if (!this.state.currentUser) {
                 client.query({ query: CURRENT_USER })
                   .then(({ data }) => {
-                    debugger
                     this.setState({ currentUser: data.currentUser })
                     // debugger
                   })
