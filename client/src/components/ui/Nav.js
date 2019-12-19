@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import Search from "../search/Search";
 import { VERIFY_USER } from '../../graphql/mutations';
-import { versionInfo } from 'graphql';
-import { verify } from 'crypto';
+import { CURRENT_USER } from "../../graphql/queries";
 
 class Nav extends React.Component {
   constructor(props) {
@@ -17,6 +16,9 @@ class Nav extends React.Component {
   }
 
   render() {
+    // if(!this.props.token) {
+    //   return null;
+    // }
     return (
       <div className="nav-div">
         <header className="nav-header">
@@ -29,13 +31,19 @@ class Nav extends React.Component {
           <div className="nav-options">
             <ApolloConsumer>
               {client => {
-                client.mutate({ mutation: VERIFY_USER, variables: { token: localStorage.getItem("auth-token") } })
-                  .then(({ data: verifyUser }) => {
-                    this.setState({ currentUser: verifyUser.verifyUser._id })
+                // debugger
+                if (!this.state.currentUser) {
+                client.query({ query: CURRENT_USER })
+                  .then(({ data }) => {
+                    debugger
+                    this.setState({ currentUser: data.currentUser })
+                    // debugger
                   })
-                  return(
-                    <button onClick={() => this.props.history.push(`/users/${this.state.currentUser}`)} className="option"><img className="favorites" src="https://img.icons8.com/pastel-glyph/64/000000/hearts.png" alt="" /></button>
-                  )
+                }
+              
+                return(
+                  <button onClick={() => this.props.history.push(`/users/${this.state.currentUser}`)} className="option"><img className="favorites" src="https://img.icons8.com/pastel-glyph/64/000000/hearts.png" alt="" /></button>
+                )
               }}
             </ApolloConsumer>
             <button className="option" onClick={() => {
@@ -49,13 +57,6 @@ class Nav extends React.Component {
             <button onClick={() => this.props.history.push("/cart")} className="option"><img className="cart" src="https://img.icons8.com/pastel-glyph/64/000000/shopping-cart--v1.png" alt=""/></button>
 
             <div className="dropdown-content" id="drpdwn">
-              <ApolloConsumer>
-                {client => {
-                  client.mutate({ mutation: VERIFY_USER, variables: { token: localStorage.getItem("auth-token") } })
-                    .then(({ data: verifyUser }) => {
-                      this.setState({ currentUser: verifyUser.verifyUser._id })
-                    })
-                  return (
                     <p onClick={() =>  {
                       if (document.getElementById("drpdwn").classList.contains("dropped")) {
                         this.props.history.push(`users/${this.state.currentUser}`)
@@ -65,9 +66,6 @@ class Nav extends React.Component {
                         this.props.history.push(`users/${this.state.currentUser}`)
                       }
                     }} className="user-btn">User Profile</p>
-                  )
-                }}
-              </ApolloConsumer>
               <ApolloConsumer>
                 {client => (
                   <div>

@@ -22,6 +22,7 @@ class Login extends Component {
     client.writeData({
       data: { isLoggedIn: data.login.loggedIn, currentUser: data.login._id }
     });
+    // debugger
   }
 
   handleSubmit = (e, loginUser) => {
