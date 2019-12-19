@@ -1,11 +1,22 @@
 import React from 'react';
 import { Query, Mutation } from 'react-apollo';
 
+import UpdateReview from './UpdateReview';
+
 import { CURRENT_USER, FETCH_PRODUCT } from '../../graphql/queries';
 import { DELETE_REVIEW, UPDATE_REVIEW } from '../../graphql/mutations';
 
 
 export default class ReviewIndexItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { updating: false };
+  }
+
+  closeUpdate = () => {
+    this.setState({ updating: false });
+  }
+
   handleDeleteReview = (e, deleteReview) => {
     e.preventDefault();
     deleteReview({
@@ -17,6 +28,14 @@ export default class ReviewIndexItem extends React.Component {
 
   render() {
     const { review } = this.props;
+    if (this.state.updating) {
+      return (
+        <UpdateReview
+          review={review}
+          closeUpdate={this.closeUpdate}
+        />
+      )
+    }
     return (
       <li>
         {review.rating}
@@ -53,6 +72,10 @@ export default class ReviewIndexItem extends React.Component {
                       )
                     })}
                   </Mutation>
+
+                  <button onClick={() => this.setState({ updating: true })}>
+                    update
+                  </button>
                 </div>
               )
             } else {
