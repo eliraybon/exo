@@ -174,6 +174,26 @@ const mutation = new GraphQLObjectType({
         return User.deleteFavoriteStore(userId, storeId);
       }
     },
+    addToCart: {
+      type: ProductType,
+      args: {
+        userId: { type: GraphQLID },
+        productId: { type: GraphQLID }
+      },
+      resolve(parentValue, { userId, productId }) {
+        return User.addToCart(userId, productId);
+      }
+    },
+    removeFromCart: {
+      type: ProductType,
+      args: {
+        userId: { type: GraphQLID },
+        productId: { type: GraphQLID }
+      },
+      resolve(parentValue, { userId, productId }) {
+        return User.removeFromCart(userId, productId);
+      }
+    },
     seedExoplanets: {
       type: GraphQLString,
       args: {
