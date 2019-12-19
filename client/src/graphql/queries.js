@@ -71,6 +71,13 @@ export const FETCH_STORES = gql`
       name
       image
       favorites
+      products {
+        _id
+        reviews {
+          _id
+          rating
+        }
+      }
     }
   }
 `;
