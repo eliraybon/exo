@@ -1,9 +1,10 @@
 import React from 'react';
+import { Route, Redirect, NavLink, withRouter } from 'react-router-dom';
 
 import StoreIndex from '../stores/StoreIndex';
 import ProductIndex from '../products/ProductIndex';
 
-export default class CustomerShow extends React.Component {
+class CustomerShow extends React.Component {
   render() {
     const { user } = this.props;
     return (
@@ -23,9 +24,48 @@ export default class CustomerShow extends React.Component {
           </div>
         </div>
 
-        <StoreIndex stores={user.favoriteStores} />
-        <ProductIndex products={user.favoriteProducts} />
+        <div className="user-navbar">
+          <ul className="user-navbar-links">
+            <li key={1}>
+              <NavLink
+                activeClassName="active-navbar-link"
+                to={`/users/${this.props.match.params.id}/items`}
+              >Favorite Items
+            </NavLink>
+            </li>
+
+            <li key={2}>
+              <NavLink
+                activeClassName="active-navbar-link"
+                to={`/users/${this.props.match.params.id}/stores`}
+              >Favorite Stores
+            </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        <div className="user-show-main">
+          <Route 
+            exact path="/users/:id" 
+            render={() => <Redirect 
+              to={`/users/${this.props.match.params.id}/items`} 
+            />} 
+          />
+          <Route 
+            exact path ="/users/:id/items" 
+            render={() => <ProductIndex products={user.favoriteProducts} 
+            />} 
+          />
+
+          <Route
+            exact path="/users/:id/stores"
+            render={() => <StoreIndex stores={user.favoriteStores}
+            />}
+          />
+        </div>
       </div>
     )
   }
 }
+
+export default withRouter(CustomerShow);
