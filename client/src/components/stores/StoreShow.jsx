@@ -40,14 +40,17 @@ export default class StoreShow extends React.Component {
     }
   }
 
-
   render() {
     return (
-    <Query query={FETCH_STORE} variables={{ id: this.props.match.params.id }}>
+    <Query 
+      query={FETCH_STORE} 
+      variables={{ id: this.props.match.params.id }}
+    >
       {({ loading, error, data }) => {
         if (loading) return null;
         if (error) return <p>Error</p>;
         const { store } = data;
+
         return (
           <div className="store-show">
 
@@ -59,15 +62,15 @@ export default class StoreShow extends React.Component {
                   <h1 className="store-show-name">{store.name}</h1>
                   <p className="store-show-description">{store.description}</p>
                   <p>{this.calculateRating(store)}</p>
-                  <Query query={CURRENT_USER}>
+                  <Query 
+                    query={CURRENT_USER}
+                    onCompleted={(data) => this.setState({ isFavorited: store.favorites.includes(data.currentUser) })}
+                  >
                     {({ loading, error, data }) => {
                       
                       if (loading) return null;
                       if (error) return <p>Error</p>
 
-                      if (this.state.isFavorited === '') {
-                        this.setState({ isFavorited: store.favorites.includes(data.currentUser)});
-                      }
                       return (
                         <Favorite 
                           favoriteId={store._id} 

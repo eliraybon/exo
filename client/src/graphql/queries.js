@@ -45,12 +45,28 @@ export const FETCH_USER = gql`
   }
 `;
 
+export const FETCH_USER_CART = gql`
+  query fetchUserCart($id: ID!) {
+    user(_id: $id) {
+      _id
+      name
+      cartProducts {
+        _id
+        name
+        price
+        image
+      }
+    }
+  }
+`;
+
 export const FETCH_STORES = gql`
   query fetchStores {
     stores {
       _id
       name
       image
+      favorites
     }
   }
 `;
@@ -119,7 +135,16 @@ query fetchProduct ($_id: ID!) {
     sold
     reviews {
       _id
-      
+      rating
+      body
+      product {
+        _id
+        name
+      }
+      author {
+        _id
+        name
+      }
     }
     favorites {
       _id
