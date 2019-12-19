@@ -37,7 +37,7 @@ class Nav extends React.Component {
                     })
                 }
                 return (
-                  <button onClick={() => this.props.history.push(`/users/${this.state.currentUser}`)} className="option"><img className="favorites" src="https://img.icons8.com/pastel-glyph/64/000000/hearts.png" alt="" /></button>
+                  <button onClick={() => this.props.history.push(`/users/${this.state.currentUser}`)} className="option"><div className="favorites"><i className="far fa-heart"></i></div></button>
                 )
               }}
             </ApolloConsumer>
@@ -48,8 +48,8 @@ class Nav extends React.Component {
                 document.getElementById("drpdwn").classList.add("dropped")
               }
             }
-            }><img className="you" src="https://img.icons8.com/ios/50/000000/user-female-circle.png" alt="" /></button>
-            <button onClick={() => this.props.history.push("/cart")} className="option"><img className="cart" src="https://img.icons8.com/pastel-glyph/64/000000/shopping-cart--v1.png" alt="" /></button>
+            }><i className="far fa-user you"></i></button>
+            <button onClick={() => this.props.history.push("/cart")} className="option"><i className="fas fa-dolly cart"></i></button>
             <div className="dropdown-content" id="drpdwn">
               <p onClick={() => {
                 if (document.getElementById("drpdwn").classList.contains("dropped")) {
