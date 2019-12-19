@@ -24,7 +24,7 @@ export default class CustomerShow extends React.Component {
         </div>
 
         <StoreIndex stores={user.favoriteStores} />
-        <ProductIndex products={user.favoriteProducts} />
+        <ProductIndex products={user.favoriteProducts} wrap={true}/>
       </div>
     )
   }
