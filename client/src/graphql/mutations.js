@@ -73,6 +73,9 @@ export const NEW_REVIEW = gql`
       _id
       rating
       body
+    }
+  }
+`;
 
 export const ADD_TO_CART = gql`
   mutation AddToCart($userId: ID!, $productId: ID!) {
@@ -88,7 +91,6 @@ export const REMOVE_FROM_CART = gql`
     removeFromCart(userId: $userId, productId: $productId) {
       _id
       name
-
     }
   }
 `;
