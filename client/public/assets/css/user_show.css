@@ -20,3 +20,35 @@
   font-size: 25px;
   font-weight: 700;
 }
+
+.user-navbar-links {
+  display: flex;
+  justify-content: flex-start;
+  color: black;
+  letter-spacing: 2px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 20px;
+  text-transform: uppercase;
+  text-decoration: italic;
+  font-weight: 500;
+  font-size: 1vw;
+  margin-bottom: 1%;
+}
+
+.user-navbar-links li {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.user-navbar-links a:hover {
+  color: green;
+} 
+
+.active-navbar-link { 
+  color: orange;
+}
+
+.active-navbar-link:hover {
+  color: orange;
+}

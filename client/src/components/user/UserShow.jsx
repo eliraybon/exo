@@ -17,7 +17,7 @@ export default class UserShow extends React.Component {
           if (loading) return null;
           if (error) return <p>Error</p>;
           const { user } = data;
-
+          debugger;
         return (
           <div className="user-show">
             <div className="user-show-head">
@@ -33,6 +33,15 @@ export default class UserShow extends React.Component {
                   <p className="user-show-description">{user.description}</p>
                 </div>
               </div>
+
+              {/* {user.stores && (
+                <div className="user-store">
+                  <img
+                    src={user.stores[0].image}
+                  />
+                  <p>{user.stores[0].name}</p>
+                </div>
+              )} */}
             </div>
 
             <div className="user-navbar">
