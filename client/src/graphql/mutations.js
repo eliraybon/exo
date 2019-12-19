@@ -66,6 +66,14 @@ export const DELETE_FAVORITE_PRODUCT = gql`
   }
 `;
 
+
+export const NEW_REVIEW = gql`
+  mutation NewReview($rating: Int!, $body: String, $author: ID!, $product: ID!) {
+    newReview(rating: $rating, body: $body, author: $author, product: $product) {
+      _id
+      rating
+      body
+
 export const ADD_TO_CART = gql`
   mutation AddToCart($userId: ID!, $productId: ID!) {
     addToCart(userId: $userId, productId: $productId) {
@@ -80,6 +88,7 @@ export const REMOVE_FROM_CART = gql`
     removeFromCart(userId: $userId, productId: $productId) {
       _id
       name
+
     }
   }
 `;
