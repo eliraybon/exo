@@ -52,9 +52,23 @@ const shipImg = [
   "https://i.pinimg.com/originals/d9/19/d0/d919d00eaa0f76bdd431dbb4d603b321.jpg"
 ];
 
+const foodImg = [
+  "https://loveincorporated.blob.core.windows.net/contentimages/gallery/8cdd9f68-620a-47d7-adea-47453e4f5951-1295331a-f0e3-48fc-b5db-0b942438885f-shutterstock_1149407921.jpg",
+  "https://img.travelawaits.com/filter:centercrop/quill/5/a/3/c/b/1/5a3cb12fc1868ed49946dc9f1810f7a67e0d0acc.jpg?w=800&h=800",
+  "https://www.grossmontcenter.com/wp-content/uploads/shutterstock_697347319.jpg",
+  "https://simply-delicious-food.com/wp-content/uploads/2017/10/easy-tomato-cream-rigatoni-3.jpg",
+  "https://simply-delicious-food.com/wp-content/uploads/2017/09/soy-honey-noodle-salad-meal-prep-2.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKtrcEufRTfDjfWeXxDbY2gA30fdkdBiArVJWLSWGBLTRupmUc&s",
+  "https://i.pinimg.com/originals/68/bf/05/68bf058654d25173aafb0de1e7bb7c01.jpg",
+  "https://images.pexels.com/photos/1026654/pexels-photo-1026654.jpeg?cs=srgb&dl=curry-delicious-food-delicious-indian-food-indian-cuisine-1026654.jpg&fm=jpg",
+  "http://cdn.cnn.com/cnnnext/dam/assets/140430115517-06-comfort-foods.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH611LrI8OJKQB0YZqFE5P-de9ddCfeqKvekw8XCLM-eNDuJie&s"
+]
+
 module.exports = {
   planetImg,
   starImg,
   shipImg,
-  suitImg
+  suitImg,
+  foodImg
 }

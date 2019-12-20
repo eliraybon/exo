@@ -39,26 +39,78 @@ div {
 
 }
 
-.pi-section::-webkit-scrollbar-track
+/* .pi-section::-webkit-scrollbar-track
 {
-    border: 1px solid black;
-    background-color: #F5F5F5;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    background-color: transparent;
 }
 
 .pi-section::-webkit-scrollbar
 {
     width: 10px;
-    background-color: #F5F5F5;
+    background-color: transparent;
 }
 
 .pi-section::-webkit-scrollbar-thumb
 {
     background: #905DE5;
 }
+*/
 
 .pi-section::-webkit-scrollbar-thumb:hover
 {
+  
     background-image: linear-gradient(to bottom right, #E8D8F9, #905DE5);
+    border-radius: 6px;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+    /* -moz-box-shadow: 10px 10px 15px rgb(58, 57, 57);
+  -webkit-box-shadow: 10px 10px 15px rgb(58, 57, 57);
+  box-shadow: 5px 5px 15px rgb(58, 57, 57); */
+  -webkit-box-shadow: rgba(0,0,0,0.8) 0px 0 10px;
+ -moz-box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+ box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+ cursor: pointer;
+  
+
+	/* filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+	zoom: 1; */
+} 
+
+
+
+.pi-section::-webkit-scrollbar {
+  /* width: 11px; */
+  cursor: pointer;
+  border-radius: 6px;
+  height: 13px;
+  /* padding: 5px; */
+  /* scrollbar-width: thin; */
+}
+.pi-section {
+  /* scrollbar-width: thin; */
+  scrollbar-color: #90A4AE #DCD5E7;
+}
+.pi-section::-webkit-scrollbar-track {
+  background: transparent;
+  cursor: pointer;
+  border-radius: 6px;
+  /* border: 1px solid gray; */
+  box-shadow: inset 0 0 10px gray;
+}
+.pi-section::-webkit-scrollbar-thumb {
+  background-color: #905DE5;
+  border-radius: 6px;
+  height: 10px;
+  cursor: pointer;
+  /* border: 1px solid white; */
+  /* margin: 2px; */
+  /* border: 3px solid #DCD5E7; */
 }
 
 .pi-product-detail {
@@ -77,6 +129,9 @@ div {
   -moz-box-shadow: 0 0 5px black;
   -webkit-box-shadow: 0 0 5px black;
   box-shadow: 0 0 5px black;
+  /* -webkit-box-shadow: rgba(0,0,0,0.8) 0px 0 10px;
+ -moz-box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+ box-shadow: rgba(0,0,0,0.8) 0 0 10px; */
 }
 .pi-product-image {
   height: 90%;

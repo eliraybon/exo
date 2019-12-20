@@ -33,45 +33,35 @@ class Nav extends React.Component {
                     })
                 }
                 return (
-                  <button onClick={() => this.props.history.push(`/users/${this.state.currentUser}`)} className="option"><div className="favorites"><i className="far fa-heart"></i></div></button>
+                  <button onClick={() => this.props.history.push(`/users/${this.state.currentUser}`)} className="option"><i className="far fa-user you"></i></button>
                 )
               }}
             </ApolloConsumer>
-            <button className="option" onClick={() => {
-              if (document.getElementById("drpdwn").classList.contains("dropped")) {
-                return document.getElementById("drpdwn").classList.remove("dropped")
-              } else {
-                document.getElementById("drpdwn").classList.add("dropped")
-              }
-            }
-            }><i className="far fa-user you"></i></button>
+
             <button onClick={() => this.props.history.push("/cart")} className="option"><i className="fas fa-dolly cart"></i></button>
-            <div className="dropdown-content" id="drpdwn">
-              <p onClick={() => {
-                if (document.getElementById("drpdwn").classList.contains("dropped")) {
-                  this.props.history.push(`users/${this.state.currentUser}`)
-                  return document.getElementById("drpdwn").classList.remove("dropped")
-                } else {
-                  document.getElementById("drpdwn").classList.add("dropped")
-                  this.props.history.push(`users/${this.state.currentUser}`)
-                }
-              }} className="user-btn">User Profile</p>
-              <ApolloConsumer>
-                {client => (
-                  <div>
-                    <button className="logout-btn"
-                      onClick={e => {
-                        e.preventDefault();
-                        localStorage.removeItem("auth-token");
-                        client.writeData({ data: { isLoggedIn: false } });
-                        this.props.history.push("/");
-                      }}>
-                      Log out
+
+
+            <ApolloConsumer>
+              {client => (
+                
+                <button className="option"
+                    onClick={e => {
+                      e.preventDefault();
+                      localStorage.removeItem("auth-token");
+                      client.writeData({ data: { isLoggedIn: false } });
+                      this.props.history.push("/");
+                    }}>
+                    <i className="fas fa-sign-out-alt out"></i>
                     </button>
-                  </div>
-                )}
-              </ApolloConsumer>
-            </div>
+                
+              )}
+            </ApolloConsumer>
+
+
+
+
+
+            
           </div>
         </header>
       </div>

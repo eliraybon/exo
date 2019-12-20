@@ -18,6 +18,7 @@
 
 .cart-outer {
   height: 100%;
+  min-height: 100vh;
   width: 100%;
   justify-content: center;
   background-color: #ced2d6;
@@ -26,18 +27,19 @@
 }
 
 .cart-ribbon {
-
+  margin-top: 25px;
   height: 100%;
+  /* min-height: 100vh; */
   width: 70%;
   background-color: rgba(232, 216, 249, 0.78);
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .cart-text-above {
   justify-content: space-between;
-  padding-top: 20px;
+  /* padding: 20px; */
   padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .keep-shopping:hover {
@@ -77,11 +79,15 @@
 .cart-left-section {
   width: 67%;
   border-right: 1px solid rgb(199, 194, 206);
+  padding-right: 10px;
+  margin-right: 10px;
+  padding-top: 15px;
 }
 
 .cart-right-section {
   width: 43%;
   padding-left: 10px;
+  padding-top: 15px;
 }
 
 .cart-ditty {
@@ -169,6 +175,14 @@
   cursor: pointer;
 }
 
+.shadow {
+   /* -webkit-box-shadow: rgba(0,0,0,0.8) 0px 0 10px;
+ -moz-box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+ box-shadow: rgb(0, 0, 0.8) 0 0 10px; */
+ -moz-box-shadow: 10px 10px 15px rgb(58, 57, 57);
+  -webkit-box-shadow: 10px 10px 15px rgb(58, 57, 57);
+  box-shadow: 5px 5px 15px rgb(58, 57, 57);
+}
 .purchase-div {
   text-align: center;
   margin-top: 200px;
