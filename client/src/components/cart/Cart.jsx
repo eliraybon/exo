@@ -92,7 +92,7 @@ class Cart extends React.Component {
                               <div className="cart-total">total</div>
                             </div>
                             <button className="cart-button ps-cart-button">
-                              <div className="ps-button-text">Purchase</div><i className="far fa-hand-point-up"></i>
+                              <div onClick={() => this.props.history.push("/purchase")} className="ps-button-text">Purchase</div><i className="far fa-hand-point-up"></i>
                             </button>
                         </div>
                       </div>
