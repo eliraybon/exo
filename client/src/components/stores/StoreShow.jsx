@@ -2,6 +2,7 @@ import React from 'react';
 import { Query } from 'react-apollo';
 import ProductIndex from '../products/ProductIndex';
 import Favorite from '../ui/Favorite';
+import Stars from '../ui/Stars';
 
 import { FETCH_STORE, CURRENT_USER } from '../../graphql/queries';
 
@@ -16,38 +17,17 @@ export default class StoreShow extends React.Component {
     this.setState({ isFavorited });
   }
 
-  calculateRating = store => {
-    let totalRating = 0; 
-    let totalReviews = 0; 
-
-    store.products.forEach(product => {
-      product.reviews.forEach(review => {
-        totalRating += review.rating;
-        totalReviews++;
-      })
-    })
-
-    if (totalReviews) {
-      const rating = totalRating / totalReviews
-      if (rating > 0.5) {
-        return Math.ceil(totalRating / totalReviews);
-      } else {
-        return Math.floor(totalRating / totalReviews);
-      }
-
-    } else {
-      return "No reviews yet!"
-    }
-  }
-
-
   render() {
     return (
-    <Query query={FETCH_STORE} variables={{ id: this.props.match.params.id }}>
+    <Query 
+      query={FETCH_STORE} 
+      variables={{ id: this.props.match.params.id }}
+    >
       {({ loading, error, data }) => {
         if (loading) return null;
         if (error) return <p>Error</p>;
         const { store } = data;
+
         return (
           <div className="store-show">
 
@@ -58,16 +38,17 @@ export default class StoreShow extends React.Component {
                 <div className="store-show-info">
                   <h1 className="store-show-name">{store.name}</h1>
                   <p className="store-show-description">{store.description}</p>
-                  <p>{this.calculateRating(store)}</p>
-                  <Query query={CURRENT_USER}>
+                  {/* {this.returnStars(store)} */}
+                  <Stars store={store} />
+                  <Query 
+                    query={CURRENT_USER}
+                    onCompleted={(data) => this.setState({ isFavorited: store.favorites.includes(data.currentUser) })}
+                  >
                     {({ loading, error, data }) => {
                       
                       if (loading) return null;
                       if (error) return <p>Error</p>
 
-                      if (this.state.isFavorited === '') {
-                        this.setState({ isFavorited: store.favorites.includes(data.currentUser)});
-                      }
                       return (
                         <Favorite 
                           favoriteId={store._id} 
@@ -94,7 +75,7 @@ export default class StoreShow extends React.Component {
               </div>
             </div>
 
-            <ProductIndex products={ store.products } />
+            <ProductIndex products={ store.products } wrap={true}/>
           </div>
         )
       }}

@@ -68,7 +68,7 @@ export default class Register extends React.Component {
               >
                 <div 
                   className="placeholder-logo"
-                  onClick={() => this.props.history.push('/')}
+                  onClick={() => this.props.history.push('/products')}
                 >
                     EXO
                 </div>

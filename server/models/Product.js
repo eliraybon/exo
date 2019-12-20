@@ -40,6 +40,7 @@ const ProductSchema = new Schema({
   },
   reviews: [{ type: Schema.Types.ObjectId, ref: "reviews" }],
   favorites: [{ type: Schema.Types.ObjectId, ref: "users" }],
+  inCart: [{ type: Schema.Types.ObjectId, ref: "users" }],
   // Star
   galacticLongitude: {
     type: Number

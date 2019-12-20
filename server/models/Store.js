@@ -36,7 +36,7 @@ StoreSchema.statics.createStore = (name, owner, description) => {
   return User.findById(owner).then(user => {
     return new Store({ name, owner, description }).save()
       .then(store => {
-        user.stores.push(store);
+        user.store = store;
         return user.save()
           .then(user => store)
       })

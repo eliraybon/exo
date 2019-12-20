@@ -22,9 +22,6 @@ const UserType = new GraphQLObjectType({
     email: {
       type: GraphQLString
     },
-    owner: {
-      type: GraphQLBoolean
-    },
     token: {
         type: GraphQLString
       },
@@ -33,6 +30,14 @@ const UserType = new GraphQLObjectType({
     },
     image: {
       type: GraphQLString
+    },
+    store: {
+      type: require('./store_type'),
+      resolve(parentValue) {
+        return User.findById(parentValue._id)
+          .populate('store')
+          .then(user => user.store)
+      }
     },
     reviews: {
       type: new GraphQLList(require('./review_type')),
@@ -56,6 +61,14 @@ const UserType = new GraphQLObjectType({
         return User.findById(parentValue._id)
           .populate('favoriteProducts')
           .then(user => user.favoriteProducts)
+      }
+    },
+    cartProducts: {
+      type: new GraphQLList(require('./product_type')),
+      resolve(parentValue) {
+        return User.findById(parentValue._id)
+          .populate("cartProducts")
+          .then(user => user.cartProducts)
       }
     }
   })

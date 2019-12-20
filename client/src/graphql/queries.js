@@ -28,17 +28,43 @@ export const FETCH_USER = gql`
     user(_id: $id) {
       _id
       name
-      owner
       image
       favoriteStores {
         _id
         name
         image
+        products {
+          _id
+          reviews {
+            _id
+            rating
+          }
+        }
       }
       favoriteProducts {
         _id
         name
         price 
+        image
+      }
+      store {
+        _id
+        name
+        image
+      }
+    }
+  }
+`;
+
+export const FETCH_USER_CART = gql`
+  query fetchUserCart($id: ID!) {
+    user(_id: $id) {
+      _id
+      name
+      cartProducts {
+        _id
+        name
+        price
         image
       }
     }
@@ -51,6 +77,7 @@ export const FETCH_STORES = gql`
       _id
       name
       image
+      favorites
     }
   }
 `;
@@ -119,12 +146,19 @@ query fetchProduct ($_id: ID!) {
     sold
     reviews {
       _id
-      
+      rating
+      body
+      product {
+        _id
+        name
+      }
+      author {
+        _id
+        name
+      }
     }
-    favorites {
-      _id
-      
-    }
+    favorites 
+    inCart
     productionTime
     capacity
     cargoVolume
@@ -148,6 +182,14 @@ query fetchProduct ($_id: ID!) {
     starSystem
     planetRad
     planetDensity
+
+    color
+    o2Vol
+    vacExposure
+
+    cuisine
+    storageMethod
+    labGrown
   }
 }
 `;

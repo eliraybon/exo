@@ -1,0 +1,13 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.fa-star {
+  color: gray;
+}
+
+/* .fa-star .checked {
+  color: orange;
+} */
+
+.checked {
+  color: orange;
+}

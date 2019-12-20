@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, HashRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Login from './auth/Login';
 import Register from './auth/Register';
 import AuthRoute from '../util/route_util';
@@ -10,6 +10,7 @@ import StoreShow from './stores/StoreShow';
 import ProductExplore from './products/ProductExplore';
 import ProductShow from './products/ProductShow';
 import Splash from './splash/splash';
+import Cart from "./cart/Cart";
 
 
 const App = () => {
@@ -22,8 +23,9 @@ const App = () => {
         <AuthRoute exact path="/register" component={Register} routeType="auth" />
         <Route path="/products/:id" component={ProductShow} />
         <Route path="/products" component={ProductExplore} />
-        <AuthRoute exact path="/users/:id" component={UserShow} routeType="protected" />
+        <AuthRoute path="/users/:id" component={UserShow} routeType="protected" />
         <AuthRoute exact path="/stores/:id" component={StoreShow} routeType="protected" />
+        <AuthRoute exact path="/cart" component={Cart} routeType="protected" />
       </Switch>
     </div>
   );
