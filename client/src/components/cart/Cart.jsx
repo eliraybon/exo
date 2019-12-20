@@ -96,7 +96,7 @@ class Cart extends React.Component {
                             <div className="cart-total">{((this.priceTotal(data.user.cartProducts) * 0.9) + (this.priceTotal(data.user.cartProducts) * 0.072)).toFixed(2)}</div>
                             </div>
                             <button className="cart-button ps-cart-button">
-                              <div className="ps-button-text">Purchase</div><i className="far fa-hand-point-up"></i>
+                              <div onClick={() => this.props.history.push("/purchase")} className="ps-button-text">Purchase</div><i className="far fa-hand-point-up"></i>
                             </button>
                         </div>
                       </div>

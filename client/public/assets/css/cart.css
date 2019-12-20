@@ -183,3 +183,8 @@
   -webkit-box-shadow: 10px 10px 15px rgb(58, 57, 57);
   box-shadow: 5px 5px 15px rgb(58, 57, 57);
 }
+.purchase-div {
+  text-align: center;
+  margin-top: 200px;
+  font-size: 24px;
+}

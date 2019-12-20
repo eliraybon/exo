@@ -13,9 +13,7 @@ class Nav extends React.Component {
     }
   }
   render() {
-    // if(!this.props.token) {
-    //   return null;
-    // }
+
     return (
       <div className="nav-div">
         <header className="nav-header">
@@ -28,12 +26,10 @@ class Nav extends React.Component {
           <div className="nav-options">
             <ApolloConsumer>
               {client => {
-                // debugger
                 if (!this.state.currentUser) {
                   client.query({ query: CURRENT_USER })
                     .then(({ data }) => {
                       this.setState({ currentUser: data.currentUser })
-                      // debugger
                     })
                 }
                 return (

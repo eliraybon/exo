@@ -66,12 +66,6 @@ export default class Register extends React.Component {
                 className="auth-form"
                 onSubmit={ e => this.handleSubmit(e, registerUser) }
               >
-                <div 
-                  className="placeholder-logo"
-                  onClick={() => this.props.history.push('/products')}
-                >
-                    EXO
-                </div>
 
                 <input 
                   type="text" 
