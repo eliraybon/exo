@@ -9,10 +9,14 @@ class Cart extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { currentUser: null, loading: true, prices: [] }
+    this.state = { currentUser: null, loading: true }
+    this.priceTotal = this.priceTotal.bind(this);
   }
 
   priceTotal(cart) {
+    const numbers = cart.map((product) => product.price);
+    const sum = numbers.reduce((a, b) => a + b, 0);
+    return sum;
 
   }
 
@@ -36,7 +40,7 @@ class Cart extends React.Component {
                 if (data.user.cartProducts.length < 1) {
                   return (
                     <div className="cart-outer to-flex">
-                      <div className="cart-ribbon to-flex-col col-center">
+                      <div className="cart-ribbon to-flex-col col-center shadow">
                         <div className="cart-big-box cart-box-empty">
                           <div className="cart-empty-above">Your cart is empty</div>
                           <div className="cart-empty-linebreak"></div>
@@ -49,7 +53,7 @@ class Cart extends React.Component {
                 }
                 return (
                   <div className="cart-outer to-flex">
-                    <div className="cart-ribbon to-flex-col">
+                    <div className="cart-ribbon to-flex-col shadow">
                       <div className="cart-text-above to-flex">
                         <div>{data.user.cartProducts.length} items in your cart</div>
                         <div className="keep-shopping" onClick={() => this.props.history.push(`/products/`)}>keep shopping</div>
@@ -67,36 +71,36 @@ class Cart extends React.Component {
                         <div className="cart-right-section to-flex-col">
                             <div className="cart-ditty">Thank you for your patronage! Please proceed to automatically charge your HoloCard account</div>
                             <div className="cart-right-douple">
-                              <div className="cart-item-total">item total</div>
-                            <div className="cart-item-total">{}</div>
+                              <div className="cart-item-total">item total:</div>
+                            <div className="cart-item-total">{this.priceTotal(data.user.cartProducts)}</div>
                             </div>
                             <div className="cart-right-douple">
-                              <div className="cart-discount">discount</div>
-                              <div className="cart-discount">discount</div>
+                              <div className="cart-discount">discount: 10%</div>
+                              <div className="cart-discount">-{(this.priceTotal(data.user.cartProducts) * 0.1).toFixed(2)}</div>
                             </div>
                             
                             <div className="cart-linebreak"></div>
 
                             <div className="cart-right-douple">
-                              <div className="cart-subtotal">subtotal</div>
-                              <div className="cart-subtotal">subtotal</div>
+                              <div className="cart-subtotal">subtotal:</div>
+                              <div className="cart-subtotal">{(this.priceTotal(data.user.cartProducts) * 0.9).toFixed(2)}</div>
                             </div>
 
                             <div className="cart-right-douple">
-                              <div className="cart-shipping">shipping</div>
-                              <div className="cart-shipping">hipping</div>
+                              <div className="cart-shipping">shipping:</div>
+                              <div className="cart-shipping">{(this.priceTotal(data.user.cartProducts) * 0.072).toFixed(2)}</div>
                             </div>
                             <div className="cart-linebreak"></div>
                             <div className="cart-right-douple">
-                              <div className="cart-total">total</div>
-                              <div className="cart-total">total</div>
+                              <div className="cart-total">total:</div>
+                            <div className="cart-total">{((this.priceTotal(data.user.cartProducts) * 0.9) + (this.priceTotal(data.user.cartProducts) * 0.072)).toFixed(2)}</div>
                             </div>
                             <button className="cart-button ps-cart-button">
                               <div className="ps-button-text">Purchase</div><i className="far fa-hand-point-up"></i>
                             </button>
                         </div>
                       </div>
-                      <div>text below</div>
+                     
                     </div>
                   </div>
                 )
