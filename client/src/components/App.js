@@ -10,6 +10,7 @@ import StoreShow from './stores/StoreShow';
 import ProductExplore from './products/ProductExplore';
 import ProductShow from './products/ProductShow';
 import Cart from "./cart/Cart";
+import Purchase from "./cart/Purchase";
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <AuthRoute path="/users/:id" component={UserShow} routeType="protected" />
         <AuthRoute exact path="/stores/:id" component={StoreShow} routeType="protected" />
         <AuthRoute exact path="/cart" component={Cart} routeType="protected" />
+        <AuthRoute exact path="/purchase" component={Purchase} routeType="protected" />
       </Switch>
     </div>
   );
