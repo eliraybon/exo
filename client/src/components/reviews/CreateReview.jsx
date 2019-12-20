@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mutation } from "react-apollo";
 import { NEW_REVIEW } from '../../graphql/mutations';
+import ReviewStars from './ReviewStars';
 
 class CreateReview extends React.Component {
   constructor(props) {
@@ -16,6 +17,9 @@ class CreateReview extends React.Component {
     return e => this.setState({ [field]: e.target.value });
   }
 
+  updateRating = rating => {
+    this.setState({ rating: rating });
+  }
 
   handleSubmit = (e, newReview) => {
     e.preventDefault();
@@ -52,13 +56,18 @@ class CreateReview extends React.Component {
               <h2>Leave a Review</h2>
               <p>{this.state.message}</p>
 
-              <select value={this.state.rating} onChange={this.update("rating")}>
+              <ReviewStars
+                selectedStar={this.state.rating}
+                updateRating={this.updateRating}
+              />
+
+              {/* <select value={this.state.rating} onChange={this.update("rating")}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-              </select>
+              </select> */}
 
               <textarea
                 value={this.state.body}

@@ -52,7 +52,7 @@ async function populateCache() {
     }
   });
 
-  // debugger;
+
   if (token) {
     await client.mutate({
       mutation: VERIFY_USER,
