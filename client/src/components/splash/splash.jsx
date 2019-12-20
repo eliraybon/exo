@@ -6,15 +6,15 @@ export default class Splash extends React.Component {
   render() {
     return (
       <div className="splash-page">
-        <Particles 
+        <Particles
           params={
             {
               "particles": {
                 "number": {
-                  "value": 150,
+                  "value": 200,
                   "density": {
                     "enable": true,
-                    "value_area": 1803.4120608655228
+                    "value_area": 800
                   }
                 },
                 "color": {
@@ -23,11 +23,11 @@ export default class Splash extends React.Component {
                 "shape": {
                   "type": "circle",
                   "stroke": {
-                    "width": 2,
+                    "width": 0,
                     "color": "#000000"
                   },
                   "polygon": {
-                    "nb_sides": 4
+                    "nb_sides": 5
                   },
                   "image": {
                     "src": "img/github.svg",
@@ -36,7 +36,7 @@ export default class Splash extends React.Component {
                   }
                 },
                 "opacity": {
-                  "value": 0.4008530152163807,
+                  "value": 0.5,
                   "random": false,
                   "anim": {
                     "enable": false,
@@ -46,7 +46,7 @@ export default class Splash extends React.Component {
                   }
                 },
                 "size": {
-                  "value": 1.5,
+                  "value": 3,
                   "random": true,
                   "anim": {
                     "enable": false,
@@ -57,10 +57,10 @@ export default class Splash extends React.Component {
                 },
                 "line_linked": {
                   "enable": true,
-                  "distance": 0,
-                  "color": "#ffffff",
-                  "opacity": 0.3687847739990702,
-                  "width": 0.6413648243462091
+                  "distance": 80,
+                  "color": "#dc17c4",
+                  "opacity": 0.4,
+                  "width": 2.4
                 },
                 "move": {
                   "enable": true,
@@ -76,10 +76,10 @@ export default class Splash extends React.Component {
                     "rotateY": 1200
                   }
                 }
-              }
+              },
+              "retina_detect": true
             }
-          }
-        />
+          } />
       </div>
     )
   }
