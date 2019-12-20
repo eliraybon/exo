@@ -22,16 +22,22 @@ class Nav extends React.Component {
     if (pathname === "/splash" || pathname === "/") {
       return (
         <div className="nav-div">
-          <header className="nav-header">
+          <header className="nav-header nav-splash">
             <div className="nav-logo">
               <h2 className="exo">Exo</h2>
             </div>
-            <div>
-              <div>
+            <div className="auth-link-buttons">
+              <div 
+                className="splash-login-button"
+                onClick={() => this.props.history.push('/login')}
+              >
                 Login
-            </div>
+              </div>
 
-              <div>
+              <div 
+                className="splash-signup-button"
+                onClick={() => this.props.history.push('/register')}
+              >
                 Sign Up
               </div>
             </div>

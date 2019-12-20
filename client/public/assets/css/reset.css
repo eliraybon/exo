@@ -20,7 +20,7 @@ span, article, footer, time, small {
 
 
 html {
-  background-image: linear-gradient(to bottom right, #E8D8F9, #905DE5);
+  background-image: linear-gradient(to bottom right, #E8D8F9, rgb(197, 177, 230));
 }
 
 ul {

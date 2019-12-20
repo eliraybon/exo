@@ -80,6 +80,10 @@ export default class Splash extends React.Component {
               "retina_detect": true
             }
           } />
+
+        <p className="splash-modal">
+          One stop shop for the intergalactic traveller
+        </p>
       </div>
     )
   }

@@ -1,0 +1,44 @@
+@import "https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap";
+@import url('https://fonts.googleapis.com/css?family=Courier+Prime|Girassol|Roboto+Mono&display=swap');
+
+.splash-modal {
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  left: 50%;
+  margin-left: -250px;
+  top: 38%;
+  background: lightgray;
+  color: #905DE5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  /* font-family: 'Press Start 2P', cursive; */
+  -moz-box-shadow: 0 0 5px black;
+  -webkit-box-shadow: 5px 5px 5px black;
+  box-shadow: 0 0 5px black;
+}
+
+.splash-text {
+  margin: 0 auto;
+}
+
+.splash-login-button {
+  margin-right: 10px;
+}
+
+.auth-link-buttons {
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+}
+
+.nav-splash {
+  justify-content: space-between;
+}
