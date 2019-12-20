@@ -61,9 +61,9 @@ class Cart extends React.Component {
                       <div className="cart-big-box to-flex">
                         <div className="cart-left-section to-flex-col">
                           <ul>
-                            {data.user.cartProducts.map(product => {
+                            {data.user.cartProducts.map((product, i) => {
                               return (
-                                <ProductIndexItem key={product._id} product={product} cart={true} userId={this.state.currentUser}/>
+                                <ProductIndexItem key={i} product={product} cart={true} userId={this.state.currentUser}/>
                               )
                             })}
                           </ul>

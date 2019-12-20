@@ -82,7 +82,7 @@ export default class Splash extends React.Component {
             }
           } />
 
-          <SplashBox />
+        <SplashBox />
 
 
 
