@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Courier+Prime|Girassol|Roboto+Mono&display=swap');
+
 .auth-form { 
   width: 450px;
   margin: 20px auto;
@@ -19,10 +21,12 @@
 .auth-input {
   width: 100%;
   height: 48px;
-  border: 1px solid lightgray;
+  border: 1px solid gray;
   border-radius: 2px; 
   padding: 15px;
   margin: 15px auto;
+  background: white;
+  text-align: left;
 }
 
 .auth-input:hover {
@@ -75,6 +79,15 @@
 
 .auth-error-outline:hover {
   border: 1px solid red;
+}
+
+.auth-logo {
+  font-family: 'Courier Prime', monospace;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Comic Sans';
+
 }
 
 @media screen and (max-width: 500px) {
