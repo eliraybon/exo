@@ -1,5 +1,6 @@
 import React from 'react';
 import Particles from 'react-particles-js';
+import SplashBox from './SplashBox';
 
 
 export default class Splash extends React.Component {
@@ -11,10 +12,10 @@ export default class Splash extends React.Component {
             {
               "particles": {
                 "number": {
-                  "value": 200,
+                  "value": 75,
                   "density": {
                     "enable": true,
-                    "value_area": 800
+                    "value_area": 1000
                   }
                 },
                 "color": {
@@ -23,7 +24,7 @@ export default class Splash extends React.Component {
                 "shape": {
                   "type": "circle",
                   "stroke": {
-                    "width": 0,
+                    "width": 5,
                     "color": "#000000"
                   },
                   "polygon": {
@@ -57,8 +58,8 @@ export default class Splash extends React.Component {
                 },
                 "line_linked": {
                   "enable": true,
-                  "distance": 80,
-                  "color": "#dc17c4",
+                  "distance": 200,
+                  "color": "#898989",
                   "opacity": 0.4,
                   "width": 2.4
                 },
@@ -81,9 +82,13 @@ export default class Splash extends React.Component {
             }
           } />
 
-        <p className="splash-modal">
+          <SplashBox />
+
+
+
+        {/* <p className="splash-box">
           One stop shop for the intergalactic traveller
-        </p>
+        </p> */}
       </div>
     )
   }

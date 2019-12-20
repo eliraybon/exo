@@ -1,19 +1,25 @@
 @import "https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap";
 @import url('https://fonts.googleapis.com/css?family=Courier+Prime|Girassol|Roboto+Mono&display=swap');
 
-.splash-modal {
+.splash-page {
+  width: 100%;
+  height: 100%;
+}
+
+.splash-box {
   position: absolute;
   width: 500px;
-  height: 300px;
+  height: 500px;
   left: 50%;
   margin-left: -250px;
-  top: 38%;
-  background: lightgray;
-  color: #905DE5;
+  top: 20%;
+  background: rgba(211, 211, 211, 0.4);
+  color: rgb(145, 93, 229);
+  /* opacity: .8; */
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   font-size: 30px;
   font-family: 'Roboto Mono', monospace;
@@ -24,21 +30,7 @@
   box-shadow: 0 0 5px black;
 }
 
-.splash-text {
-  margin: 0 auto;
-}
-
-.splash-login-button {
-  margin-right: 10px;
-}
-
-.auth-link-buttons {
+.splash-navbar-links {
   display: flex;
-  align-items: center;
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 700;
 }
 
-.nav-splash {
-  justify-content: space-between;
-}

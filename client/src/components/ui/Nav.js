@@ -13,39 +13,6 @@ class Nav extends React.Component {
     }
   }
   render() {
-    debugger;
-    const { pathname } = this.props.location;
-    if (pathname === "/login" || pathname === "/register") {
-      return null;
-    }
-
-    if (pathname === "/splash" || pathname === "/") {
-      return (
-        <div className="nav-div">
-          <header className="nav-header nav-splash">
-            <div className="nav-logo">
-              <h2 className="exo">Exo</h2>
-            </div>
-            <div className="auth-link-buttons">
-              <div 
-                className="splash-login-button"
-                onClick={() => this.props.history.push('/login')}
-              >
-                Login
-              </div>
-
-              <div 
-                className="splash-signup-button"
-                onClick={() => this.props.history.push('/register')}
-              >
-                Sign Up
-              </div>
-            </div>
-
-          </header>
-        </div>
-      );
-    }
 
     return (
       <div className="nav-div">
@@ -59,12 +26,10 @@ class Nav extends React.Component {
           <div className="nav-options">
             <ApolloConsumer>
               {client => {
-                // debugger
                 if (!this.state.currentUser) {
                   client.query({ query: CURRENT_USER })
                     .then(({ data }) => {
                       this.setState({ currentUser: data.currentUser })
-                      // debugger
                     })
                 }
                 return (
