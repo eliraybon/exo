@@ -80,11 +80,13 @@ div {
 }
 .pi-product-image {
   height: 90%;
+  
   width: 200px;
   border-radius: 4px;
   /* border: 1px solid blue; */
   background-size: cover;
   background-color: transparent;
+  cursor: pointer;
 }
 .pi-price, .pi-name {
   height: 10%;
