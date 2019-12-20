@@ -16,7 +16,7 @@ import Cart from "./cart/Cart";
 const App = () => {
   return (
     <div>
-      <AuthRoute path="/" component={Nav} routeType="" />
+      <Route path="/" component={Nav} />
       <Switch>
         <Route exact path="/splash" component={Splash} />
         <AuthRoute exact path="/login" component={Login} routeType="auth" />

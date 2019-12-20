@@ -13,9 +13,34 @@ class Nav extends React.Component {
     }
   }
   render() {
-    // if(!this.props.token) {
-    //   return null;
-    // }
+    debugger;
+    const { pathname } = this.props.location;
+    if (pathname === "/login" || pathname === "/register") {
+      return null;
+    }
+
+    if (pathname === "/splash" || pathname === "/") {
+      return (
+        <div className="nav-div">
+          <header className="nav-header">
+            <div className="nav-logo">
+              <h2 className="exo">Exo</h2>
+            </div>
+            <div>
+              <div>
+                Login
+            </div>
+
+              <div>
+                Sign Up
+              </div>
+            </div>
+
+          </header>
+        </div>
+      );
+    }
+
     return (
       <div className="nav-div">
         <header className="nav-header">
