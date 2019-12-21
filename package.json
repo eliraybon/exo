@@ -4,6 +4,7 @@
   "description": "One stop shop for the intergalacic traveller",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "debug": "nodemon --inspect index.js",
     "client-install": "npm install --prefix client",
     "client": "npm start --prefix client",
