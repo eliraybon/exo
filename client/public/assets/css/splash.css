@@ -84,7 +84,8 @@ background-size: 500% 500%;
   -webkit-box-shadow: 5px 5px 5px black;
   box-shadow: 0 0 5px black;
 border-radius: 17px;
-border: 10px solid rgba(0, 0, 0, 0.5);
+/* border: 10px solid rgba(0, 0, 0, 0.5); */
+border: 10px solid rgba(0, 91, 52, 0.616);
 box-shadow: 0px 0px 21px 13px gray;
 
 /* box-shadow: inset 0 0 10px gray; */
@@ -132,6 +133,17 @@ box-shadow: 0px 0px 21px 13px gray;
   justify-content: space-around;
   width: 100%;
   padding-right: 50px;
+}
+
+.splash-navbar-links .active-navbar-link{
+  -moz-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  -webkit-box-shadow: 2px 2px 7px rgb(58, 57, 57);
+  box-shadow: 2px 2px 5px rgb(58, 57, 57);
+  
+  margin-left: 3px;
+  padding-right: 10px;
+  width: 98%;
+  background-color: rgb(99, 43, 189);
 }
 
 .canvas {
