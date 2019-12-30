@@ -18,13 +18,24 @@ class Search extends React.Component {
     this.state = {
       products: [],
       filter: "",
-      empty: true
+      empty: true,
+      voice: false,
+      started: false, 
+      voiceSearch: ""
     }
-    this.handleSearch = this.handleSearch.bind(this);
+
+    window.SpeechRecognition = window.SpeechRecognition ||
+      window.webkitSpeechRecognition;
+
+    this.recognition = new window.SpeechRecognition();
+
+    this.recognition.addEventListener('result', e => {
+      this.setState({ voice: true, voiceSearch: e.results[0][0].transcript });
+    })
   }
 
   _executeSearch = async (val, client) => {
-    this.setState({ filter: val });
+    this.setState({ voice: false, voiceSearch: "", filter: val });
     if (val.length === 0) {
       this.setState({ empty: true, products: [] })
       return null;
@@ -53,18 +64,23 @@ class Search extends React.Component {
     }
   }
 
-  handleSearch() {
-    // <SearchIndex products={this.state.products} />
+  voiceSearch = () => {
+    if (this.state.started) return;
+    this.setState({ started: true });
+    this.recognition.start();
   }
 
   render() {
     return (
       <ApolloConsumer>
         {(client) => {
+          if (this.state.voice) {
+            this._executeSearch(this.state.voiceSearch, client)
+          }
           return <div className="outer-search-div">
             <div className="nav-search-div">
               <input id="search" className="nav-search" type="search" onChange={e => this._executeSearch(e.target.value, client)} placeholder="Search for planets, stars, etc.." />
-              <button className="search-btn" onSubmit={this.handleSearch}><img className="search-img" src="https://img.icons8.com/ios-filled/50/000000/search.png" alt=""/></button>
+              <button className="search-btn" onClick={this.voiceSearch}><img className="search-img" src="https://img.icons8.com/ios-filled/50/000000/search.png" alt=""/></button>
             </div>
             <div>
               <ul className="results-ul">
