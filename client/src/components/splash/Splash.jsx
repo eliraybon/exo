@@ -24,11 +24,11 @@ export default class Splash extends React.Component {
                 "shape": {
                   "type": "circle",
                   "stroke": {
-                    "width": 5,
+                    "width": 10,
                     "color": "#000000"
                   },
                   "polygon": {
-                    "nb_sides": 5
+                    "nb_sides": 8
                   },
                   "image": {
                     "src": "img/github.svg",
