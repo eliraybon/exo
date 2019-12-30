@@ -75,6 +75,7 @@ class Search extends React.Component {
       <ApolloConsumer>
         {(client) => {
           if (this.state.voice) {
+            this.setState({ voice: false, voiceSearch: "", started: false })
             this._executeSearch(this.state.voiceSearch, client)
           }
           return <div className="outer-search-div">
