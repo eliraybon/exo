@@ -8,15 +8,15 @@ class SplashBox extends React.Component {
   render() {
     return (
       <div>
-        <div className="splash-box"></div>
         
         <div className="splash-box-2">
           <div className="splash-navbar">
-            <h1 className="splash-logo"
+            <div className="splash-logo"
+              // style={{ backgroundImage: `url(/assets/pictures/logo.png)` }}
               onClick={() => this.props.history.push('/home')}
             >
-              Exo
-              </h1>
+              
+              </div>
             <ul className="splash-navbar-links">
               
               <li key={1}>

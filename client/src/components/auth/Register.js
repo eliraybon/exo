@@ -91,7 +91,7 @@ export default class Register extends React.Component {
                   className={`auth-input ${passwordError}`}
                 />
 
-                <button className="auth-button">Sign Up</button>
+                <button className="auth-button splash-margin">Sign Up</button>
 
                 <p className="auth-error-messages">{this.state.message.slice(15)}</p>
               </form>
