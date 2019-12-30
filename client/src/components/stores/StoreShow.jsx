@@ -29,7 +29,8 @@ export default class StoreShow extends React.Component {
         const { store } = data;
 
         return (
-          <div className="store-show">
+          <div className="pi-outer" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80)` }}>
+          <div className="pi-container">
 
             <div className="store-show-head">
 
@@ -83,7 +84,8 @@ export default class StoreShow extends React.Component {
               </div>
             </div>
 
-            <ProductIndex products={ store.products } wrap={true}/>
+            <ProductIndex products={ store.products } wrap={true} storePage={true}/>
+          </div>
           </div>
         )
       }}

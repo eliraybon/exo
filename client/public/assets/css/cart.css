@@ -78,7 +78,7 @@
 
 .cart-left-section {
   width: 67%;
-  border-right: 1px solid rgb(199, 194, 206);
+  border-right: 3px solid #905DE5;
   padding-right: 10px;
   margin-right: 10px;
   padding-top: 15px;
@@ -126,6 +126,10 @@
 
 .cart-btn {
   padding-right: 15px;
+}
+
+.cart-btn:hover {
+  text-decoration: underline;
 }
 
 .cart-button {

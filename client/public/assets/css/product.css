@@ -169,6 +169,7 @@ div {
 .ps-product {
   display: flex;
   justify-content: space-between;
+  margin-top: 10px;
 }
 .ps-big {
   display: flex;
@@ -576,6 +577,8 @@ div {
 
 .to-wrap {
   flex-wrap: wrap;
+overflow: hidden;
+justify-content: center;
 }
 
 .unfavorited {

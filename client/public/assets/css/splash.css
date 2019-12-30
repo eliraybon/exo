@@ -273,8 +273,13 @@ background-size: 500% 500%;
   align-content: flex-start; */
 }
 
+.user-show {
+  height: 100vh;
+}
+
 .user-show-main {
-  padding-top: 5px;
+  padding-top: 15px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

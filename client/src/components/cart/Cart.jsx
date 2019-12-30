@@ -39,7 +39,7 @@ class Cart extends React.Component {
 
                 if (data.user.cartProducts.length < 1) {
                   return (
-                    <div className="cart-outer to-flex">
+                    <div className="cart-outer to-flex" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80)` }}>
                       <div className="cart-ribbon to-flex-col col-center shadow">
                         <div className="cart-big-box cart-box-empty">
                           <div className="cart-empty-above">Your cart is empty</div>
@@ -52,7 +52,7 @@ class Cart extends React.Component {
                   )
                 }
                 return (
-                  <div className="cart-outer to-flex">
+                  <div className="cart-outer to-flex" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80)` }}>
                     <div className="cart-ribbon to-flex-col shadow">
                       <div className="cart-text-above to-flex">
                         <div>{data.user.cartProducts.length} items in your cart</div>

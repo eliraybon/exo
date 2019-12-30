@@ -1,7 +1,9 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 .fa-star {
-  color: gray;
+  color: rgba(128, 128, 128, 0.26);
+  -webkit-text-stroke: 1px rgb(223, 147, 6);
+
 }
 
 /* .fa-star .checked {
@@ -9,5 +11,5 @@
 } */
 
 .checked {
-  color: orange;
+  color: rgb(223, 147, 6);
 }
