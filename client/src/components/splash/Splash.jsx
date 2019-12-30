@@ -19,13 +19,13 @@ export default class Splash extends React.Component {
                   }
                 },
                 "color": {
-                  "value": "#ffffff"
+                  "value": "#D1B9F5"
                 },
                 "shape": {
                   "type": "circle",
                   "stroke": {
                     "width": 10,
-                    "color": "#000000"
+                    "color": "#005B33"
                   },
                   "polygon": {
                     "nb_sides": 8
@@ -60,7 +60,7 @@ export default class Splash extends React.Component {
                   "enable": true,
                   "distance": 200,
                   "color": "#898989",
-                  "opacity": 0.4,
+                  "opacity": 0.5,
                   "width": 2.4
                 },
                 "move": {
