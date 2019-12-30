@@ -87,7 +87,7 @@ class Login extends Component {
 
               <p className="auth-error-messages">{message}</p>
             </form>
-            <button onClick={e => this.demoLogin(e, loginUser)}>Demo User</button>
+            <button className="auth-button splash-margin" onClick={e => this.demoLogin(e, loginUser)}>Log In As Demo User</button>
           </div>)
         }}
       </Mutation>

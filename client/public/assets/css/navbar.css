@@ -230,11 +230,23 @@ div {
   border-right: 1px solid gray;
   width: 10%;
   text-align: center;
+  display: flex;
 }
+
+.micro {
+  height: 40px;
+  width: 40px;
+  font-size: 26px;
+  padding-top: 7px;
+}
+
+
 
 .search-img {
   padding-top: 5px;
   width: 30px;
+  height: 40px;
+  background-color: transparent;
 }
 
 .results-ul {

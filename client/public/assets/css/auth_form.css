@@ -2,7 +2,8 @@
 
 .auth-form { 
   width: 450px;
-  margin: 20px auto;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .placeholder-logo {
@@ -22,7 +23,7 @@
   width: 100%;
   height: 48px;
   border: 1px solid gray;
-  border-radius: 2px; 
+  /* border-radius: 2px;  */
   padding: 15px;
   margin: 15px auto;
   background: white;
@@ -30,19 +31,19 @@
 }
 
 .auth-input:hover {
-  border: 1px solid #8048d3;
+  border: 2px solid #8048d3;
 }
 
 .auth-input::placeholder {
   font-size: 14px;
   color: gray;
   font-weight: 500;
-  transition-duration: 0.5s;
+  /* transition-duration: 0.5s; */
 }
 
 .auth-input:focus::placeholder {
   opacity: 0.5;
-  transition-duration: 0.3s;
+  /* transition-duration: 0.3s; */
 }
 
 .auth-button {
@@ -51,34 +52,37 @@
   border: 1px solid transparent;
   background: #8048d3;
   color: white;
-  width: 50%;
+  width: calc(100% - 90px);
+  margin-left: 45px;
+  margin-right: 45px;
   height: 48px;
-  margin-top: 20px;
-  margin-bottom: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
+  box-shadow: inset 0 0 10px black;
+
   position: relative;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 1px;
-  transition-duration: 0.3s;
+  /* transition-duration: 0.3s; */
+  padding: 15px;
+  margin-left: 45px;
+  margin-right: 45px;
+  /* margin: 50px auto; */
 }
 .auth-button:hover {
   background: #8048e3;
-  transition-duration: 0.3s;
+  /* transition-duration: 0.3s; */
+  -moz-box-shadow: 2px 2px 7px black;
+  -webkit-box-shadow: 2px 2px 7px black;
+  box-shadow: 2px 2px 5px black;
 }
 
-.auth-error-messages {
-  color: red;
-}
 
 .auth-error-outline {
-  border: 1px solid red;
+  border: 1px solid rgb(170, 14, 14);
 }
 
 .auth-error-outline:hover {
-  border: 1px solid red;
+  border: 1px solid rgb(170, 14, 14);
 }
 
 .auth-logo {
@@ -94,4 +98,19 @@
   .auth-form {
     width: 300px;
   }
+}
+
+.splash-margin {
+  margin-bottom: 20px;
+}
+
+.auth-error-messages {
+  margin-top: 15px;
+  /* border 1px solid ref */
+  -webkit-text-stroke: 1px rgb(170, 14, 14);
+  color: #E8D8F9;
+  background-color: rgba(232, 216, 249, 0.479);
+  width: calc(100% - 90px);
+  margin-left: 45px;
+  margin-right: 45px;
 }

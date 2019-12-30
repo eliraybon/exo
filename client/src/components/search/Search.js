@@ -81,7 +81,7 @@ class Search extends React.Component {
           return <div className="outer-search-div">
             <div className="nav-search-div">
               <input id="search" className="nav-search" type="search" onChange={e => this._executeSearch(e.target.value, client)} placeholder="Search for planets, stars, etc.." />
-              <button className="search-btn" onClick={this.voiceSearch}><img className="search-img" src="https://img.icons8.com/ios-filled/50/000000/search.png" alt=""/></button>
+              <button className="search-btn" onClick={this.voiceSearch}><i className="fas fa-microphone micro"></i></button>
             </div>
             <div>
               <ul className="results-ul">
