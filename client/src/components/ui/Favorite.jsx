@@ -103,7 +103,7 @@ class Favorite extends React.Component {
               className="favorite-button"
               onClick={e => this.handleAddProduct(e, addFavoriteProduct)}
             >
-              Add to Favorites
+                <i className="far fa-heart unfavorited"></i>
             </button>
           )}
           </Mutation>
@@ -128,7 +128,7 @@ class Favorite extends React.Component {
                 className="favorite-button"
                 onClick={e => this.handleAddStore(e, addFavoriteStore)}
               >
-                Add to Favorites
+                <i className="far fa-heart unfavorited"></i>
               </button>
             )}
           </Mutation>
@@ -155,7 +155,7 @@ class Favorite extends React.Component {
                 className="favorite-button"
                 onClick={e => this.handleDeleteProduct(e, deleteFavoriteProduct)}
               >
-                Remove from Favorites
+                <i className="far fa-heart favorited"></i>
             </button>
             )}
           </Mutation>
@@ -180,7 +180,7 @@ class Favorite extends React.Component {
                 className="favorite-button"
                 onClick={e => this.handleDeleteStore(e, deleteFavoriteStore)}
               >
-                Remove from Favorites
+                <i className="far fa-heart favorited"></i>
             </button>
             )}
           </Mutation>

@@ -21,7 +21,7 @@ class ProductExplore extends React.Component {
                   if (error) return <p>Error</p>;
                   return (
                     <div className="to-flex-col">
-                    <div className="pi-section-title">{category[cTitle]}</div>
+                    <h2 className="pi-section-title">{category[cTitle]}:</h2>
                       <ProductIndex products={data.categoryProducts} category={category[cTitle]}/>
                     </div>
                   )

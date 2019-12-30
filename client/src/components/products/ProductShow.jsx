@@ -78,7 +78,7 @@ class ProductShow extends React.Component {
       // console.log(product[key]);
       let catName = hash[key][0];
       let suffix = hash[key][1];
-      console.log(product["description"]);
+      // console.log(product["description"]);
       if (catName === "LabGrown") {
         let food = (product.labGrown) ? "Yes" : "No";
         // console.log(food);
@@ -133,19 +133,24 @@ class ProductShow extends React.Component {
                           <div className="ps-pic-container">
                             <div className="ps-picture" style={{ backgroundImage: `url(${product.image})` }}></div>
                           </div>
-                          <div className="ps-reviews">Reviews
+                          <div className="ps-reviews">
                             <CreateReview
                               productId={product._id}
                               authorId={data.currentUser}
                               productQuery={FETCH_PRODUCT}
                               refetchProduct={refetch}
                             />
-
+                            <h2 className="store-reviews-title">More Reviews for this Item:</h2>
                             <ReviewIndex reviews={product.reviews} />
                           </div>
                         </div>
                         <div className="ps-side">
-                          <div className="ps-store-mini" onClick={() => this.props.history.push(`/stores/${product.store._id}`)}>{product.store.owner.name} {product.store.rating}</div>
+                          <div className="ps-store-mini" 
+                            onClick={() => this.props.history.push(`/stores/${product.store._id}`)}
+                            // onClick={() => console.log(product.store)}
+                            >
+                              {product.store.name} {product.store.rating}
+                            </div>
                           <div className="ps-name ps-title">{product.name}</div>
                           <Favorite
                             favoriteId={product._id}
@@ -156,7 +161,7 @@ class ProductShow extends React.Component {
                           />
                           <div className="ps-mass ps-below-title">{product.mass} {mSuff[product.category]}</div>
                           <div className="ps-volume ps-below-title">{product.volume} {vSuff[product.category]}</div>
-                          <div className="ps-price">${product.price}</div>
+                          <div className="ps-price">₶ {product.price}</div>
                           {/* <div className="ps-options">Options for purchase</div> */}
                           <CartButton
                             currentUserId={data.currentUser}
@@ -165,14 +170,26 @@ class ProductShow extends React.Component {
                             updateCart={this.updateCart}
                           />
 
-                          <div className="ps-item-details">{this.itemDetails(product)}</div>
-                          <div className="ps-shipping">Shipping info</div>
-                          <div className="ps-store-owner">store owner details</div>
+                          <div className="ps-item-details">
+
+                            <div className="ps-product-douple to-flex-col">
+                              <div className="ps-douple-key">Item Details:</div>
+                              <div className="ps-douple-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non. Dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu. Ultricies integer quis auctor elit sed vulputate mi sit amet. Tellus orci ac auctor augue mauris. Vel pretium lectus quam id. Quisque id diam vel quam elementum pulvinar. At quis risus sed vulputate. Volutpat diam ut venenatis tellus in metus vulputate eu. Nibh nisl condimentum id venenatis a condimentum. Id velit ut tortor pretium viverra suspendisse potenti. Posuere lorem ipsum dolor sit amet consectetur adipiscing.</div>
+                            </div>
+
+                            {this.itemDetails(product)}
+                          </div>
+                          <div className="ps-shipping">
+
+                          </div>
+                          <div className="ps-store-owner">
+
+                          </div>
                         </div>
                       </div>
-                      <div className="ps-store-band">Products from store</div>
-                      <div className="ps-suggestions">search suggestions</div>
-                      <div className="ps-tags">tags on tags</div>
+                      <div className="ps-store-band"></div>
+                      <div className="ps-suggestions"></div>
+                      <div className="ps-tags"></div>
                     </div>
                   </div>
                 );

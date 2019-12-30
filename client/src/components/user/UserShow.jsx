@@ -19,7 +19,9 @@ export default class UserShow extends React.Component {
           const { user } = data;
 
         return (
-          <div className="user-show">
+          <div className="pi-outer" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80)` }}>
+
+          <div className="user-show pi-container">
             <div className="user-show-head">
 
               <div className="user-show-left">
@@ -51,17 +53,19 @@ export default class UserShow extends React.Component {
               <ul className="user-navbar-links">
                 <li key={1}>
                   <NavLink
+                    className="splash-button"
                     activeClassName="active-navbar-link"
                     to={`/users/${this.props.match.params.id}/items`}
-                  >Favorite Items
+                  ><div className="splash-button-text">Favorite Items</div>
                   </NavLink>
                 </li>
 
                 <li key={2}>
                   <NavLink
+                    className="splash-button"
                     activeClassName="active-navbar-link"
                     to={`/users/${this.props.match.params.id}/stores`}
-                  >Favorite Stores
+                  ><div className="splash-button-text">Favorite Stores</div>
                   </NavLink>
                 </li>
               </ul>
@@ -76,16 +80,16 @@ export default class UserShow extends React.Component {
               />
               <Route
                 exact path="/users/:id/items"
-                render={() => <ProductIndex products={user.favoriteProducts}
+                  render={() => <ProductIndex products={user.favoriteProducts} wrap={true}
                 />}
               />
-
               <Route
                 exact path="/users/:id/stores"
-                render={() => <StoreIndex stores={user.favoriteStores}
+                  render={() => <StoreIndex stores={user.favoriteStores} wrap={true}
                 />}
               />
             </div>
+          </div>
           </div>
           )
         }}

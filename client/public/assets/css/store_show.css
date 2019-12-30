@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Courier+Prime|Girassol|Roboto+Mono&display=swap');
+
+
+h1, p {
+  font-family: 'Roboto Mono', monospace;
+  /* cursor: default; */
+  /* color: rgb(121, 53, 230); */
+  color: #005B33;
+}
+
+
+
+.store-show {
+
+}
+
 .store-show-head {
   display: flex;
   justify-content: space-between;
@@ -18,6 +34,7 @@
   height: 150px;
   /* background: purple; */
   margin-right: 20px;
+  border-radius: 4px;
 }
 
 .store-show-owner {
@@ -45,10 +62,43 @@
 }
 
 .store-owner-text {
-  color: black;
-  text-transform: uppercase;
+  /* color: black; */
+  /* text-transform: uppercase; */
 }
 
 .store-owner-name {
   margin-top: 10px;
+}
+
+.pi-container > ul {
+  padding-top: 10px;
+  /* border: 1px solid blue; */
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(220, 213, 231, 0.705);
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  box-shadow: inset 0 0 20px rgba(61, 30, 123, 0.8);
+}
+
+.store-show-info {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+  padding: 10px 20px 10px 20px;
+  margin: 10px;
+  background-color: rgba(220, 213, 231, 0.705);
+  border-radius: 4px;
+  max-height: 100%;
+
+  box-shadow: inset 0 0 20px rgba(61, 30, 123, 0.8);
+}
+
+.store-show-info > .stars {
+  padding-bottom: 15px;
+}
+
+.store-show-name {
+  padding-bottom: 10px;
 }

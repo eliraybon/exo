@@ -53,7 +53,7 @@ class CreateReview extends React.Component {
               className="review-form"
               onSubmit={e => this.handleSubmit(e, newReview)}
             >
-              <h2>Leave a Review</h2>
+              <h2>Leave a Review:</h2>
               <p>{this.state.message}</p>
 
               <ReviewStars
@@ -69,12 +69,12 @@ class CreateReview extends React.Component {
                 <option value="5">5</option>
               </select> */}
 
-              <textarea
+              <textarea className="review-input-text"
                 value={this.state.body}
                 onChange={this.update("body")}
               />
 
-              <button>Submit Review</button>
+              <button className="review-submit-button">Submit Review</button>
             </form>
           </div>
         )}

@@ -80,16 +80,21 @@ export default class UpdateReview extends React.Component {
               </select> */}
 
               <textarea
+                className="review-input-text"
                 value={this.state.body}
                 onChange={this.update("body")}
               />
 
-              <button>Update Review</button>
+              <div className="to-flex">
+
+              <button className="review-index-button">Update Review</button>
+              <button className="review-index-button" onClick={this.props.closeUpdate}>
+                Cancel
+              </button>
+              </div>
             </form>
 
-            <button onClick={this.props.closeUpdate}>
-              cancel
-            </button>
+            
           </div>
         )}
       </Mutation>

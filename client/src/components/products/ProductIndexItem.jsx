@@ -7,7 +7,7 @@ import { ApolloConsumer } from "react-apollo";
 
 class ProductIndexItem extends React.Component {
   render() {
-    const { product, cart, userId } = this.props;
+    const { product, cart, userId, storePage } = this.props;
 
     if (cart) {
       return (
@@ -22,7 +22,7 @@ class ProductIndexItem extends React.Component {
             <div className="cart-name to-flex-col">
               <div className="cart-box-name">{product.name}</div>
               <div className="cart-douple to-flex">
-                <div className="cart-btn">save</div>
+                <div className="cart-btn"></div>
                 <ApolloConsumer>
                   {client => {
                     return <div 
@@ -50,7 +50,23 @@ class ProductIndexItem extends React.Component {
           </div>
         </li>
       )
-    }
+    };
+     if (storePage) {
+      return (
+        <li
+          onClick={() => this.props.history.push(`/products/${product._id}`)}
+          className="pi-product-detail"
+        >
+          <div
+            className="pi-product-image"
+            style={{ backgroundImage: `url(${product.image})` }}>
+          </div>
+          <div className="pi-name">{product.name}</div>
+          <div className="pi-price">  ₶ {product.price}</div>
+        </li>
+
+      )
+    };
 
     return (
       <li 
@@ -62,7 +78,7 @@ class ProductIndexItem extends React.Component {
           style={{ backgroundImage: `url(${product.image})` }}>
         </div>
         <div className="pi-name">{product.name}</div>
-        <div className="pi-price">${product.price}</div>
+        <div className="pi-price">  ₶ {product.price}</div>
       </li>
     )
   }
