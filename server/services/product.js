@@ -3,7 +3,7 @@ const Store = require("../models/Store");
 const axios = require('axios');
 const keys = require('../../config/keys');
 const seeds = require('./seeds');
-const { planetImg, starImg, shipImg, suitImg } = seeds;
+const { planetImg, starImg, shipImg, suitImg, foodImg } = seeds;
 
 const getPrice = {
   method: "GET",
@@ -254,6 +254,7 @@ async function seedFoods(storeId) {
   ];
 
   let foods;
+  let images = foodImg;
   await axios(getFood).then(res => {
     // console.log(res.data.results.length || "UH OH!");
     foods = res.data.results.slice(0, 10);
@@ -282,6 +283,7 @@ async function seedFoods(storeId) {
     productObj.cuisine = lC;
     productObj.storageMethod = prep;
     productObj.labGrown = lG;
+    productObj.image = images.pop();
 
     const product = await new Product(productObj).save();
     store.products.push(product);

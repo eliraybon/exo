@@ -92,6 +92,7 @@ export const FETCH_STORE = gql`
       owner {
         _id
         name
+        image
       }
       products {
         _id

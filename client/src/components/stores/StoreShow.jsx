@@ -34,7 +34,11 @@ export default class StoreShow extends React.Component {
             <div className="store-show-head">
 
               <div className="store-show-left">
-                <div className="store-show-img-placeholder"></div>
+                {/* <div className="store-show-img-placeholder"></div> */}
+                <img
+                  className="store-show-img-placeholder"
+                  src={store.image}
+                />
                 <div className="store-show-info">
                   <h1 className="store-show-name">{store.name}</h1>
                   <p className="store-show-description">{store.description}</p>
@@ -69,7 +73,11 @@ export default class StoreShow extends React.Component {
                   className="store-owner-div"
                   onClick={() => this.props.history.push(`/users/${store.owner._id}`)}
                 >
-                  <div className="owner-image-placeholder"></div>
+                  {/* <div className="owner-image-placeholder"></div> */}
+                  <img
+                    className="owner-image-placeholder"
+                    src={store.owner.image}
+                  />
                   <p className="store-owner-name">{store.owner.name}</p>
                 </div>
               </div>

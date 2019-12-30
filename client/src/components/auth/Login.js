@@ -39,7 +39,7 @@ class Login extends Component {
     e.preventDefault();
     loginUser({
       variables: {
-        email: 'demoUser',
+        email: 'demo@demo.com',
         password: 'lola12'
       }
     });
@@ -87,6 +87,7 @@ class Login extends Component {
 
               <p className="auth-error-messages">{message}</p>
             </form>
+            <button onClick={e => this.demoLogin(e, loginUser)}>Demo User</button>
           </div>)
         }}
       </Mutation>
