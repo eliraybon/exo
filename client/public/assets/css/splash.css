@@ -120,11 +120,12 @@ background-size: 500% 500%;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  background-image: url("/assets/pictures/logo.png");
   margin-bottom: 20px;
   margin-top: 10px;
   
   
-  background-image: url("/assets/pictures/logo.png");
+  
   z-index: 500;
 }
 

@@ -253,7 +253,7 @@ div {
   font-family: 'Courier Prime', monospace;
   font-size: 30px;
   height: 30px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .ps-below-title {
@@ -576,4 +576,15 @@ div {
 
 .to-wrap {
   flex-wrap: wrap;
+}
+
+.unfavorited {
+  color: gray;
+  margin-bottom: 5px;
+
+}
+
+.favorited {
+  color: rgb(170, 14, 14);
+  margin-bottom: 5px;
 }
