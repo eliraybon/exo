@@ -1,0 +1,16 @@
+.purchase-box {
+  border-radius: 17px;
+  border: 10px solid rgba(0, 91, 52, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* position: absolute; */
+  width: 50%;
+  margin-top: 20%;
+/* top: 20%;
+  left: 25%; */
+}
+
+.keep-shopping {
+  padding-top: 15px;
+}

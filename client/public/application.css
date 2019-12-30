@@ -9,6 +9,7 @@
 @import "./assets/css/stars.css";
 @import "./assets/css/splash.css";
 @import "./assets/css/review.css";
+@import "./assets/css/purchase.css";
 
 button {
   font-family: 'Roboto Mono', monospace;

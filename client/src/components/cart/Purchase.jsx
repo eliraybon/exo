@@ -17,11 +17,13 @@ export default class Purchase extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="cart-outer to-flex" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80)` }}>
+        <div className="cart-ribbon to-flex-col shadow purchase-box">
           <div className="purchase-div">Thank you for your purchase. You have secured your place in the stars. Godspeed fellow explorer</div>
           <div className="keep-shopping">
             <button className="keep-shopping-btn" onClick={() => this.props.history.push("/products")}>Keep shopping!</button>
           </div>
+      </div>
       </div>
     )
   }
