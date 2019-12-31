@@ -27,6 +27,9 @@ async function setupClient() {
     }
   });
 
+  // adding a comment to update this page for heroku
+
+
   const errorLink = onError(({ graphQLErrors }) => {
     if (graphQLErrors) graphQLErrors.map(({ message }) => console.log(message));
   });
