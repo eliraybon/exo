@@ -35,6 +35,7 @@ h1, p {
   /* background: purple; */
   margin-right: 20px;
   border-radius: 4px;
+  object-fit: cover;
 }
 
 .store-show-owner {

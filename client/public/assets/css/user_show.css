@@ -66,4 +66,5 @@
   cursor: pointer;
   border-radius: 4px;
   background-size: contain;
+  object-fit: cover;
 }
