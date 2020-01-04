@@ -23,23 +23,23 @@ On this website, users will be able to:
 * Favorites
 
 <p align="center">
-  <img height="600px" src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/splash.png">
+  <img src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/splash.png">
 </p>
 
 <p align="center">
-  <img height="600px" src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/products.png">
+  <img src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/products.png">
 </p>
 
 <p align="center">
-  <img height="600px" src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/product.png">
+  <img src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/product.png">
 </p>
 
 <p align="center">
-  <img height="600px" src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/reviews.png">
+  <img src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/reviews.png">
 </p>
 
 <p align="center">
-  <img height="600px" src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/store.png">
+  <img src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/store.png">
 </p>
 
 <p align="center">
