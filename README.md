@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://synthagram.herokuapp.com/">
+  <a href="http://exostore.herokuapp.com/">
     <img height="200px" src="https://github.com/eliraybon/exo/blob/master/client/public/assets/pictures/logo.png">
   </a>
 </p>
@@ -19,9 +19,32 @@ On this website, users will be able to:
 * Shopping Cart
 * Comments / Reviews
 * Search
-* Bonus: Categories
-* Bonus: Favorites
+* Categories
+* Favorites
 
+<p align="center">
+  <img height="600px" src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/splash.png">
+</p>
+
+<p align="center">
+  <img height="600px" src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/products.png">
+</p>
+
+<p align="center">
+  <img height="600px" src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/product.png">
+</p>
+
+<p align="center">
+  <img height="600px" src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/reviews.png">
+</p>
+
+<p align="center">
+  <img height="600px" src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/store.png">
+</p>
+
+<p align="center">
+  <img src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/cart.png">
+</p>
 
 ## Technologies & Technical Challenges
 * Our goal is to implement a selection of APIs to create as immersive an evironment as possible. Thus far we plan to pull from the NASA Exoplanet API, Amazon product APIs, and some for fleshing out visual components (NASA picture of the day, etc.)
@@ -30,16 +53,18 @@ On this website, users will be able to:
 ## Group Members & Work Breakdown
 Eli Raybon, Michael Simeon, Jacob Schneider
 
-Eli's primary responsibilities will be:
-* Splash Page
-* User Auth
-* User Show
+Eli:
+* Splash page particle effect
+* Comments and star system 
+* Implement NASA and Star Wars APIs
+* Creating React component skeletons
+* Mutations and backend work
 
-Michael's primary responsibilites will be:
+Michael:
 * NavBar
 * Search
 
-Jacob's primary responsibilites will be:
+Jacob:
 * Product Index
 * Product Show
 
