@@ -59,6 +59,7 @@ Eli:
 * Implement NASA and Star Wars APIs
 * Creating React component skeletons
 * Mutations and backend work
+* Voice search
 
 Michael:
 * NavBar
