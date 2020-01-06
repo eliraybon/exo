@@ -62,8 +62,10 @@ Eli:
 * Voice search
 
 Michael:
-* NavBar
-* Search
+* Build nav bar components
+* Implement site-wide search funtionality on the search bar
+* Various backend work including: add/remove from cart mutations, and product purchase mutations
+* Making current user mutations resuable throughout all compoenents
 
 Jacob:
 * Design database structure for different product types
