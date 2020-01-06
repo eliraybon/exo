@@ -15,12 +15,11 @@ Thank the stars we're here! Ever since Elon Musk left our crust in the year 0002
 ## Functionality & MVP
 On this website, users will be able to:
 
-* Product Listings
-* Shopping Cart
-* Comments / Reviews
-* Search
-* Categories
-* Favorites
+* Examine various products
+* Move products in and out of a cart
+* Leave comments and reviews on individual products
+* Search for products
+* Save products and stores to user favorites
 
 <p align="center">
   <img src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/splash.png">
@@ -29,6 +28,7 @@ On this website, users will be able to:
 <p align="center">
   <img src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/products.png">
 </p>
+
 
 <p align="center">
   <img src="https://github.com/eliraybon/exo/blob/master/client/public/assets/images/product.png">
@@ -66,8 +66,10 @@ Michael:
 * Search
 
 Jacob:
-* Product Index
-* Product Show
+* Design database structure for different product types
+* Implement various APIs to build out database
+* Site-wide styling
+* Product Index and Show backend and frontend buildout
 
 ## Implementation Timeline
 Day 1: 
