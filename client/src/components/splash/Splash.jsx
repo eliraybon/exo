@@ -7,7 +7,7 @@ export default class Splash extends React.Component {
   render() {
     return (
       <div className="splash-page">
-        <Particles className="canvas"
+        <Particles className="~"
           params={
             {
               "particles": {
