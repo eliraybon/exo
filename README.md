@@ -73,27 +73,4 @@ Jacob:
 * Site-wide styling
 * Product Index and Show backend and frontend buildout
 
-## Implementation Timeline
-Day 1: 
-*  Readme/project proposal
-*  Setting up the Database Structure
-*  Queries and Mutations
 
-Day 2: 
-*  Backend Setup
-*  API configuration
-*  Start building page skeletons if time
-
-
-Day 3: 
-*  Flesh out individual pages 
-*  Implement sitewide styling
-*  Integrate API data for specific product pages
-
-Day 4: 
-*  Continue with styling and adding features
-
-Day 5: 
-* Prep for presentation
-* Push to Heroku
-* Clean up ReadMe
