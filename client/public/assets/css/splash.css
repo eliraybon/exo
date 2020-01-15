@@ -153,7 +153,7 @@ background-size: 500% 500%;
 }
 
 .canvas {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 }
 
@@ -298,3 +298,7 @@ background-size: 500% 500%;
   padding-top: 25px;
 }
 
+.particles-canvas{
+  height: 100vh;
+  width: 100vw;
+}
