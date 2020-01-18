@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Mutation } from "react-apollo";
 import { LOGIN_USER } from '../../graphql/mutations';
-import { Link } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {
@@ -19,7 +18,6 @@ class Login extends Component {
   }
 
   updateCache(client, { data }) {
-    console.log(data);
     client.writeData({
       data: { isLoggedIn: data.login.loggedIn, currentUser: data.login._id }
     });

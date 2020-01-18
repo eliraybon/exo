@@ -15,7 +15,7 @@ class ProductExplore extends React.Component {
           {Object.keys(category).map(cTitle => {
             return (
              
-              <Query query={CATEGORY_PRODUCTS} variables={{ category: cTitle }}>
+              <Query query={CATEGORY_PRODUCTS} variables={{ category: cTitle }} key={cTitle}>
                 {({ loading, error, data }) => {
                   if (loading) return <p>Loading...</p>;
                   if (error) return <p>Error</p>;

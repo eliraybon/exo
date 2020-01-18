@@ -3,7 +3,6 @@ import { ApolloConsumer } from "react-apollo";
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 import Search from "../search/Search";
-import { VERIFY_USER } from '../../graphql/mutations';
 import { CURRENT_USER } from "../../graphql/queries";
 class Nav extends React.Component {
   constructor(props) {

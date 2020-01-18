@@ -1,11 +1,6 @@
 import React from "react";
 
 export default class Purchase extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
-
   // sleep(milliseconds) {
   //   return new Promise(resolve => setTimeout(resolve, milliseconds))
   // }

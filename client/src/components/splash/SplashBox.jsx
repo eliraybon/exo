@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, NavLink, Redirect, Link, withRouter } from 'react-router-dom';
+import { Route, NavLink, withRouter } from 'react-router-dom';
 import Register from '../auth/Register';
 import Login from '../auth/Login';
 

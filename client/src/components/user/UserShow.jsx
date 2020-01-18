@@ -42,6 +42,7 @@ export default class UserShow extends React.Component {
                   <img
                     className="user-store-image"
                     src={user.store.image}
+                    alt=""
                   />
                     <p className="user-store-name">{user.store.name}</p>
                   </Link>

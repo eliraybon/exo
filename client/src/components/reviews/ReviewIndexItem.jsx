@@ -6,7 +6,7 @@ import UpdateReview from './UpdateReview';
 import ReviewItemStars from '../ui/ReviewItemStars';
 
 import { CURRENT_USER, FETCH_PRODUCT } from '../../graphql/queries';
-import { DELETE_REVIEW, UPDATE_REVIEW } from '../../graphql/mutations';
+import { DELETE_REVIEW } from '../../graphql/mutations';
 
 
 export default class ReviewIndexItem extends React.Component {

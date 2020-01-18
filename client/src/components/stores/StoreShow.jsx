@@ -39,6 +39,7 @@ export default class StoreShow extends React.Component {
                 <img
                   className="store-show-img-placeholder"
                   src={store.image}
+                  alt=""
                 />
                 <div className="store-show-info">
                   <h1 className="store-show-name">{store.name}</h1>
@@ -78,6 +79,7 @@ export default class StoreShow extends React.Component {
                   <img
                     className="owner-image-placeholder"
                     src={store.owner.image}
+                    alt=""
                   />
                   <p className="store-owner-name">{store.owner.name}</p>
                 </div>
