@@ -18,7 +18,6 @@ export default class Register extends React.Component {
   }
 
   updateCache(cache, { data }) {
-    console.log(data);
     cache.writeData({
       data: { isLoggedIn: data.register.loggedIn, currentUser: data.register._id }
     });
@@ -40,7 +39,6 @@ export default class Register extends React.Component {
       <Mutation
         mutation={REGISTER_USER}
         onCompleted={data => {
-          console.log(data)
           const { token } = data.register;
           localStorage.setItem("auth-token", token);
         }}

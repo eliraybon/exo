@@ -1,11 +1,14 @@
 import React from 'react';
-import { Route, NavLink, withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Register from '../auth/Register';
 import Login from '../auth/Login';
 
 class SplashBox extends React.Component {
 
   render() {
+
+    const { pathname } = this.props;
+
     return (
       <div>
         
@@ -38,22 +41,19 @@ class SplashBox extends React.Component {
           </div>
 
           <div className="user-show-main">
-            <Route
-              exact path="/home"
-              render={() => <p className="splash-motto">One stop shop for the intergalactic traveller</p>}
-            />
+            {pathname === "/home" && (
+              <p className="splash-motto">One stop shop for the intergalactic traveller</p>
+            )}
 
-            <Route
-              exact path="/home/register"
-              render={() => <Register
-              />}
-            />
+            {pathname === "/home/register" && (
+              <Register />
+            )}
 
-            <Route
-              exact path="/home/login"
-              render={() => <Login
-              />}
-            />
+            {pathname === "/home/login" && (
+              <Login />
+            )}
+
+
           </div>
         </div>
       </div>
@@ -62,4 +62,4 @@ class SplashBox extends React.Component {
   }
 }
 
-export default withRouter(SplashBox);
+export default SplashBox;

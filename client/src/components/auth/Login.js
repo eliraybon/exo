@@ -11,21 +11,31 @@ class Login extends Component {
       password: '',
       message: ''
     };
+
+    this._isMounted = false;
+  }
+
+  componentDidMount() {
+    this._isMounted = true;
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   update(field) {
-    return e => this.setState({ [field]: e.target.value });
+    return e => this._isMounted && this.setState({ [field]: e.target.value });
   }
 
   updateCache(client, { data }) {
-    client.writeData({
+    this._isMounted && client.writeData({
       data: { isLoggedIn: data.login.loggedIn, currentUser: data.login._id }
     });
   }
 
   handleSubmit = (e, loginUser) => {
     e.preventDefault();
-    loginUser({
+    this._isMounted && loginUser({
       variables: {
         email: this.state.email,
         password: this.state.password
@@ -35,7 +45,7 @@ class Login extends Component {
 
   demoLogin = (e, loginUser) => {
     e.preventDefault();
-    loginUser({
+    this._isMounted && loginUser({
       variables: {
         email: 'demo@demo.com',
         password: 'lola12'
@@ -52,8 +62,8 @@ class Login extends Component {
           localStorage.setItem("auth-token", token);
           this.props.history.push("/products");
         }}
-        onError={err => this.setState({ message: err.message })}
-        update={(client, data) => this.updateCache(client, data)}
+        onError={err => this._isMounted && this.setState({ message: err.message })}
+        update={(client, data) => this._isMounted && this.updateCache(client, data)}
       >
         {loginUser => {
           let message = this.state.message;
@@ -65,7 +75,7 @@ class Login extends Component {
 
             <form 
               className="auth-form"
-              onSubmit={e => this.handleSubmit(e, loginUser) }
+              onSubmit={e => this._isMounted && this.handleSubmit(e, loginUser) }
             >
 
               <input
